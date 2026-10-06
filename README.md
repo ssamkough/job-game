@@ -4,6 +4,22 @@ Public, anonymized log of this search. Company names, people, recruiters, and UR
 
 Live: [jbg.sammy.pizza](https://jbg.sammy.pizza) · repo: [ssamkough/job-game](https://github.com/ssamkough/job-game)
 
+## Contents
+
+- [Projects](#projects)
+- [Stack](#stack)
+- [How it fits together](#how-it-fits-together)
+- [What is running](#what-is-running)
+- [Local](#local)
+- [Secrets and privacy](#secrets-and-privacy)
+- [Netlify build settings](#netlify-build-settings)
+
+## Projects
+
+| Project | URL | Role |
+| --- | --- | --- |
+| Job Game 2026 | [jbg.sammy.pizza](https://jbg.sammy.pizza) | This repo — public search log |
+
 ## Stack
 
 - Static site: `index.html`, `styles.css`, `app.js`, `data.json`

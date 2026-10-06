@@ -18,3 +18,5 @@ Do update it for:
 Do not pad the README for tiny CSS tweaks or refactors that do not change behavior or setup.
 
 Keep it succinct. Match the existing sections. Do not leave stale URLs, counts of moving parts, or setup steps.
+
+The README **Projects** table lists only projects the user explicitly names. Never add personal sites or other repos by inference (including sammy.pizza and oneplaceaday.com).
