@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
-"""Build anonymized public JSON from local Notion snapshots. Never writes to Notion."""
+"""Build anonymized public JSON. Reads Notion when NOTION_TOKEN is set; never writes to Notion."""
 
 from __future__ import annotations
 
 import json
+import os
 import re
+import time
+import urllib.error
+import urllib.request
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -12,6 +16,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CUTOFF = "2026-09-11"
 JOB_GAME_ACTIVITY = "3cffada0be4f80f8b3adefa2cc23ac62"
+NOTION_VERSION = "2022-06-28"
+APPLICATIONS_DB = "3ddfada0-be4f-8039-99fd-000b79c75747"
+COMPANIES_DB = "5d6b384e-4857-4483-a48c-2c1d0d291a2c"
+MEETINGS_DB = "f77ebcc7-8983-4b6c-b9d9-f79bddb851f0"
 JOB_TAGS = {
     "jobs",
     "interview",
@@ -23,6 +31,7 @@ JOB_TAGS = {
     "founder",
 }
 PUBLIC_TAGS = JOB_TAGS | {"advice"}
+ALIAS_PATH = ROOT / "scripts" / "aliases.json"
 
 
 def parse_list(value):
@@ -40,8 +49,13 @@ def parse_list(value):
 def page_id(url: str | None) -> str | None:
     if not url:
         return None
-    match = re.search(r"([0-9a-f]{32})", url.replace("-", ""), re.I)
+    match = re.search(r"([0-9a-f]{32})", str(url).replace("-", ""), re.I)
     return match.group(1).lower() if match else None
+
+
+def dashed_id(cid: str) -> str:
+    raw = cid.replace("-", "")
+    return f"{raw[:8]}-{raw[8:12]}-{raw[12:16]}-{raw[16:20]}-{raw[20:]}"
 
 
 def load_json(path: Path):
@@ -67,23 +81,226 @@ def iso_date(value: str | None) -> str | None:
     return value.replace(" ", "T").split("T")[0]
 
 
-def main() -> None:
-    companies_blob = load_json(ROOT / "scripts" / "companies.json")
-    companies = companies_blob["results"]
-    applications = load_json(ROOT / "scripts" / "applications.json")
-    meetings_raw = load_json(ROOT / "scripts" / "meetings.json")
+def notion_request(method: str, path: str, body: dict | None = None, attempt: int = 0):
+    token = os.environ["NOTION_TOKEN"]
+    data = None if body is None else json.dumps(body).encode()
+    request = urllib.request.Request(
+        f"https://api.notion.com/v1{path}",
+        data=data,
+        method=method,
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Notion-Version": NOTION_VERSION,
+            "Content-Type": "application/json",
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            return json.loads(response.read().decode())
+    except urllib.error.HTTPError as error:
+        if error.code == 429 and attempt < 6:
+            wait = int(error.headers.get("Retry-After") or "1") + attempt
+            time.sleep(wait)
+            return notion_request(method, path, body, attempt + 1)
+        detail = error.read().decode()[:800]
+        raise RuntimeError(f"Notion {method} {path} failed {error.code}: {detail}") from error
 
-    kept_meetings = []
-    for meeting in meetings_raw:
-        tags = parse_list(meeting.get("Tags"))
-        activities = parse_list(meeting.get("activities <-> meetings"))
-        created = meeting.get("Created") or ""
-        related = any(JOB_GAME_ACTIVITY in (a or "") for a in activities)
-        after_cutoff = created >= f"{CUTOFF}T" or created >= CUTOFF
-        jobby = bool(set(tags) & JOB_TAGS)
-        if related or (after_cutoff and jobby) or (after_cutoff and related):
-            if related or jobby or "advice" in tags or "friends" in tags:
-                kept_meetings.append(meeting)
+
+def query_database(database_id: str, filter_obj: dict | None = None) -> list[dict]:
+    rows: list[dict] = []
+    cursor = None
+    while True:
+        body: dict = {"page_size": 100}
+        if cursor:
+            body["start_cursor"] = cursor
+        if filter_obj:
+            body["filter"] = filter_obj
+        payload = notion_request("POST", f"/databases/{database_id}/query", body)
+        rows.extend(payload.get("results") or [])
+        if not payload.get("has_more"):
+            break
+        cursor = payload.get("next_cursor")
+        time.sleep(0.2)
+    return rows
+
+
+def unwrap(prop: dict | None):
+    if not prop:
+        return None
+    kind = prop.get("type")
+    value = prop.get(kind)
+    if value is None:
+        return None
+    if kind in {"select", "status"}:
+        return value.get("name")
+    if kind == "multi_select":
+        return [item["name"] for item in value]
+    if kind == "checkbox":
+        return "__YES__" if value else "__NO__"
+    if kind == "date":
+        return value.get("start")
+    if kind == "relation":
+        return [item["id"] for item in value]
+    if kind == "rich_text" or kind == "title":
+        return "".join(item.get("plain_text") or "" for item in value) or None
+    if kind == "people":
+        return [item.get("id") for item in value]
+    return None
+
+
+def properties(page: dict) -> dict:
+    return page.get("properties") or {}
+
+
+def created_stamp(page: dict) -> str:
+    return page.get("created_time") or ""
+
+
+def as_json_list(value) -> str | None:
+    if not value:
+        return None
+    if isinstance(value, str):
+        return value
+    return json.dumps(value)
+
+
+def normalize_company(page: dict) -> dict:
+    props = properties(page)
+    return {
+        "url": page.get("url") or page.get("id"),
+        "Status": unwrap(props.get("Status")),
+        "Role": as_json_list(unwrap(props.get("Role"))),
+        "Work Type": as_json_list(unwrap(props.get("Work Type"))),
+        "Created": created_stamp(page),
+        "retried 4 job game 2026?": unwrap(props.get("retried 4 job game 2026?")),
+        "meetings <-> companies": as_json_list(unwrap(props.get("meetings <-> companies"))),
+        "activities <-> companies": as_json_list(unwrap(props.get("activities <-> companies"))),
+        "date:Applied Date:start": unwrap(props.get("Applied Date")),
+        "date:1st Interviewed Date:start": unwrap(props.get("1st Interviewed Date")),
+        "date:Ended Date:start": unwrap(props.get("Ended Date")),
+    }
+
+
+def normalize_application(page: dict) -> dict:
+    props = properties(page)
+    return {
+        "url": page.get("url") or page.get("id"),
+        "status": unwrap(props.get("status")) or unwrap(props.get("Status")),
+        "Board": unwrap(props.get("Board")),
+        "created": created_stamp(page),
+        "company": as_json_list(unwrap(props.get("company"))),
+        "meetings list": as_json_list(unwrap(props.get("meetings list"))),
+        "referral from colleague": as_json_list(unwrap(props.get("referral from colleague"))),
+    }
+
+
+def normalize_meeting(page: dict) -> dict:
+    props = properties(page)
+    tags = unwrap(props.get("Tags")) or []
+    return {
+        "url": page.get("url") or page.get("id"),
+        "Created": created_stamp(page),
+        "date:Date:start": unwrap(props.get("Date")),
+        "Tags": as_json_list(tags),
+        "companies <-> meetings": as_json_list(unwrap(props.get("companies <-> meetings"))),
+        "activities <-> meetings": as_json_list(unwrap(props.get("activities <-> meetings"))),
+    }
+
+
+def load_from_notion() -> tuple[list[dict], list[dict], list[dict]]:
+    companies = [normalize_company(page) for page in query_database(COMPANIES_DB)]
+    applications = [normalize_application(page) for page in query_database(APPLICATIONS_DB)]
+    activity = dashed_id(JOB_GAME_ACTIVITY)
+    try:
+        meetings_pages = query_database(
+            MEETINGS_DB,
+            {
+                "or": [
+                    {
+                        "timestamp": "created_time",
+                        "created_time": {"on_or_after": CUTOFF},
+                    },
+                    {
+                        "property": "activities <-> meetings",
+                        "relation": {"contains": activity},
+                    },
+                ]
+            },
+        )
+    except RuntimeError:
+        recent = query_database(
+            MEETINGS_DB,
+            {"timestamp": "created_time", "created_time": {"on_or_after": CUTOFF}},
+        )
+        related = query_database(
+            MEETINGS_DB,
+            {"property": "activities <-> meetings", "relation": {"contains": activity}},
+        )
+        by_id = {page["id"]: page for page in recent + related}
+        meetings_pages = list(by_id.values())
+    meetings = [normalize_meeting(page) for page in meetings_pages]
+    if not applications or not companies:
+        raise SystemExit("Notion returned no applications or companies; refusing to publish")
+    return companies, applications, meetings
+
+
+def load_from_snapshots() -> tuple[list[dict], list[dict], list[dict]]:
+    companies_blob = load_json(ROOT / "scripts" / "companies.json")
+    companies = companies_blob["results"] if isinstance(companies_blob, dict) else companies_blob
+    applications = load_json(ROOT / "scripts" / "applications.json")
+    meetings = load_json(ROOT / "scripts" / "meetings.json")
+    return companies, applications, meetings
+
+
+def load_aliases() -> dict[str, int]:
+    if not ALIAS_PATH.exists():
+        return {}
+    raw = load_json(ALIAS_PATH)
+    return {str(key): int(value) for key, value in raw.items()}
+
+
+def bind_aliases(cids: list[str], created_by_id: dict[str, str], existing: dict[str, int]) -> dict[str, int]:
+    next_n = max(existing.values(), default=0) + 1
+    newcomers = [cid for cid in cids if cid not in existing]
+    newcomers.sort(key=lambda cid: (created_by_id.get(cid) or "9999", cid))
+    for cid in newcomers:
+        existing[cid] = next_n
+        next_n += 1
+    ALIAS_PATH.write_text(json.dumps(dict(sorted(existing.items(), key=lambda item: item[1])), indent=2) + "\n")
+    return existing
+
+
+def keep_meeting(meeting: dict) -> bool:
+    tags = parse_list(meeting.get("Tags"))
+    activities = parse_list(meeting.get("activities <-> meetings"))
+    created = meeting.get("Created") or ""
+    related = any(JOB_GAME_ACTIVITY in (a or "").replace("-", "") for a in activities)
+    after_cutoff = created >= f"{CUTOFF}T" or created >= CUTOFF
+    jobby = bool(set(tags) & JOB_TAGS)
+    if not (related or (after_cutoff and jobby)):
+        return False
+    return related or jobby or "advice" in tags or "friends" in tags
+
+
+def previous_tagged_status() -> dict[str, int] | None:
+    path = ROOT / "data.json"
+    if not path.exists():
+        return None
+    previous = load_json(path)
+    tagged = previous.get("companyStatusTagged")
+    return dict(tagged) if tagged else None
+
+
+def main() -> None:
+    using_notion = bool(os.environ.get("NOTION_TOKEN"))
+    if using_notion:
+        companies, applications, meetings_raw = load_from_notion()
+        source = "notion"
+    else:
+        companies, applications, meetings_raw = load_from_snapshots()
+        source = "snapshots"
+
+    kept_meetings = [meeting for meeting in meetings_raw if keep_meeting(meeting)]
 
     company_by_id = {}
     for row in companies:
@@ -106,36 +323,37 @@ def main() -> None:
     table_ids = set()
     for cid, row in company_by_id.items():
         created = row.get("Created") or ""
-        if created >= f"{CUTOFF} " or created >= CUTOFF:
+        if created >= f"{CUTOFF} " or created >= f"{CUTOFF}T" or created >= CUTOFF:
             table_ids.add(cid)
     table_ids |= referenced_ids
 
-    # Stable anonymous labels, newest first so early-search companies stay low numbers.
-    ordered = sorted(
-        table_ids,
-        key=lambda cid: (
-            company_by_id.get(cid, {}).get("Created") or "9999",
-            cid,
-        ),
-    )
-    alias = {cid: f"Company {i:02d}" for i, cid in enumerate(ordered, start=1)}
+    created_by_id = {cid: (company_by_id.get(cid) or {}).get("Created") or "9999" for cid in table_ids}
+    existing = load_aliases()
+    if not existing:
+        ordered_seed = sorted(table_ids, key=lambda cid: (created_by_id.get(cid) or "9999", cid))
+        existing = {cid: index for index, cid in enumerate(ordered_seed, start=1)}
+    alias_numbers = bind_aliases(sorted(table_ids), created_by_id, existing)
+    alias = {cid: f"Company {alias_numbers[cid]:02d}" for cid in table_ids}
 
     def aliases_for(urls) -> list[str]:
         labels = []
         for url in parse_list(urls):
             cid = page_id(url)
-            if cid:
-                if cid not in alias:
-                    alias[cid] = f"Company {len(alias) + 1:02d}"
-                    table_ids.add(cid)
-                labels.append(alias[cid])
+            if not cid:
+                continue
+            if cid not in alias_numbers:
+                bind_aliases([cid], created_by_id, alias_numbers)
+            if cid not in alias:
+                alias[cid] = f"Company {alias_numbers[cid]:02d}"
+                table_ids.add(cid)
+            labels.append(alias[cid])
         return labels
 
     public_meetings = []
     for meeting in kept_meetings:
         tags = [t for t in parse_list(meeting.get("Tags")) if t in PUBLIC_TAGS]
         related = any(
-            JOB_GAME_ACTIVITY in (a or "")
+            JOB_GAME_ACTIVITY in (a or "").replace("-", "")
             for a in parse_list(meeting.get("activities <-> meetings"))
         )
         public_meetings.append(
@@ -169,8 +387,10 @@ def main() -> None:
         )
     public_apps.sort(key=lambda row: row["submittedOn"] or "", reverse=True)
 
+    visible_ids = [cid for cid in table_ids if cid in alias]
+    visible_ids.sort(key=lambda cid: alias_numbers[cid])
     public_companies = []
-    for cid in ordered:
+    for cid in visible_ids:
         row = company_by_id.get(cid, {})
         roles = parse_list(row.get("Role"))
         work = parse_list(row.get("Work Type"))
@@ -188,20 +408,22 @@ def main() -> None:
             }
         )
 
-    # Full Notion SQL aggregation (not limited to the 100-row snapshot).
-    tagged_status = {
-        "Interviewed": 51,
-        "Potential": 33,
-        "Denied": 22,
-        "Ended": 20,
-        "Finding role...": 15,
-        "Re-apply": 14,
-        "Unknown": 9,
-        "Applied": 8,
-        "Archived": 5,
-        "Interviewing": 4,
-        "Not Started": 3,
-    }
+    if source == "notion":
+        tagged_status = Counter(
+            (row.get("Status") or "Unknown")
+            for row in companies
+            if row.get("retried 4 job game 2026?") == "__YES__"
+        )
+        tagged_status = dict(tagged_status)
+    else:
+        tagged_status = previous_tagged_status() or dict(
+            Counter(
+                (row.get("Status") or "Unknown")
+                for row in companies
+                if row.get("retried 4 job game 2026?") == "__YES__"
+            )
+        )
+
     app_status = Counter(row["status"] for row in public_apps)
     app_board = Counter(row["board"] for row in public_apps)
     meeting_kind = Counter(row["kind"] for row in public_meetings)
@@ -238,8 +460,17 @@ def main() -> None:
     }
 
     out = ROOT / "data.json"
+    if out.exists():
+        previous = load_json(out)
+        previous.pop("generatedOn", None)
+        comparable = dict(payload)
+        comparable.pop("generatedOn", None)
+        if previous == comparable:
+            print(f"unchanged source={source} companies={len(public_companies)} apps={len(public_apps)} calls={len(public_meetings)}")
+            return
+
     out.write_text(json.dumps(payload, indent=2) + "\n")
-    print(f"wrote {out} companies={len(public_companies)} apps={len(public_apps)} calls={len(public_meetings)}")
+    print(f"wrote {out} source={source} companies={len(public_companies)} apps={len(public_apps)} calls={len(public_meetings)}")
 
 
 if __name__ == "__main__":
