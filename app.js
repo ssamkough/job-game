@@ -75,8 +75,30 @@ const paginator = (tbody, sentinel, countEl) => {
   return { reset, append, fill: () => { if (shown === 0) append(); } };
 };
 
+const DEFAULT_TAB = "meetings";
+const TAB_PARAM = "tab";
+
+const tabFromUrl = () => {
+  const fromQuery = new URLSearchParams(location.search).get(TAB_PARAM);
+  if (TABS.includes(fromQuery)) return fromQuery;
+  const fromHash = location.hash.replace("#", "");
+  if (TABS.includes(fromHash)) return fromHash;
+  return DEFAULT_TAB;
+};
+
+const urlForTab = (name) => {
+  const url = new URL(location.href);
+  url.hash = "";
+  if (!name || name === DEFAULT_TAB) {
+    url.searchParams.delete(TAB_PARAM);
+  } else {
+    url.searchParams.set(TAB_PARAM, name);
+  }
+  return `${url.pathname}${url.search}`;
+};
+
 const showTab = (name) => {
-  const selected = TABS.includes(name) ? name : "meetings";
+  const selected = TABS.includes(name) ? name : DEFAULT_TAB;
   for (const tab of TABS) {
     const button = document.getElementById(`tab-${tab}`);
     const panel = document.getElementById(`panel-${tab}`);
@@ -85,8 +107,9 @@ const showTab = (name) => {
     button.tabIndex = on ? 0 : -1;
     panel.hidden = !on;
   }
-  if (location.hash.replace("#", "") !== selected) {
-    history.replaceState(null, "", `#${selected}`);
+  const next = urlForTab(selected);
+  if (`${location.pathname}${location.search}${location.hash}` !== next) {
+    history.replaceState(null, "", next);
   }
 };
 
@@ -200,10 +223,8 @@ const render = (data) => {
     const button = event.target.closest("[data-tab]");
     if (button) activate(button.dataset.tab);
   });
-  window.addEventListener("hashchange", () =>
-    activate(location.hash.replace("#", ""))
-  );
-  activate(location.hash.replace("#", "") || "meetings");
+  window.addEventListener("popstate", () => activate(tabFromUrl()));
+  activate(tabFromUrl());
 };
 
 fetch("./data.json")
