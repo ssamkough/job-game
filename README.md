@@ -1,6 +1,42 @@
 # Job Game 2026
 
-Public, anonymized log of this job search. Notion stays private and is only read.
+Public, anonymized log of this search. Company names, people, recruiters, and URLs stay in Notion. The site shows numbered aliases (`Company 01`, …).
+
+Live: [jbg.sammy.pizza](https://jbg.sammy.pizza) · repo: [ssamkough/job-game](https://github.com/ssamkough/job-game)
+
+## Stack
+
+- Static site: `index.html`, `styles.css`, `app.js`, `data.json`
+- Python 3 stdlib generator (`scripts/generate.py`) — no pip deps
+- Notion API (read-only internal integration)
+- GitHub Actions (daily snapshot)
+- Netlify (serves `main`, no build)
+
+## How it fits together
+
+1. **Notion** holds Applications, Companies, and Meetings. The integration named **job game** has read access only. Nothing in this repo writes back.
+2. **`scripts/generate.py`** queries those data sources, applies the public filters, strips private fields, and writes `data.json`. New companies get the next alias; old numbers never reshuffle (`scripts/aliases.json`).
+3. **GitHub Action** `.github/workflows/refresh-snapshot.yml` runs that script daily at 12:00 UTC (and on **Run workflow**). If the snapshot changed, it commits `data.json` + `aliases.json`.
+4. **Netlify** is linked to this GitHub repo. A push to `main` publishes the static files. Publish directory is `.`; there is no build command.
+5. **The browser** fetches `./data.json` and renders counts, pipeline, calls, and filterable tables.
+
+Inclusion rules for the public snapshot:
+
+- Created on or after **2026-09-11**, or
+- Linked to the Job Game 2026 activity, or
+- In the Job Game 2026 Applications table, or
+- Company tagged for Job Game 2026
+
+## What is running
+
+| Piece | Status |
+| --- | --- |
+| Site | Live at https://jbg.sammy.pizza |
+| Netlify | `job-game-2026`, deploys from `main` |
+| Daily refresh | GitHub Action **Refresh snapshot**, 12:00 UTC |
+| Notion | Read-only integration; token is repo secret `NOTION_TOKEN` |
+
+Nothing else is a long-running server.
 
 ## Local
 
@@ -8,19 +44,20 @@ Public, anonymized log of this job search. Notion stays private and is only read
 python3 -m http.server 4173
 ```
 
-Then visit `http://localhost:4173`.
+Open http://localhost:4173. Browsers block `fetch` on raw `file://` pages.
 
-Regenerate from local snapshots (no Notion token):
+Without `NOTION_TOKEN`, the generator uses gitignored snapshots in `scripts/` (`applications.json`, `companies.json`, `meetings.json`). With the token:
 
 ```bash
-python3 scripts/generate.py
+NOTION_TOKEN=… python3 scripts/generate.py
 ```
 
-## Daily refresh
+## Secrets and privacy
 
-A GitHub Action runs every day at 12:00 UTC (`workflow_dispatch` also works). It reads Applications, Companies, and Meetings through a Notion internal integration, writes anonymized `data.json`, and commits if anything besides the date changed.
+- **`NOTION_TOKEN`** — GitHub Actions secret. Read content only. Never expose it to the browser or commit it.
+- Public JSON has no Notion URLs, names, or people. `aliases.json` maps page ids → numbers only.
+- Raw Notion dumps stay gitignored.
 
-1. Create a [Notion integration](https://www.notion.so/profile/integrations) with **Read content** only.
-2. Share the Applications, Companies, and Meetings databases with that integration.
-3. Add the token as the `NOTION_TOKEN` repository secret.
-Netlify is linked to `main`, so that commit publishes https://jbg.sammy.pizza.
+## Netlify build settings
+
+Branch `main`. Base directory empty. Build command empty. Publish directory `.`. No functions.

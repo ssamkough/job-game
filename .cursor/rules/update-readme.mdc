@@ -1,0 +1,20 @@
+---
+description: Keep README.md accurate whenever project behavior or setup changes
+alwaysApply: true
+---
+
+# Update the README with the change
+
+When you change this repo, update `README.md` in the same turn if the change affects anything the README describes.
+
+Do update it for:
+
+- What the project is, or what is public vs private
+- Stack, files, or how pieces connect (site, generator, Action, Netlify, Notion)
+- What is actively running (URLs, schedules, secrets, deploy settings)
+- Filters, alias rules, or how to run locally
+- New or removed commands, secrets, or gitignore rules
+
+Do not pad the README for tiny CSS tweaks or refactors that do not change behavior or setup.
+
+Keep it succinct. Match the existing sections. Do not leave stale URLs, counts of moving parts, or setup steps.
