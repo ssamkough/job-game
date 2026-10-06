@@ -76,10 +76,11 @@ const paginator = (tbody, sentinel, countEl) => {
 };
 
 const DEFAULT_TAB = "meetings";
+const TAB_PARAM = "tab";
 
 const tabFromUrl = () => {
   const params = new URLSearchParams(location.search);
-  const named = params.get("tab");
+  const named = params.get(TAB_PARAM);
   if (TABS.includes(named)) return named;
   const flag = TABS.find((tab) => params.has(tab));
   if (flag) return flag;
@@ -88,7 +89,12 @@ const tabFromUrl = () => {
   return DEFAULT_TAB;
 };
 
-const urlForTab = (name) => `${location.pathname}?${name}`;
+const urlForTab = (name) => {
+  const params = new URLSearchParams(location.search);
+  for (const tab of TABS) params.delete(tab);
+  params.set(TAB_PARAM, name);
+  return `${location.pathname}?${params.toString()}`;
+};
 
 const showTab = (name, persist) => {
   const selected = TABS.includes(name) ? name : DEFAULT_TAB;
