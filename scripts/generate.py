@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CUTOFF = "2026-09-11"
 JOB_GAME_ACTIVITY = "3cffada0be4f80f8b3adefa2cc23ac62"
-NOTION_VERSION = "2022-06-28"
+NOTION_VERSION = "2025-09-03"
 APPLICATIONS_DB = "3ddfada0-be4f-8039-99fd-000b79c75747"
 COMPANIES_DB = "5d6b384e-4857-4483-a48c-2c1d0d291a2c"
 MEETINGS_DB = "f77ebcc7-8983-4b6c-b9d9-f79bddb851f0"
@@ -115,7 +115,7 @@ def query_database(database_id: str, filter_obj: dict | None = None) -> list[dic
             body["start_cursor"] = cursor
         if filter_obj:
             body["filter"] = filter_obj
-        payload = notion_request("POST", f"/databases/{database_id}/query", body)
+        payload = notion_request("POST", f"/data_sources/{database_id}/query", body)
         rows.extend(payload.get("results") or [])
         if not payload.get("has_more"):
             break
