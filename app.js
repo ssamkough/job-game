@@ -76,28 +76,21 @@ const paginator = (tbody, sentinel, countEl) => {
 };
 
 const DEFAULT_TAB = "meetings";
-const TAB_PARAM = "tab";
 
 const tabFromUrl = () => {
-  const fromQuery = new URLSearchParams(location.search).get(TAB_PARAM);
-  if (TABS.includes(fromQuery)) return fromQuery;
+  const params = new URLSearchParams(location.search);
+  const named = params.get("tab");
+  if (TABS.includes(named)) return named;
+  const flag = TABS.find((tab) => params.has(tab));
+  if (flag) return flag;
   const fromHash = location.hash.replace("#", "");
   if (TABS.includes(fromHash)) return fromHash;
   return DEFAULT_TAB;
 };
 
-const urlForTab = (name) => {
-  const url = new URL(location.href);
-  url.hash = "";
-  if (!name || name === DEFAULT_TAB) {
-    url.searchParams.delete(TAB_PARAM);
-  } else {
-    url.searchParams.set(TAB_PARAM, name);
-  }
-  return `${url.pathname}${url.search}`;
-};
+const urlForTab = (name) => `${location.pathname}?${name}`;
 
-const showTab = (name) => {
+const showTab = (name, persist) => {
   const selected = TABS.includes(name) ? name : DEFAULT_TAB;
   for (const tab of TABS) {
     const button = document.getElementById(`tab-${tab}`);
@@ -107,6 +100,7 @@ const showTab = (name) => {
     button.tabIndex = on ? 0 : -1;
     panel.hidden = !on;
   }
+  if (!persist) return;
   const next = urlForTab(selected);
   if (`${location.pathname}${location.search}${location.hash}` !== next) {
     history.replaceState(null, "", next);
@@ -213,18 +207,18 @@ const render = (data) => {
   paintCompanies();
   paintApps();
 
-  const activate = (name) => {
-    showTab(name);
+  const activate = (name, persist) => {
+    showTab(name, persist);
     meetingPages.fill();
     appPages.fill();
     companyPages.fill();
   };
   document.querySelector(".tabs").addEventListener("click", (event) => {
     const button = event.target.closest("[data-tab]");
-    if (button) activate(button.dataset.tab);
+    if (button) activate(button.dataset.tab, true);
   });
-  window.addEventListener("popstate", () => activate(tabFromUrl()));
-  activate(tabFromUrl());
+  window.addEventListener("popstate", () => activate(tabFromUrl(), false));
+  activate(tabFromUrl(), Boolean(location.search || location.hash));
 };
 
 fetch("./data.json")
