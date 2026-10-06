@@ -34,7 +34,7 @@ Live: [jbg.sammy.pizza](https://jbg.sammy.pizza) · repo: [ssamkough/job-game](h
 2. **`scripts/generate.py`** queries those data sources, applies the public filters, strips private fields, and writes `data.json`. New companies get the next alias; old numbers never reshuffle (`scripts/aliases.json`).
 3. **GitHub Action** `.github/workflows/refresh-snapshot.yml` runs that script daily at 12:00 UTC (and on **Run workflow**). If the snapshot changed, it commits `data.json` + `aliases.json`.
 4. **Netlify** is linked to this GitHub repo. A push to `main` publishes the static files. Publish directory is `.`; there is no build command.
-5. **The browser** fetches `./data.json` and renders counts plus three tabs (Meetings, Applications, Companies). Each table shows 10 rows, then loads 10 more as you scroll that table. The footer is the filtered total.
+5. **The browser** fetches `./data.json` and renders counts plus three tabs (Meetings, Applications, Companies). Each table shows 10 rows, then loads 10 more as you scroll that table. The footer is the filtered total. A **How I built this** section at the bottom describes the stack and snapshot rules in Sammy's voice.
 
 Inclusion rules for the public snapshot:
 

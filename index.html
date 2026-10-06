@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Sammy Samkough's Job Game 2026" />
+    <meta name="description" content="Sammy Samkough's public, anonymized log of Job Game 2026." />
     <title>Job Game 2026</title>
     <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./styles.css" />
@@ -14,11 +14,16 @@
         <img src="./glove.png" alt="" width="40" height="40" />
         Job Game 2026
       </h1>
-      <p>
-        Public log of this search. Company names, people, and links stay in
-        Notion. Everyone here is an alias.
+      <p class="dates">
+        <span><b>Started</b> <time id="started"></time></span>
+        <span><b>Snapshot</b> <time id="snapshot"></time></span>
       </p>
-      <p id="generated"></p>
+      <p>
+        I'm Sammy Samkough, and this is my public log of Job Game 2026. I'm
+        keeping company names, people, and links in Notion, so everyone here is
+        a numbered alias. The counts and tables come from a snapshot of that
+        workspace and refresh as the search moves.
+      </p>
 
       <dl class="counts" id="stats"></dl>
 
@@ -120,6 +125,40 @@
           </table>
           <p class="sentinel" data-for="company-rows"></p>
         </div>
+      </section>
+
+      <section class="more">
+        <h2>How I built this</h2>
+        <p>
+          I keep applications, companies, and meetings in Notion. This site
+          never writes back to that workspace. It is just HTML, CSS, and
+          JavaScript that loads a public JSON file in your browser. There is no
+          app server sitting behind it.
+        </p>
+        <p>
+          A small Python script reads those three tables, strips names, people,
+          and URLs, and hands each company a stable alias like Company 01. When
+          a new company shows up, it gets the next number. Old numbers stay put
+          so a row does not quietly become someone else.
+        </p>
+        <p>
+          GitHub Actions runs that script every day at 12:00 UTC. If anything
+          changed, it commits, and Netlify publishes <code>main</code> with no
+          build step. If you want to poke at the code, it lives at
+          <a href="https://github.com/ssamkough/job-game">ssamkough/job-game</a>.
+        </p>
+        <h3>What I include</h3>
+        <ul>
+          <li>
+            Meetings from 11 Sep 2026 onward, plus anything I linked to Job
+            Game 2026.
+          </li>
+          <li>Every application I logged in the Job Game 2026 table.</li>
+          <li>
+            Companies I last touched on or after 11 Sep 2026 that are in Finding
+            role…, Applied, Interviewing, Take-Home, Negotating, or Interviewed.
+          </li>
+        </ul>
       </section>
     </main>
     <script src="./app.js"></script>

@@ -75,6 +75,23 @@ h1 img {
   height: 1.15em;
 }
 
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin: 10px 0 0;
+  font-size: 1.05rem;
+}
+
+.dates b {
+  font-weight: 600;
+  margin-right: 0.35em;
+}
+
+.dates time {
+  font-variant-numeric: tabular-nums;
+}
+
 h2 {
   font-size: 1.05rem;
   font-weight: 600;
@@ -216,9 +233,20 @@ section {
   white-space: nowrap;
 }
 
-.sentinel {
-  height: 1px;
-  margin: 0;
+.more {
+  margin-top: 48px;
+}
+
+.more h2 {
+  margin-top: 0;
+}
+
+.more h3 {
+  margin-top: 18px;
+}
+
+.more ul {
+  margin-top: 8px;
 }
 
 @media (max-width: 640px) {

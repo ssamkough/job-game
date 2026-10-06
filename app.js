@@ -6,6 +6,17 @@ const formatDate = (value) => {
   return value.slice(0, 10);
 };
 
+const prettyDate = (value) => {
+  if (!value) return "—";
+  const date = new Date(`${value.slice(0, 10)}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return value.slice(0, 10);
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+};
+
 const fillSelect = (select, values) => {
   for (const value of values) {
     const option = document.createElement("option");
@@ -24,7 +35,7 @@ const paginator = (tbody, sentinel, countEl) => {
   const paintCount = () => {
     if (!countEl) return;
     const n = rows.length;
-    countEl.textContent = n === 1 ? "1 total" : `${n} total`;
+    countEl.textContent = n === 1 ? "1 in total" : `${n} in total`;
   };
 
   const append = () => {
@@ -83,8 +94,12 @@ const render = (data) => {
   const meetings = data.meetings || data.calls || [];
   const meetingTotal = data.totals.meetings ?? data.totals.calls ?? 0;
 
-  document.getElementById("generated").textContent =
-    `Snapshot ${data.generatedOn}. Cutoff ${data.cutoff}. ${data.privacy}`;
+  const started = document.getElementById("started");
+  const snapshot = document.getElementById("snapshot");
+  started.dateTime = data.cutoff;
+  started.textContent = prettyDate(data.cutoff);
+  snapshot.dateTime = data.generatedOn;
+  snapshot.textContent = prettyDate(data.generatedOn);
 
   const stats = [
     ["Applications", data.totals.applications],
@@ -195,5 +210,8 @@ fetch("./data.json")
   .then((res) => res.json())
   .then(render)
   .catch((err) => {
-    document.querySelector("p").textContent = `Could not load data.json: ${err}`;
+    document.querySelector("h1").insertAdjacentText(
+      "afterend",
+      ` Could not load data.json: ${err}`
+    );
   });
