@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Sammy Samkough's Job Game 2026" />
     <title>Job Game 2026</title>
+    <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main>
-      <p class="site">
-        <a href="https://sammy.pizza/">sammy.pizza</a>
-      </p>
-      <h1>Job Game 2026</h1>
+      <h1>
+        <img src="./glove.png" alt="" width="40" height="40" />
+        Job Game 2026
+      </h1>
       <p>
         Public log of this search. Company names, people, and links stay in
         Notion. Everyone here is an alias.
@@ -21,78 +22,52 @@
 
       <dl class="counts" id="stats"></dl>
 
-      <section>
-        <h2>Pipeline</h2>
-        <p>This search versus the wider Job Game 2026 tag set.</p>
-        <div class="columns">
-          <div>
-            <h3>This search</h3>
-            <ul id="live-bars"></ul>
-          </div>
-          <div>
-            <h3>Tagged in Notion</h3>
-            <ul id="tagged-bars"></ul>
-          </div>
+      <div class="tabs" role="tablist" aria-label="Records">
+        <button type="button" role="tab" id="tab-meetings" aria-controls="panel-meetings" data-tab="meetings">
+          Meetings
+        </button>
+        <button type="button" role="tab" id="tab-applications" aria-controls="panel-applications" data-tab="applications">
+          Applications
+        </button>
+        <button type="button" role="tab" id="tab-companies" aria-controls="panel-companies" data-tab="companies">
+          Companies
+        </button>
+      </div>
+
+      <section class="panel" id="panel-meetings" role="tabpanel" aria-labelledby="tab-meetings">
+        <div class="panel-head">
+          <h2>Meetings</h2>
         </div>
-      </section>
-
-      <section>
-        <h2>Calls</h2>
-        <p>
-          After 11 Sep 2026, and anything linked to the Job Game 2026 activity.
-        </p>
-        <p id="call-kinds"></p>
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Kind</th>
-              <th>Company</th>
-            </tr>
-          </thead>
-          <tbody id="timeline"></tbody>
-        </table>
-      </section>
-
-      <section>
-        <h2>Companies</h2>
-        <p>Same alias means the same company across the page.</p>
-        <p>
-          <label>
-            Status
-            <select id="company-filter">
-              <option value="all">All</option>
-            </select>
-          </label>
-        </p>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
+                <th>Date</th>
+                <th>Kind</th>
                 <th>Company</th>
-                <th>Status</th>
-                <th>Role</th>
-                <th>Calls</th>
-                <th>First interview</th>
               </tr>
             </thead>
-            <tbody id="company-rows"></tbody>
+            <tbody id="timeline"></tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" id="meeting-count"></td>
+              </tr>
+            </tfoot>
           </table>
+          <p class="sentinel" data-for="timeline"></p>
         </div>
       </section>
 
-      <section>
-        <h2>Applications</h2>
-        <p>From the Job Game 2026 Applications table.</p>
-        <p id="boards"></p>
-        <p>
+      <section class="panel" id="panel-applications" role="tabpanel" aria-labelledby="tab-applications" hidden>
+        <div class="panel-head">
+          <h2>Applications</h2>
           <label>
             Status
             <select id="app-filter">
               <option value="all">All</option>
             </select>
           </label>
-        </p>
+        </div>
         <div class="table-wrap">
           <table>
             <thead>
@@ -105,7 +80,45 @@
               </tr>
             </thead>
             <tbody id="app-rows"></tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" id="app-count"></td>
+              </tr>
+            </tfoot>
           </table>
+          <p class="sentinel" data-for="app-rows"></p>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-companies" role="tabpanel" aria-labelledby="tab-companies" hidden>
+        <div class="panel-head">
+          <h2>Companies</h2>
+          <label>
+            Status
+            <select id="company-filter">
+              <option value="all">All</option>
+            </select>
+          </label>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Role</th>
+                <th>Meetings</th>
+                <th>First interview</th>
+              </tr>
+            </thead>
+            <tbody id="company-rows"></tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" id="company-count"></td>
+              </tr>
+            </tfoot>
+          </table>
+          <p class="sentinel" data-for="company-rows"></p>
         </div>
       </section>
     </main>

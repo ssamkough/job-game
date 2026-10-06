@@ -32,6 +32,15 @@ JOB_TAGS = {
 }
 PUBLIC_TAGS = JOB_TAGS | {"advice"}
 ALIAS_PATH = ROOT / "scripts" / "aliases.json"
+COMPANY_TABLE_STATUSES = {
+    "Finding role...",
+    "Applied",
+    "Interviewing",
+    "Take-Home",
+    "Negotating",
+    "Negotiating",
+    "Interviewed",
+}
 
 
 def parse_list(value):
@@ -69,7 +78,7 @@ def classify_meeting(tags: list[str]) -> str:
     if lowered & {"recruiter", "talent"}:
         return "recruiter"
     if "jobs" in lowered:
-        return "call"
+        return "meeting"
     if "advice" in lowered:
         return "advice"
     return "other"
@@ -172,6 +181,7 @@ def normalize_company(page: dict) -> dict:
         "Role": as_json_list(unwrap(props.get("Role"))),
         "Work Type": as_json_list(unwrap(props.get("Work Type"))),
         "Created": created_stamp(page),
+        "Last edited": page.get("last_edited_time") or "",
         "retried 4 job game 2026?": unwrap(props.get("retried 4 job game 2026?")),
         "meetings <-> companies": as_json_list(unwrap(props.get("meetings <-> companies"))),
         "activities <-> companies": as_json_list(unwrap(props.get("activities <-> companies"))),
@@ -270,14 +280,24 @@ def bind_aliases(cids: list[str], created_by_id: dict[str, str], existing: dict[
     return existing
 
 
+def after_cutoff(value: str | None) -> bool:
+    stamp = value or ""
+    return stamp >= f"{CUTOFF}T" or stamp >= f"{CUTOFF} " or stamp >= CUTOFF
+
+
+def company_in_table(row: dict) -> bool:
+    if (row.get("Status") or "") not in COMPANY_TABLE_STATUSES:
+        return False
+    return after_cutoff(row.get("Last edited") or row.get("Created"))
+
+
 def keep_meeting(meeting: dict) -> bool:
     tags = parse_list(meeting.get("Tags"))
     activities = parse_list(meeting.get("activities <-> meetings"))
     created = meeting.get("Created") or ""
     related = any(JOB_GAME_ACTIVITY in (a or "").replace("-", "") for a in activities)
-    after_cutoff = created >= f"{CUTOFF}T" or created >= CUTOFF
     jobby = bool(set(tags) & JOB_TAGS)
-    if not (related or (after_cutoff and jobby)):
+    if not (related or (after_cutoff(created) and jobby)):
         return False
     return related or jobby or "advice" in tags or "friends" in tags
 
@@ -322,20 +342,16 @@ def main() -> None:
             if cid:
                 referenced_ids.add(cid)
 
-    table_ids = set()
-    for cid, row in company_by_id.items():
-        created = row.get("Created") or ""
-        if created >= f"{CUTOFF} " or created >= f"{CUTOFF}T" or created >= CUTOFF:
-            table_ids.add(cid)
-    table_ids |= referenced_ids
+    table_ids = {cid for cid, row in company_by_id.items() if company_in_table(row)}
+    alias_ids = set(table_ids) | referenced_ids
 
-    created_by_id = {cid: (company_by_id.get(cid) or {}).get("Created") or "9999" for cid in table_ids}
+    created_by_id = {cid: (company_by_id.get(cid) or {}).get("Created") or "9999" for cid in alias_ids}
     existing = load_aliases()
     if not existing:
-        ordered_seed = sorted(table_ids, key=lambda cid: (created_by_id.get(cid) or "9999", cid))
+        ordered_seed = sorted(alias_ids, key=lambda cid: (created_by_id.get(cid) or "9999", cid))
         existing = {cid: index for index, cid in enumerate(ordered_seed, start=1)}
-    alias_numbers = bind_aliases(sorted(table_ids), created_by_id, existing)
-    alias = {cid: f"Company {alias_numbers[cid]:02d}" for cid in table_ids}
+    alias_numbers = bind_aliases(sorted(alias_ids), created_by_id, existing)
+    alias = {cid: f"Company {alias_numbers[cid]:02d}" for cid in alias_ids}
 
     def aliases_for(urls) -> list[str]:
         labels = []
@@ -347,7 +363,7 @@ def main() -> None:
                 bind_aliases([cid], created_by_id, alias_numbers)
             if cid not in alias:
                 alias[cid] = f"Company {alias_numbers[cid]:02d}"
-                table_ids.add(cid)
+                alias_ids.add(cid)
             labels.append(alias[cid])
         return labels
 
@@ -384,7 +400,7 @@ def main() -> None:
                 "board": app.get("Board") or "Direct / other",
                 "companies": labels,
                 "referred": bool(parse_list(app.get("referral from colleague"))),
-                "linkedCalls": len(parse_list(app.get("meetings list"))),
+                "linkedMeetings": len(parse_list(app.get("meetings list"))),
             }
         )
     public_apps.sort(key=lambda row: row["submittedOn"] or "", reverse=True)
@@ -405,7 +421,7 @@ def main() -> None:
                 "workType": work[0] if work else None,
                 "appliedOn": iso_date(row.get("date:Applied Date:start")),
                 "firstInterviewOn": iso_date(row.get("date:1st Interviewed Date:start")),
-                "callsThisSearch": meeting_counts.get(label, 0),
+                "meetingsThisSearch": meeting_counts.get(label, 0),
                 "jobGame2026Tag": row.get("retried 4 job game 2026?") == "__YES__",
             }
         )
@@ -440,13 +456,15 @@ def main() -> None:
             "Job Game 2026 activity relation",
             "Job Game 2026 Applications database",
             "retried for job game 2026 tag on companies",
+            "Company table: Finding role..., Applied, Interviewing, Take-Home, Negotating/Negotiating, Interviewed",
+            f"Company table: last edited on or after {CUTOFF}",
         ],
         "totals": {
             "applications": len(public_apps),
             "applicationsSubmitted": app_status.get("Submitted", 0),
             "companiesThisSearch": len(public_companies),
             "companiesTaggedJobGame2026": sum(tagged_status.values()),
-            "calls": len(public_meetings),
+            "meetings": len(public_meetings),
             "recruiterScreens": meeting_kind.get("recruiter", 0),
             "interviews": meeting_kind.get("interview", 0),
             "referrals": sum(1 for row in public_apps if row["referred"]),
@@ -455,10 +473,10 @@ def main() -> None:
         "applicationBoards": dict(app_board),
         "companyStatusThisSearch": dict(live_status),
         "companyStatusTagged": dict(tagged_status),
-        "callKinds": dict(meeting_kind),
+        "meetingKinds": dict(meeting_kind),
         "applications": public_apps,
         "companies": public_companies,
-        "calls": public_meetings,
+        "meetings": public_meetings,
     }
 
     out = ROOT / "data.json"
@@ -468,11 +486,11 @@ def main() -> None:
         comparable = dict(payload)
         comparable.pop("generatedOn", None)
         if previous == comparable:
-            print(f"unchanged source={source} companies={len(public_companies)} apps={len(public_apps)} calls={len(public_meetings)}")
+            print(f"unchanged source={source} companies={len(public_companies)} apps={len(public_apps)} meetings={len(public_meetings)}")
             return
 
     out.write_text(json.dumps(payload, indent=2) + "\n")
-    print(f"wrote {out} source={source} companies={len(public_companies)} apps={len(public_apps)} calls={len(public_meetings)}")
+    print(f"wrote {out} source={source} companies={len(public_companies)} apps={len(public_apps)} meetings={len(public_meetings)}")
 
 
 if __name__ == "__main__":

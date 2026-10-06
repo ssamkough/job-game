@@ -61,19 +61,18 @@ main {
   padding: 28px 18px 64px;
 }
 
-.site {
-  margin-bottom: 28px;
-}
-
-.site a {
-  text-decoration: none;
-  border-bottom: 1px solid #1a1a1a;
-}
-
 h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -0.02em;
+}
+
+h1 img {
+  width: 1.15em;
+  height: 1.15em;
 }
 
 h2 {
@@ -116,12 +115,6 @@ h3 {
   margin-top: 4px;
 }
 
-.columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
 label {
   display: inline-block;
 }
@@ -134,7 +127,10 @@ select {
 
 .table-wrap {
   overflow: auto;
+  max-height: 18.5rem;
   margin: 10px 0 0;
+  border: 1px solid #1a1a1a;
+  padding: 10px 12px;
 }
 
 table {
@@ -145,29 +141,94 @@ table {
 th,
 td {
   text-align: left;
-  padding: 7px 10px 7px 0;
+  padding: 8px 10px;
   border-bottom: 1px solid #1a1a1a;
   vertical-align: top;
 }
 
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+
 th {
   font-weight: 600;
+  position: sticky;
+  top: 0;
+  background: #f7f4ee;
+}
+
+tfoot td {
+  position: sticky;
+  bottom: 0;
+  border-bottom: 0;
+  padding-top: 10px;
+  background: #f7f4ee;
 }
 
 section {
   margin-bottom: 8px;
 }
 
+.tabs {
+  display: flex;
+  gap: 18px;
+  margin: 32px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid #1a1a1a;
+}
+
+.tabs button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0 0 6px;
+  cursor: pointer;
+  color: inherit;
+  border-bottom: 1px solid transparent;
+}
+
+.tabs button[aria-selected="true"] {
+  border-bottom-color: #1a1a1a;
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  min-height: 1.6em;
+}
+
+.panel-head h2 {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.panel-head label {
+  white-space: nowrap;
+}
+
+.sentinel {
+  height: 1px;
+  margin: 0;
+}
+
 @media (max-width: 640px) {
-  .counts,
-  .columns {
+  .counts {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 420px) {
-  .counts,
-  .columns {
+  .counts {
     grid-template-columns: 1fr;
   }
 }

@@ -34,14 +34,13 @@ Live: [jbg.sammy.pizza](https://jbg.sammy.pizza) · repo: [ssamkough/job-game](h
 2. **`scripts/generate.py`** queries those data sources, applies the public filters, strips private fields, and writes `data.json`. New companies get the next alias; old numbers never reshuffle (`scripts/aliases.json`).
 3. **GitHub Action** `.github/workflows/refresh-snapshot.yml` runs that script daily at 12:00 UTC (and on **Run workflow**). If the snapshot changed, it commits `data.json` + `aliases.json`.
 4. **Netlify** is linked to this GitHub repo. A push to `main` publishes the static files. Publish directory is `.`; there is no build command.
-5. **The browser** fetches `./data.json` and renders counts, pipeline, calls, and filterable tables.
+5. **The browser** fetches `./data.json` and renders counts plus three tabs (Meetings, Applications, Companies). Each table shows 10 rows, then loads 10 more as you scroll that table. The footer is the filtered total.
 
 Inclusion rules for the public snapshot:
 
-- Created on or after **2026-09-11**, or
-- Linked to the Job Game 2026 activity, or
-- In the Job Game 2026 Applications table, or
-- Company tagged for Job Game 2026
+- Meetings: created on or after **2026-09-11**, or linked to the Job Game 2026 activity
+- Applications: every row in the Job Game 2026 Applications table
+- Companies (table): last edited on or after **2026-09-11**, and status is one of Finding role..., Applied, Interviewing, Take-Home, Negotating/Negotiating, Interviewed
 
 ## What is running
 
