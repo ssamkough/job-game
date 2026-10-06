@@ -293,6 +293,8 @@ def previous_tagged_status() -> dict[str, int] | None:
 
 def main() -> None:
     using_notion = bool(os.environ.get("NOTION_TOKEN"))
+    if os.environ.get("CI") and not using_notion:
+        raise SystemExit("NOTION_TOKEN is missing. Add it as a repository secret named NOTION_TOKEN.")
     if using_notion:
         companies, applications, meetings_raw = load_from_notion()
         source = "notion"

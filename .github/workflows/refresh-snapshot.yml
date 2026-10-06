@@ -31,13 +31,3 @@ jobs:
           fi
           git commit -m "Refresh anonymized snapshot from Notion"
           git push
-      - name: Deploy to Netlify
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: f03f5204-4398-44ab-b693-c5740e009a2c
-        run: |
-          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
-            echo "Skipping Netlify deploy (no NETLIFY_AUTH_TOKEN)"
-            exit 0
-          fi
-          npx --yes netlify-cli@17 deploy --prod --dir . --site "$NETLIFY_SITE_ID"
