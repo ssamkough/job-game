@@ -2,3 +2,6 @@
 scripts/applications.json
 scripts/meetings.json
 scripts/companies.json
+
+# Local Netlify folder
+.netlify
