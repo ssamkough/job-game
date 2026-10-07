@@ -103,7 +103,6 @@ const showTab = (name, persist) => {
     const panel = document.getElementById(`panel-${tab}`);
     const on = tab === selected;
     button.setAttribute("aria-selected", on ? "true" : "false");
-    button.tabIndex = on ? 0 : -1;
     panel.hidden = !on;
   }
   if (!persist) return;
@@ -133,7 +132,7 @@ const render = (data) => {
     ["Referrals", data.totals.referrals],
   ];
   document.getElementById("stats").innerHTML = stats
-    .map(([label, n]) => `<div><b>${n}</b><span>${label}</span></div>`)
+    .map(([label, n]) => `<li><b>${n}</b><span>${label}</span></li>`)
     .join("");
 
   const companyFilter = document.getElementById("company-filter");
@@ -219,9 +218,30 @@ const render = (data) => {
     appPages.fill();
     companyPages.fill();
   };
-  document.querySelector(".tabs").addEventListener("click", (event) => {
+  const tablist = document.querySelector(".tabs");
+  tablist.addEventListener("click", (event) => {
     const button = event.target.closest("[data-tab]");
     if (button) activate(button.dataset.tab, true);
+  });
+  tablist.addEventListener("keydown", (event) => {
+    const button = event.target.closest("[data-tab]");
+    if (!button) return;
+    const i = TABS.indexOf(button.dataset.tab);
+    let next;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      next = TABS[(i + 1) % TABS.length];
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      next = TABS[(i - 1 + TABS.length) % TABS.length];
+    } else if (event.key === "Home") {
+      next = TABS[0];
+    } else if (event.key === "End") {
+      next = TABS[TABS.length - 1];
+    } else {
+      return;
+    }
+    event.preventDefault();
+    activate(next, true);
+    document.getElementById(`tab-${next}`).focus();
   });
   window.addEventListener("popstate", () => activate(tabFromUrl(), false));
   activate(tabFromUrl(), Boolean(location.search || location.hash));
@@ -231,8 +251,8 @@ fetch("./data.json")
   .then((res) => res.json())
   .then(render)
   .catch((err) => {
-    document.querySelector("h1").insertAdjacentText(
-      "afterend",
-      ` Could not load data.json: ${err}`
-    );
+    const note = document.createElement("p");
+    note.setAttribute("role", "alert");
+    note.textContent = `Could not load data.json: ${err}`;
+    document.querySelector("h1").after(note);
   });

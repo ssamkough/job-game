@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Sammy Samkough's public, anonymized log of Job Game 2026." />
     <title>Job Game 2026</title>
     <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <a class="skip" href="#records">Skip to records</a>
     <main>
       <h1>
         <img src="./glove.png" alt="" width="40" height="40" />
@@ -25,16 +26,16 @@
         workspace and refresh as the search moves.
       </p>
 
-      <dl class="counts" id="stats"></dl>
+      <ul class="counts" id="stats"></ul>
 
-      <div class="tabs" role="tablist" aria-label="Records">
-        <button type="button" role="tab" id="tab-meetings" aria-controls="panel-meetings" data-tab="meetings">
+      <div class="tabs" id="records" role="tablist" aria-label="Records" aria-orientation="horizontal">
+        <button type="button" role="tab" id="tab-meetings" aria-controls="panel-meetings" data-tab="meetings" aria-selected="true">
           Meetings
         </button>
-        <button type="button" role="tab" id="tab-applications" aria-controls="panel-applications" data-tab="applications">
+        <button type="button" role="tab" id="tab-applications" aria-controls="panel-applications" data-tab="applications" aria-selected="false">
           Applications
         </button>
-        <button type="button" role="tab" id="tab-companies" aria-controls="panel-companies" data-tab="companies">
+        <button type="button" role="tab" id="tab-companies" aria-controls="panel-companies" data-tab="companies" aria-selected="false">
           Companies
         </button>
       </div>
@@ -43,19 +44,20 @@
         <div class="panel-head">
           <h2>Meetings</h2>
         </div>
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-labelledby="tab-meetings">
           <table>
+            <caption class="vh">Meetings</caption>
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Kind</th>
-                <th>Company</th>
+                <th scope="col">Date</th>
+                <th scope="col">Kind</th>
+                <th scope="col">Company</th>
               </tr>
             </thead>
             <tbody id="timeline"></tbody>
             <tfoot>
               <tr>
-                <td colspan="3" id="meeting-count"></td>
+                <td colspan="3" id="meeting-count" aria-live="polite"></td>
               </tr>
             </tfoot>
           </table>
@@ -66,28 +68,29 @@
       <section class="panel" id="panel-applications" role="tabpanel" aria-labelledby="tab-applications" hidden>
         <div class="panel-head">
           <h2>Applications</h2>
-          <label>
-            Status
+          <div class="filter">
+            <label for="app-filter">Status</label>
             <select id="app-filter">
               <option value="all">All</option>
             </select>
-          </label>
+          </div>
         </div>
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-labelledby="tab-applications">
           <table>
+            <caption class="vh">Applications</caption>
             <thead>
               <tr>
-                <th>Submitted</th>
-                <th>Company</th>
-                <th>Status</th>
-                <th>Board</th>
-                <th>Referral</th>
+                <th scope="col">Submitted</th>
+                <th scope="col">Company</th>
+                <th scope="col">Status</th>
+                <th scope="col">Board</th>
+                <th scope="col">Referral</th>
               </tr>
             </thead>
             <tbody id="app-rows"></tbody>
             <tfoot>
               <tr>
-                <td colspan="5" id="app-count"></td>
+                <td colspan="5" id="app-count" aria-live="polite"></td>
               </tr>
             </tfoot>
           </table>
@@ -98,28 +101,29 @@
       <section class="panel" id="panel-companies" role="tabpanel" aria-labelledby="tab-companies" hidden>
         <div class="panel-head">
           <h2>Companies</h2>
-          <label>
-            Status
+          <div class="filter">
+            <label for="company-filter">Status</label>
             <select id="company-filter">
               <option value="all">All</option>
             </select>
-          </label>
+          </div>
         </div>
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-labelledby="tab-companies">
           <table>
+            <caption class="vh">Companies</caption>
             <thead>
               <tr>
-                <th>Company</th>
-                <th>Status</th>
-                <th>Role</th>
-                <th>Meetings</th>
-                <th>First interview</th>
+                <th scope="col">Company</th>
+                <th scope="col">Status</th>
+                <th scope="col">Role</th>
+                <th scope="col">Meetings</th>
+                <th scope="col">First interview</th>
               </tr>
             </thead>
             <tbody id="company-rows"></tbody>
             <tfoot>
               <tr>
-                <td colspan="5" id="company-count"></td>
+                <td colspan="5" id="company-count" aria-live="polite"></td>
               </tr>
             </tfoot>
           </table>
@@ -174,10 +178,10 @@
           Video rooms with chat and a shared whiteboard. People create a room,
           share a PIN, meet, chat, and draw together.
         </p>
-        <a class="shot" href="https://clockin.sammy.pizza/">
+        <a class="shot" href="https://clockin.sammy.pizza/" tabindex="-1" aria-hidden="true">
           <img
             src="./clockin.png"
-            alt="Clock In With Toons homepage: create a room or join with a PIN"
+            alt=""
             width="760"
             height="428"
           />
