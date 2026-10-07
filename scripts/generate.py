@@ -480,16 +480,12 @@ def main() -> None:
     }
 
     out = ROOT / "data.json"
-    if out.exists():
-        previous = load_json(out)
-        previous.pop("generatedOn", None)
-        comparable = dict(payload)
-        comparable.pop("generatedOn", None)
-        if previous == comparable:
-            print(f"unchanged source={source} companies={len(public_companies)} apps={len(public_apps)} meetings={len(public_meetings)}")
-            return
+    text = json.dumps(payload, indent=2) + "\n"
+    if out.exists() and out.read_text() == text:
+        print(f"unchanged source={source} companies={len(public_companies)} apps={len(public_apps)} meetings={len(public_meetings)}")
+        return
 
-    out.write_text(json.dumps(payload, indent=2) + "\n")
+    out.write_text(text)
     print(f"wrote {out} source={source} companies={len(public_companies)} apps={len(public_apps)} meetings={len(public_meetings)}")
 
 
