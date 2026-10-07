@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-06",
+  "generatedOn": "2026-10-07",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -11,55 +11,56 @@
     "Company table: last edited on or after 2026-09-11"
   ],
   "totals": {
-    "applications": 64,
-    "applicationsSubmitted": 46,
-    "companiesThisSearch": 11,
-    "companiesTaggedJobGame2026": 146,
-    "meetings": 26,
+    "applications": 65,
+    "applicationsSubmitted": 47,
+    "companiesThisSearch": 91,
+    "companiesTaggedJobGame2026": 149,
+    "meetings": 36,
     "recruiterScreens": 3,
     "interviews": 0,
-    "referrals": 10
+    "referrals": 0
   },
   "applicationStatus": {
-    "Submitted": 46,
-    "Archived": 1,
-    "Not started": 17
+    "Submitted": 47,
+    "Not started": 17,
+    "Archived": 1
   },
   "applicationBoards": {
+    "Direct / other": 46,
     "Gary's Guide": 10,
-    "Direct / other": 45,
     "80000 Hours": 2,
     "LinkedIn": 4,
     "Work at a Startup": 3
   },
   "companyStatusThisSearch": {
-    "Applied": 7,
-    "Interviewing": 4
+    "Applied": 15,
+    "Interviewing": 9,
+    "Finding role...": 16,
+    "Interviewed": 51
   },
   "companyStatusTagged": {
+    "Denied": 25,
     "Not Started": 3,
-    "Potential": 33,
-    "Unknown": 2,
+    "Potential": 31,
+    "Finding role...": 1,
+    "Archived": 6,
     "Interviewing": 3,
-    "Ended": 20,
     "Applied": 4,
+    "Ended": 22,
     "Interviewed": 51,
-    "Denied": 22,
-    "Archived": 5,
     "Re-apply": 3
   },
   "meetingKinds": {
-    "meeting": 22,
-    "other": 1,
+    "meeting": 33,
     "recruiter": 3
   },
   "applications": [
     {
-      "submittedOn": "2026-10-05",
+      "submittedOn": "2026-10-06",
       "status": "Submitted",
-      "board": "Gary's Guide",
+      "board": "Direct / other",
       "companies": [
-        "Company 51"
+        "Company 87"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -70,6 +71,16 @@
       "board": "Gary's Guide",
       "companies": [
         "Company 52"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-05",
+      "status": "Submitted",
+      "board": "Gary's Guide",
+      "companies": [
+        "Company 51"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -91,7 +102,17 @@
       "companies": [
         "Company 49"
       ],
-      "referred": true,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-30",
+      "status": "Not started",
+      "board": "Direct / other",
+      "companies": [
+        "Company 47"
+      ],
+      "referred": false,
       "linkedMeetings": 0
     },
     {
@@ -100,6 +121,26 @@
       "board": "Direct / other",
       "companies": [
         "Company 62"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-30",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 60"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-30",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 61"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -119,7 +160,37 @@
       "status": "Submitted",
       "board": "Direct / other",
       "companies": [
-        "Company 61"
+        "Company 64"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-30",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 69"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-30",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 59"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-30",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 68"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -156,30 +227,10 @@
     },
     {
       "submittedOn": "2026-09-30",
-      "status": "Submitted",
-      "board": "Gary's Guide",
-      "companies": [
-        "Company 42"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-30",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 60"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-30",
       "status": "Not started",
       "board": "Direct / other",
       "companies": [
-        "Company 47"
+        "Company 45"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -199,17 +250,7 @@
       "status": "Submitted",
       "board": "Gary's Guide",
       "companies": [
-        "Company 41"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-30",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 69"
+        "Company 43"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -219,7 +260,7 @@
       "status": "Submitted",
       "board": "Gary's Guide",
       "companies": [
-        "Company 43"
+        "Company 42"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -227,39 +268,9 @@
     {
       "submittedOn": "2026-09-30",
       "status": "Submitted",
-      "board": "Direct / other",
+      "board": "Gary's Guide",
       "companies": [
-        "Company 68"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-30",
-      "status": "Not started",
-      "board": "Direct / other",
-      "companies": [
-        "Company 45"
-      ],
-      "referred": true,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-30",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 64"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-30",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 59"
+        "Company 41"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -271,7 +282,7 @@
       "companies": [
         "Company 40"
       ],
-      "referred": true,
+      "referred": false,
       "linkedMeetings": 0
     },
     {
@@ -280,6 +291,16 @@
       "board": "Direct / other",
       "companies": [
         "Company 39"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-25",
+      "status": "Submitted",
+      "board": "80000 Hours",
+      "companies": [
+        "Company 38"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -305,11 +326,11 @@
       "linkedMeetings": 0
     },
     {
-      "submittedOn": "2026-09-25",
+      "submittedOn": "2026-09-23",
       "status": "Submitted",
-      "board": "80000 Hours",
+      "board": "Direct / other",
       "companies": [
-        "Company 38"
+        "Company 33"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -319,9 +340,9 @@
       "status": "Submitted",
       "board": "Direct / other",
       "companies": [
-        "Company 33"
+        "Company 32"
       ],
-      "referred": true,
+      "referred": false,
       "linkedMeetings": 0
     },
     {
@@ -345,11 +366,41 @@
       "linkedMeetings": 0
     },
     {
-      "submittedOn": "2026-09-23",
+      "submittedOn": "2026-09-22",
       "status": "Submitted",
       "board": "Direct / other",
       "companies": [
-        "Company 32"
+        "Company 30"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-22",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 29"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-22",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 28"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-22",
+      "status": "Submitted",
+      "board": "LinkedIn",
+      "companies": [
+        "Company 27"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -360,6 +411,16 @@
       "board": "LinkedIn",
       "companies": [
         "Company 67"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-22",
+      "status": "Submitted",
+      "board": "LinkedIn",
+      "companies": [
+        "Company 26"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -387,61 +448,11 @@
     {
       "submittedOn": "2026-09-22",
       "status": "Submitted",
-      "board": "LinkedIn",
-      "companies": [
-        "Company 27"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-22",
-      "status": "Submitted",
       "board": "Direct / other",
       "companies": [
         "Company 65"
       ],
-      "referred": true,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-22",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 28"
-      ],
       "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-22",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 29"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-22",
-      "status": "Submitted",
-      "board": "LinkedIn",
-      "companies": [
-        "Company 26"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-22",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 30"
-      ],
-      "referred": true,
       "linkedMeetings": 0
     },
     {
@@ -450,6 +461,16 @@
       "board": "Gary's Guide",
       "companies": [
         "Company 23"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-21",
+      "status": "Submitted",
+      "board": "Gary's Guide",
+      "companies": [
+        "Company 22"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -475,16 +496,6 @@
       "linkedMeetings": 0
     },
     {
-      "submittedOn": "2026-09-21",
-      "status": "Submitted",
-      "board": "Gary's Guide",
-      "companies": [
-        "Company 22"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
       "submittedOn": "2026-09-18",
       "status": "Submitted",
       "board": "Direct / other",
@@ -501,7 +512,7 @@
       "companies": [
         "Company 18"
       ],
-      "referred": true,
+      "referred": false,
       "linkedMeetings": 0
     },
     {
@@ -509,47 +520,7 @@
       "status": "Not started",
       "board": "Work at a Startup",
       "companies": [
-        "Company 15"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-17",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 11"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-17",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 14"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-17",
-      "status": "Not started",
-      "board": "Direct / other",
-      "companies": [
-        "Company 13"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-17",
-      "status": "Not started",
-      "board": "Direct / other",
-      "companies": [
-        "Company 66"
+        "Company 17"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -569,7 +540,47 @@
       "status": "Not started",
       "board": "Work at a Startup",
       "companies": [
-        "Company 17"
+        "Company 15"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-17",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 14"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-17",
+      "status": "Not started",
+      "board": "Direct / other",
+      "companies": [
+        "Company 66"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-17",
+      "status": "Not started",
+      "board": "Direct / other",
+      "companies": [
+        "Company 13"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-17",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 11"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -589,6 +600,16 @@
       "status": "Not started",
       "board": "Direct / other",
       "companies": [
+        "Company 10"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-16",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
         "Company 05"
       ],
       "referred": false,
@@ -606,60 +627,10 @@
     },
     {
       "submittedOn": "2026-09-16",
-      "status": "Not started",
-      "board": "Direct / other",
-      "companies": [
-        "Company 63"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-16",
       "status": "Submitted",
       "board": "Direct / other",
       "companies": [
         "Company 07"
-      ],
-      "referred": true,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-16",
-      "status": "Not started",
-      "board": "Direct / other",
-      "companies": [
-        "Company 03"
-      ],
-      "referred": true,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-16",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 04"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-16",
-      "status": "Submitted",
-      "board": "Direct / other",
-      "companies": [
-        "Company 05"
-      ],
-      "referred": false,
-      "linkedMeetings": 0
-    },
-    {
-      "submittedOn": "2026-09-16",
-      "status": "Not started",
-      "board": "Direct / other",
-      "companies": [
-        "Company 10"
       ],
       "referred": false,
       "linkedMeetings": 0
@@ -679,9 +650,19 @@
       "status": "Not started",
       "board": "Direct / other",
       "companies": [
+        "Company 05"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-16",
+      "status": "Not started",
+      "board": "Direct / other",
+      "companies": [
         "Company 01"
       ],
-      "referred": true,
+      "referred": false,
       "linkedMeetings": 0
     },
     {
@@ -693,29 +674,39 @@
       ],
       "referred": false,
       "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-16",
+      "status": "Not started",
+      "board": "Direct / other",
+      "companies": [
+        "Company 63"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-16",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 04"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-16",
+      "status": "Not started",
+      "board": "Direct / other",
+      "companies": [
+        "Company 03"
+      ],
+      "referred": false,
+      "linkedMeetings": 0
     }
   ],
   "companies": [
-    {
-      "alias": "Company 04",
-      "status": "Applied",
-      "role": null,
-      "workType": null,
-      "appliedOn": "2026-09-16",
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": true
-    },
-    {
-      "alias": "Company 07",
-      "status": "Applied",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": true
-    },
     {
       "alias": "Company 18",
       "status": "Applied",
@@ -743,7 +734,17 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 1,
+      "meetingsThisSearch": 2,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 33",
+      "status": "Applied",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
       "jobGame2026Tag": true
     },
     {
@@ -754,6 +755,16 @@
       "appliedOn": null,
       "firstInterviewOn": null,
       "meetingsThisSearch": 3,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 39",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
       "jobGame2026Tag": true
     },
     {
@@ -797,17 +808,890 @@
       "jobGame2026Tag": false
     },
     {
-      "alias": "Company 46",
+      "alias": "Company 50",
+      "status": "Applied",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 53",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 60",
+      "status": "Applied",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-07-25",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 61",
+      "status": "Applied",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 63",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-26",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 65",
+      "status": "Interviewed",
+      "role": "Frontend Engineer",
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2020-08-04",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 66",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-07-21",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 71",
+      "status": "Applied",
+      "role": null,
+      "workType": null,
+      "appliedOn": "2026-09-16",
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 72",
+      "status": "Applied",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 81",
       "status": "Interviewing",
       "role": null,
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": "2026-09-30",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 82",
+      "status": "Applied",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 83",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 85",
+      "status": "Applied",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 86",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 89",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2021-01-05",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 90",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 91",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 92",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 93",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-04-30",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 94",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2021-03-23",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 95",
+      "status": "Applied",
+      "role": null,
+      "workType": "Contract",
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 96",
+      "status": "Interviewed",
+      "role": "Backend Engineer",
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2020-10-23",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 97",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 98",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-09-17",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 99",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-09-20",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 100",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-09-07",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 101",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-09-17",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 102",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-09-28",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 103",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 104",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-03",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 105",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-11",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 106",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-10",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 107",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-12",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 108",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-17",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 109",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-18",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 110",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 111",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-19",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 112",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-19",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 113",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2022-10-25",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 114",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": "2022-10-10",
+      "firstInterviewOn": "2022-10-27",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 115",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": "2022-10-27",
+      "firstInterviewOn": "2022-10-31",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 116",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 117",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 118",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-01-10",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 119",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-01-17",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 120",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-01-26",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 121",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": "2023-01-26",
+      "firstInterviewOn": "2023-02-01",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 122",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": "2023-02-13",
+      "firstInterviewOn": "2025-05-23",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 123",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": "2023-03-01",
+      "firstInterviewOn": "2023-03-03",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 124",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": "2023-02-28",
+      "firstInterviewOn": "2023-03-13",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 125",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-03-10",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 126",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-03-27",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 127",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-03-28",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 128",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-05-12",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 129",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-06-20",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 130",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-07-17",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 131",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-07-21",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 132",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2023-07-24",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 133",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2025-05-30",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 134",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2025-06-03",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 135",
+      "status": "Interviewed",
+      "role": "Frontend Engineer",
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-10-11",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 136",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-09-16",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 137",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2025-05-28",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 138",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2025-06-07",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 139",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-09-20",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 140",
+      "status": "Applied",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-08-22",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 141",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-08-27",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 142",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-08-21",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 143",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-07-23",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 144",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-07-26",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 145",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-07-25",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 146",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-07-24",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 147",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-07-15",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 148",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-07-03",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 149",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-07-09",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 150",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-07-05",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 151",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-06-28",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 152",
+      "status": "Interviewed",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2024-06-27",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": true
+    },
+    {
+      "alias": "Company 153",
+      "status": "Finding role...",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": "2025-07-09",
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 154",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
       "meetingsThisSearch": 1,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 155",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
       "jobGame2026Tag": false
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-13",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-12",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 154"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-12",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 157"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-12",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-09",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 156"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-09",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-09",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 30"
+      ],
+      "linkedToJobGame2026": false
+    },
     {
       "date": "2026-10-08",
       "kind": "meeting",
@@ -817,19 +1701,21 @@
       "companies": [
         "Company 34"
       ],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
-      "date": "2026-10-05",
+      "date": "2026-10-07",
       "kind": "meeting",
       "tags": [
         "jobs"
       ],
-      "companies": [],
-      "linkedToJobGame2026": true
+      "companies": [
+        "Company 68"
+      ],
+      "linkedToJobGame2026": false
     },
     {
-      "date": "2026-10-05",
+      "date": "2026-10-06",
       "kind": "meeting",
       "tags": [
         "jobs"
@@ -837,45 +1723,29 @@
       "companies": [
         "Company 48"
       ],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
-      "date": "2026-10-05",
-      "kind": "meeting",
-      "tags": [
-        "jobs"
-      ],
-      "companies": [],
-      "linkedToJobGame2026": true
-    },
-    {
-      "date": "2026-10-05",
+      "date": "2026-10-06",
       "kind": "meeting",
       "tags": [
         "jobs"
       ],
       "companies": [
-        "Company 49"
+        "Company 87"
       ],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
-      "date": "2026-10-05",
+      "date": "2026-10-06",
       "kind": "meeting",
       "tags": [
         "jobs"
       ],
-      "companies": [],
-      "linkedToJobGame2026": true
-    },
-    {
-      "date": "2026-10-05",
-      "kind": "meeting",
-      "tags": [
-        "jobs"
+      "companies": [
+        "Company 88"
       ],
-      "companies": [],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-10-05",
@@ -886,7 +1756,65 @@
       "companies": [
         "Company 29"
       ],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 49"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-10-04",
@@ -903,8 +1831,10 @@
       "tags": [
         "jobs"
       ],
-      "companies": [],
-      "linkedToJobGame2026": true
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-10-02",
@@ -912,10 +1842,8 @@
       "tags": [
         "jobs"
       ],
-      "companies": [
-        "Company 48"
-      ],
-      "linkedToJobGame2026": true
+      "companies": [],
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-10-01",
@@ -926,14 +1854,7 @@
       "companies": [
         "Company 30"
       ],
-      "linkedToJobGame2026": true
-    },
-    {
-      "date": "2026-10-01",
-      "kind": "other",
-      "tags": [],
-      "companies": [],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-09-30",
@@ -941,10 +1862,8 @@
       "tags": [
         "jobs"
       ],
-      "companies": [
-        "Company 19"
-      ],
-      "linkedToJobGame2026": true
+      "companies": [],
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-09-30",
@@ -955,7 +1874,7 @@
       "companies": [
         "Company 46"
       ],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-09-30",
@@ -963,19 +1882,10 @@
       "tags": [
         "jobs"
       ],
-      "companies": [],
-      "linkedToJobGame2026": true
-    },
-    {
-      "date": "2026-09-29",
-      "kind": "meeting",
-      "tags": [
-        "jobs"
-      ],
       "companies": [
-        "Company 34"
+        "Company 19"
       ],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-09-29",
@@ -986,10 +1896,10 @@
       "companies": [
         "Company 32"
       ],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
-      "date": "2026-09-25",
+      "date": "2026-09-29",
       "kind": "meeting",
       "tags": [
         "jobs"
@@ -997,7 +1907,7 @@
       "companies": [
         "Company 34"
       ],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-09-25",
@@ -1009,14 +1919,35 @@
       "linkedToJobGame2026": false
     },
     {
-      "date": "2026-09-23",
+      "date": "2026-09-25",
       "kind": "meeting",
       "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 34"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-23",
+      "kind": "recruiter",
+      "tags": [
         "jobs",
-        "advice"
+        "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-23",
+      "kind": "recruiter",
+      "tags": [
+        "jobs",
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-09-23",
@@ -1027,27 +1958,17 @@
       "companies": [
         "Company 20"
       ],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-09-23",
-      "kind": "recruiter",
+      "kind": "meeting",
       "tags": [
         "jobs",
-        "recruiter"
+        "advice"
       ],
       "companies": [],
-      "linkedToJobGame2026": true
-    },
-    {
-      "date": "2026-09-23",
-      "kind": "recruiter",
-      "tags": [
-        "jobs",
-        "recruiter"
-      ],
-      "companies": [],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-09-22",
@@ -1057,7 +1978,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     },
     {
       "date": "2026-09-17",
@@ -1066,7 +1987,7 @@
         "jobs"
       ],
       "companies": [],
-      "linkedToJobGame2026": true
+      "linkedToJobGame2026": false
     }
   ]
 }
