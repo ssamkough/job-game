@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-08",
+  "generatedOn": "2026-10-09",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -15,7 +15,7 @@
     "applicationsSubmitted": 47,
     "companiesThisSearch": 92,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 39,
+    "meetings": 42,
     "recruiterScreens": 3,
     "interviews": 0,
     "referrals": 0
@@ -51,7 +51,7 @@
     "Re-apply": 3
   },
   "meetingKinds": {
-    "meeting": 36,
+    "meeting": 39,
     "recruiter": 3
   },
   "applications": [
@@ -774,7 +774,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
+      "meetingsThisSearch": 1,
       "jobGame2026Tag": false
     },
     {
@@ -1630,6 +1630,48 @@
   ],
   "meetings": [
     {
+      "date": "2026-10-19",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-15",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 161"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "meeting",
+      "tags": [
+        "jobs"
+      ],
+      "companies": [
+        "Company 41"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
       "date": "2026-10-13",
       "kind": "meeting",
       "tags": [
@@ -1679,17 +1721,6 @@
       ],
       "companies": [
         "Company 157"
-      ],
-      "linkedToJobGame2026": false
-    },
-    {
-      "date": "2026-10-12",
-      "kind": "meeting",
-      "tags": [
-        "jobs"
-      ],
-      "companies": [
-        "Company 48"
       ],
       "linkedToJobGame2026": false
     },
