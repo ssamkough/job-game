@@ -9,7 +9,7 @@ import re
 import time
 import urllib.error
 import urllib.request
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 
@@ -20,17 +20,15 @@ NOTION_VERSION = "2025-09-03"
 APPLICATIONS_DB = "3ddfada0-be4f-8039-99fd-000b79c75747"
 COMPANIES_DB = "5d6b384e-4857-4483-a48c-2c1d0d291a2c"
 MEETINGS_DB = "f77ebcc7-8983-4b6c-b9d9-f79bddb851f0"
-JOB_TAGS = {
-    "jobs",
-    "interview",
-    "recruiter",
-    "technical",
-    "behavioral",
-    "in-person / onsite",
-    "talent",
-    "founder",
-}
-PUBLIC_TAGS = JOB_TAGS | {"advice"}
+# Submitted view: status group Complete (Submitted + Archived).
+APPLICATION_VIEW_STATUSES = {"Submitted", "Archived"}
+# Kind labels for the public table. The jobs tag selects the view, but is never shown.
+MEETING_KIND_TAGS = (
+    ("onsite", "in-person / onsite"),
+    ("technical", "technical"),
+    ("intro", "intro"),
+    ("recruiter", "recruiter"),
+)
 ALIAS_PATH = ROOT / "scripts" / "aliases.json"
 COMPANY_TABLE_STATUSES = {
     "Finding role...",
@@ -73,15 +71,15 @@ def load_json(path: Path):
 
 def classify_meeting(tags: list[str]) -> str:
     lowered = {t.lower() for t in tags}
-    if lowered & {"interview", "technical", "behavioral", "in-person / onsite"}:
-        return "interview"
-    if lowered & {"recruiter", "talent"}:
-        return "recruiter"
-    if "jobs" in lowered:
-        return "meeting"
-    if "advice" in lowered:
-        return "advice"
+    for kind, tag in MEETING_KIND_TAGS:
+        if tag in lowered:
+            return kind
     return "other"
+
+
+def public_meeting_tags(tags: list[str]) -> list[str]:
+    lowered = {t.lower() for t in tags}
+    return [kind for kind, tag in MEETING_KIND_TAGS if tag in lowered]
 
 
 def iso_date(value: str | None) -> str | None:
@@ -177,6 +175,7 @@ def normalize_company(page: dict) -> dict:
     props = properties(page)
     return {
         "url": page.get("url") or page.get("id"),
+        "Name": unwrap(props.get("Name")),
         "Status": unwrap(props.get("Status")),
         "Role": as_json_list(unwrap(props.get("Role"))),
         "Work Type": as_json_list(unwrap(props.get("Work Type"))),
@@ -195,11 +194,13 @@ def normalize_application(page: dict) -> dict:
     props = properties(page)
     return {
         "url": page.get("url") or page.get("id"),
+        "Name": unwrap(props.get("Name")),
         "status": unwrap(props.get("status")) or unwrap(props.get("Status")),
         "Board": unwrap(props.get("Board")),
         "created": created_stamp(page),
         "company": as_json_list(unwrap(props.get("company"))),
         "meetings list": as_json_list(unwrap(props.get("meetings list"))),
+        "recruiter": as_json_list(unwrap(props.get("recruiter"))),
         "referral from colleague": as_json_list(unwrap(props.get("referral from colleague"))),
     }
 
@@ -221,33 +222,26 @@ def load_from_notion() -> tuple[list[dict], list[dict], list[dict]]:
     companies = [normalize_company(page) for page in query_database(COMPANIES_DB)]
     applications = [normalize_application(page) for page in query_database(APPLICATIONS_DB)]
     activity = dashed_id(JOB_GAME_ACTIVITY)
+    meeting_filter = {
+        "and": [
+            {"property": "Date", "date": {"before": date.today().isoformat()}},
+            {"property": "Tags", "multi_select": {"contains": "jobs"}},
+            {
+                "property": "activities <-> meetings",
+                "relation": {"contains": activity},
+            },
+        ]
+    }
     try:
+        meetings_pages = query_database(MEETINGS_DB, meeting_filter)
+    except RuntimeError:
         meetings_pages = query_database(
             MEETINGS_DB,
             {
-                "or": [
-                    {
-                        "timestamp": "created_time",
-                        "created_time": {"on_or_after": CUTOFF},
-                    },
-                    {
-                        "property": "activities <-> meetings",
-                        "relation": {"contains": activity},
-                    },
-                ]
+                "property": "activities <-> meetings",
+                "relation": {"contains": activity},
             },
         )
-    except RuntimeError:
-        recent = query_database(
-            MEETINGS_DB,
-            {"timestamp": "created_time", "created_time": {"on_or_after": CUTOFF}},
-        )
-        related = query_database(
-            MEETINGS_DB,
-            {"property": "activities <-> meetings", "relation": {"contains": activity}},
-        )
-        by_id = {page["id"]: page for page in recent + related}
-        meetings_pages = list(by_id.values())
     meetings = [normalize_meeting(page) for page in meetings_pages]
     if not applications or not companies:
         raise SystemExit("Notion returned no applications or companies; refusing to publish")
@@ -285,6 +279,10 @@ def after_cutoff(value: str | None) -> bool:
     return stamp >= f"{CUTOFF}T" or stamp >= f"{CUTOFF} " or stamp >= CUTOFF
 
 
+def keep_application(app: dict) -> bool:
+    return (app.get("status") or "") in APPLICATION_VIEW_STATUSES
+
+
 def company_in_table(row: dict) -> bool:
     if (row.get("Status") or "") not in COMPANY_TABLE_STATUSES:
         return False
@@ -292,14 +290,15 @@ def company_in_table(row: dict) -> bool:
 
 
 def keep_meeting(meeting: dict) -> bool:
-    tags = parse_list(meeting.get("Tags"))
-    activities = parse_list(meeting.get("activities <-> meetings"))
-    created = meeting.get("Created") or ""
-    related = any(JOB_GAME_ACTIVITY in (a or "").replace("-", "") for a in activities)
-    jobby = bool(set(tags) & JOB_TAGS)
-    if not (related or (after_cutoff(created) and jobby)):
+    tags = {t.lower() for t in parse_list(meeting.get("Tags"))}
+    if "jobs" not in tags:
         return False
-    return related or jobby or "advice" in tags or "friends" in tags
+    activities = parse_list(meeting.get("activities <-> meetings"))
+    related = any(JOB_GAME_ACTIVITY in (a or "").replace("-", "") for a in activities)
+    if not related:
+        return False
+    meeting_date = iso_date(meeting.get("date:Date:start"))
+    return bool(meeting_date and meeting_date < date.today().isoformat())
 
 
 def previous_tagged_status() -> dict[str, int] | None:
@@ -330,8 +329,10 @@ def main() -> None:
         if cid:
             company_by_id[cid] = row
 
+    kept_apps = [app for app in applications if keep_application(app)]
+
     referenced_ids: set[str] = set()
-    for app in applications:
+    for app in kept_apps:
         for url in parse_list(app.get("company")):
             cid = page_id(url)
             if cid:
@@ -367,22 +368,26 @@ def main() -> None:
             labels.append(alias[cid])
         return labels
 
+    hidden_meetings: dict[str, list[dict]] = defaultdict(list)
     public_meetings = []
     for meeting in kept_meetings:
-        tags = [t for t in parse_list(meeting.get("Tags")) if t in PUBLIC_TAGS]
+        raw_tags = parse_list(meeting.get("Tags"))
         related = any(
             JOB_GAME_ACTIVITY in (a or "").replace("-", "")
             for a in parse_list(meeting.get("activities <-> meetings"))
         )
-        public_meetings.append(
-            {
-                "date": iso_date(meeting.get("date:Date:start")),
-                "kind": classify_meeting(parse_list(meeting.get("Tags"))),
-                "tags": tags,
-                "companies": aliases_for(meeting.get("companies <-> meetings")),
-                "linkedToJobGame2026": related,
-            }
-        )
+        labels = aliases_for(meeting.get("companies <-> meetings"))
+        row = {
+            "date": iso_date(meeting.get("date:Date:start")),
+            "kind": classify_meeting(raw_tags),
+            "tags": public_meeting_tags(raw_tags),
+            "companies": labels,
+            "linkedToJobGame2026": related,
+        }
+        public_meetings.append(row)
+        hidden_row = {"date": row["date"], "kind": row["kind"]}
+        for label in labels:
+            hidden_meetings[label].append(hidden_row)
     public_meetings.sort(key=lambda row: row["date"] or "", reverse=True)
 
     meeting_counts = Counter()
@@ -390,19 +395,30 @@ def main() -> None:
         for label in meeting["companies"]:
             meeting_counts[label] += 1
 
+    hidden_apps: dict[str, list[dict]] = defaultdict(list)
     public_apps = []
-    for app in applications:
+    for app in kept_apps:
         labels = aliases_for(app.get("company"))
-        public_apps.append(
-            {
-                "submittedOn": iso_date(app.get("created")),
-                "status": app.get("status") or "Unknown",
-                "board": app.get("Board") or "Direct / other",
-                "companies": labels,
-                "referred": bool(parse_list(app.get("referral from colleague"))),
-                "linkedMeetings": len(parse_list(app.get("meetings list"))),
-            }
-        )
+        row = {
+            "submittedOn": iso_date(app.get("created")),
+            "status": app.get("status") or "Unknown",
+            "board": app.get("Board") or "Direct / other",
+            "companies": labels,
+            "recruiter": bool(parse_list(app.get("recruiter"))),
+            "referred": bool(parse_list(app.get("referral from colleague"))),
+            "linkedMeetings": len(parse_list(app.get("meetings list"))),
+        }
+        public_apps.append(row)
+        hidden_row = {
+            "submittedOn": row["submittedOn"],
+            "status": row["status"],
+            "board": row["board"],
+            "role": app.get("Name"),
+            "recruiter": row["recruiter"],
+            "referred": row["referred"],
+        }
+        for label in labels:
+            hidden_apps[label].append(hidden_row)
     public_apps.sort(key=lambda row: row["submittedOn"] or "", reverse=True)
 
     visible_ids = [cid for cid in table_ids if cid in alias]
@@ -453,8 +469,8 @@ def main() -> None:
         "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
         "filters": [
             f"Created on or after {CUTOFF}",
-            "Job Game 2026 activity relation",
-            "Job Game 2026 Applications database",
+            "Meetings fin | job game 2026 view (date before today, jobs tag, Job Game 2026 activity)",
+            "Job Game 2026 Applications Submitted view (status Complete: Submitted, Archived)",
             "retried for job game 2026 tag on companies",
             "Company table: Finding role..., Applied, Interviewing, Take-Home, Negotating/Negotiating, Interviewed",
             f"Company table: last edited on or after {CUTOFF}",
@@ -465,8 +481,9 @@ def main() -> None:
             "companiesThisSearch": len(public_companies),
             "companiesTaggedJobGame2026": sum(tagged_status.values()),
             "meetings": len(public_meetings),
-            "recruiterScreens": meeting_kind.get("recruiter", 0),
-            "interviews": meeting_kind.get("interview", 0),
+            "recruiterScreens": sum(1 for row in public_meetings if "recruiter" in row["tags"]),
+            "recruiters": sum(1 for row in public_apps if row["recruiter"]),
+            "interviews": meeting_kind.get("technical", 0),
             "referrals": sum(1 for row in public_apps if row["referred"]),
         },
         "applicationStatus": dict(app_status),
@@ -479,14 +496,46 @@ def main() -> None:
         "meetings": public_meetings,
     }
 
-    out = ROOT / "data.json"
-    text = json.dumps(payload, indent=2) + "\n"
-    if out.exists() and out.read_text() == text:
+    label_to_cid = {alias[cid]: cid for cid in alias if cid in alias_numbers}
+    shown_labels = {row["alias"] for row in public_companies} | set(hidden_apps) | set(hidden_meetings)
+    hidden_companies = []
+    for label in sorted(shown_labels, key=lambda item: alias_numbers[label_to_cid[item]]):
+        cid = label_to_cid[label]
+        row = company_by_id.get(cid, {})
+        hidden_companies.append(
+            {
+                "alias": label,
+                "name": row.get("Name"),
+                "status": row.get("Status") or "Unknown",
+                "applications": hidden_apps.get(label, []),
+                "meetings": hidden_meetings.get(label, []),
+            }
+        )
+    hidden_payload = {
+        "generatedOn": date.today().isoformat(),
+        "companies": hidden_companies,
+    }
+
+    def write_json(path: Path, blob: dict) -> bool:
+        text = json.dumps(blob, indent=2) + "\n"
+        if path.exists() and path.read_text() == text:
+            return False
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text)
+        return True
+
+    public_path = ROOT / "data.json"
+    hidden_path = ROOT / "hidden" / "data.json"
+    wrote_public = write_json(public_path, payload)
+    wrote_hidden = write_json(hidden_path, hidden_payload)
+    if not wrote_public and not wrote_hidden:
         print(f"unchanged source={source} companies={len(public_companies)} apps={len(public_apps)} meetings={len(public_meetings)}")
         return
-
-    out.write_text(text)
-    print(f"wrote {out} source={source} companies={len(public_companies)} apps={len(public_apps)} meetings={len(public_meetings)}")
+    print(
+        f"wrote source={source} companies={len(public_companies)} apps={len(public_apps)} "
+        f"meetings={len(public_meetings)} hidden={len(hidden_companies)} "
+        f"public={wrote_public} names={wrote_hidden}"
+    )
 
 
 if __name__ == "__main__":

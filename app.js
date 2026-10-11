@@ -125,11 +125,11 @@ const render = (data) => {
 
   const stats = [
     ["Applications", data.totals.applications],
-    ["Submitted", data.totals.applicationsSubmitted],
+    ["Recruiter", data.totals.recruiters ?? 0],
+    ["Referrals", data.totals.referrals],
     ["Companies", data.totals.companiesThisSearch],
     ["Meetings", meetingTotal],
     ["Recruiter screens", data.totals.recruiterScreens],
-    ["Referrals", data.totals.referrals],
   ];
   document.getElementById("stats").innerHTML = stats
     .map(([label, n]) => `<li><b>${n}</b><span>${label}</span></li>`)
@@ -201,6 +201,7 @@ const render = (data) => {
           <td>${row.companies.join(", ") || "—"}</td>
           <td>${row.status}</td>
           <td>${row.board}</td>
+          <td>${row.recruiter ? "yes" : "no"}</td>
           <td>${row.referred ? "yes" : "no"}</td>
         </tr>`
       )

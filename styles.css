@@ -292,6 +292,63 @@ section {
   margin-top: 8px;
 }
 
+.search {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 18px 0 8px;
+}
+
+.search input {
+  border: 1px solid #1a1a1a;
+  background: #f7f4ee;
+  padding: 2px 6px;
+  min-width: 12rem;
+}
+
+#ledger-count {
+  margin: 0 0 18px;
+}
+
+.company-card {
+  margin: 0 0 28px;
+  padding-top: 12px;
+  border-top: 1px solid #1a1a1a;
+}
+
+.company-card h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1.05rem;
+}
+
+.alias {
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.4em;
+}
+
+.company-card .meta {
+  margin-top: 4px;
+}
+
+.related {
+  margin-top: 12px;
+}
+
+.related h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.related ul {
+  margin-top: 4px;
+}
+
+.related p {
+  margin-top: 4px;
+}
+
 .shot {
   display: block;
   margin-top: 14px;
