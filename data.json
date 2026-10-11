@@ -15,10 +15,10 @@
     "applicationsSubmitted": 47,
     "companiesThisSearch": 92,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 0,
-    "recruiterScreens": 0,
+    "meetings": 33,
+    "recruiterScreens": 17,
     "recruiters": 0,
-    "interviews": 0,
+    "interviews": 3,
     "referrals": 0
   },
   "applicationStatus": {
@@ -49,7 +49,13 @@
     "Interviewed": 51,
     "Re-apply": 3
   },
-  "meetingKinds": {},
+  "meetingKinds": {
+    "intro": 11,
+    "technical": 3,
+    "recruiter": 15,
+    "onsite": 1,
+    "other": 3
+  },
   "applications": [
     {
       "submittedOn": "2026-10-06",
@@ -598,7 +604,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
+      "meetingsThisSearch": 1,
       "jobGame2026Tag": true
     },
     {
@@ -608,7 +614,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
+      "meetingsThisSearch": 2,
       "jobGame2026Tag": true
     },
     {
@@ -628,7 +634,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
+      "meetingsThisSearch": 3,
       "jobGame2026Tag": true
     },
     {
@@ -1502,5 +1508,337 @@
       "jobGame2026Tag": false
     }
   ],
-  "meetings": []
+  "meetings": [
+    {
+      "date": "2026-10-09",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 160"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-09",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "companies": [
+        "Company 156"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-09",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-09",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "companies": [
+        "Company 30"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-08",
+      "kind": "onsite",
+      "tags": [
+        "onsite"
+      ],
+      "companies": [
+        "Company 34"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-07",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 68"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-06",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-06",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 87"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-06",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 88"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 29"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 49"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "intro",
+      "tags": [
+        "intro",
+        "recruiter"
+      ],
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-05",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-04",
+      "kind": "other",
+      "tags": [],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-02",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-02",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-10-01",
+      "kind": "intro",
+      "tags": [
+        "intro",
+        "recruiter"
+      ],
+      "companies": [
+        "Company 30"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-30",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-30",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 46"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-30",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 19"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-29",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 32"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-29",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "companies": [
+        "Company 34"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-25",
+      "kind": "other",
+      "tags": [],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-25",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 34"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-23",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-23",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-23",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 20"
+      ],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-23",
+      "kind": "other",
+      "tags": [],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-22",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    },
+    {
+      "date": "2026-09-17",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": false
+    }
+  ]
 }

@@ -143,14 +143,24 @@
           "referred": false
         }
       ],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-09-30",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 20",
       "name": "Turtles",
       "status": "Interviewing",
       "applications": [],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-09-23",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 21",
@@ -294,7 +304,12 @@
           "referred": false
         }
       ],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-05",
+          "kind": "recruiter"
+        }
+      ]
     },
     {
       "alias": "Company 30",
@@ -310,7 +325,16 @@
           "referred": false
         }
       ],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-09",
+          "kind": "technical"
+        },
+        {
+          "date": "2026-10-01",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 31",
@@ -342,7 +366,12 @@
           "referred": false
         }
       ],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-09-29",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 33",
@@ -365,7 +394,20 @@
       "name": "Eisen",
       "status": "Interviewing",
       "applications": [],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-08",
+          "kind": "onsite"
+        },
+        {
+          "date": "2026-09-29",
+          "kind": "technical"
+        },
+        {
+          "date": "2026-09-25",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 35",
@@ -503,6 +545,38 @@
       "meetings": []
     },
     {
+      "alias": "Company 46",
+      "name": null,
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-09-30",
+          "kind": "intro"
+        }
+      ]
+    },
+    {
+      "alias": "Company 48",
+      "name": null,
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-06",
+          "kind": "recruiter"
+        },
+        {
+          "date": "2026-10-05",
+          "kind": "intro"
+        },
+        {
+          "date": "2026-10-02",
+          "kind": "intro"
+        }
+      ]
+    },
+    {
       "alias": "Company 49",
       "name": "Postscript",
       "status": "Denied",
@@ -516,7 +590,12 @@
           "referred": false
         }
       ],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-05",
+          "kind": "recruiter"
+        }
+      ]
     },
     {
       "alias": "Company 50",
@@ -777,7 +856,12 @@
           "referred": false
         }
       ],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-07",
+          "kind": "recruiter"
+        }
+      ]
     },
     {
       "alias": "Company 69",
@@ -858,7 +942,24 @@
           "referred": false
         }
       ],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-06",
+          "kind": "recruiter"
+        }
+      ]
+    },
+    {
+      "alias": "Company 88",
+      "name": null,
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-06",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 89",
@@ -1330,11 +1431,35 @@
       "meetings": []
     },
     {
+      "alias": "Company 156",
+      "name": null,
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-09",
+          "kind": "technical"
+        }
+      ]
+    },
+    {
       "alias": "Company 158",
       "name": "Antimetal",
       "status": "Interviewing",
       "applications": [],
       "meetings": []
+    },
+    {
+      "alias": "Company 160",
+      "name": "Codes Health",
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-09",
+          "kind": "intro"
+        }
+      ]
     }
   ]
 }
