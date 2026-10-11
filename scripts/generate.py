@@ -147,7 +147,13 @@ def unwrap(prop: dict | None):
     if kind == "date":
         return value.get("start")
     if kind == "relation":
-        return [item["id"] for item in value]
+        ids = []
+        for item in value or []:
+            if isinstance(item, str):
+                ids.append(item)
+            elif isinstance(item, dict):
+                ids.append(item.get("id") or item.get("page_id") or "")
+        return [item for item in ids if item]
     if kind == "rich_text" or kind == "title":
         return "".join(item.get("plain_text") or "" for item in value) or None
     if kind == "people":
@@ -221,27 +227,10 @@ def normalize_meeting(page: dict) -> dict:
 def load_from_notion() -> tuple[list[dict], list[dict], list[dict]]:
     companies = [normalize_company(page) for page in query_database(COMPANIES_DB)]
     applications = [normalize_application(page) for page in query_database(APPLICATIONS_DB)]
-    activity = dashed_id(JOB_GAME_ACTIVITY)
-    meeting_filter = {
-        "and": [
-            {"property": "Date", "date": {"before": date.today().isoformat()}},
-            {"property": "Tags", "multi_select": {"contains": "jobs"}},
-            {
-                "property": "activities <-> meetings",
-                "relation": {"contains": activity},
-            },
-        ]
-    }
-    try:
-        meetings_pages = query_database(MEETINGS_DB, meeting_filter)
-    except RuntimeError:
-        meetings_pages = query_database(
-            MEETINGS_DB,
-            {
-                "property": "activities <-> meetings",
-                "relation": {"contains": activity},
-            },
-        )
+    meetings_pages = query_database(
+        MEETINGS_DB,
+        {"property": "Tags", "multi_select": {"contains": "jobs"}},
+    )
     meetings = [normalize_meeting(page) for page in meetings_pages]
     if not applications or not companies:
         raise SystemExit("Notion returned no applications or companies; refusing to publish")
@@ -293,12 +282,12 @@ def keep_meeting(meeting: dict) -> bool:
     tags = {t.lower() for t in parse_list(meeting.get("Tags"))}
     if "jobs" not in tags:
         return False
+    meeting_date = iso_date(meeting.get("date:Date:start"))
+    if not meeting_date or meeting_date >= date.today().isoformat():
+        return False
     activities = parse_list(meeting.get("activities <-> meetings"))
     related = any(JOB_GAME_ACTIVITY in (a or "").replace("-", "") for a in activities)
-    if not related:
-        return False
-    meeting_date = iso_date(meeting.get("date:Date:start"))
-    return bool(meeting_date and meeting_date < date.today().isoformat())
+    return related or after_cutoff(meeting_date)
 
 
 def previous_tagged_status() -> dict[str, int] | None:
