@@ -60,7 +60,7 @@
           "board": "Direct / other",
           "role": "Growth Engineer",
           "recruiter": false,
-          "referred": false
+          "referred": true
         }
       ],
       "meetings": []
@@ -124,7 +124,7 @@
           "board": "Direct / other",
           "role": "Senior Software Engineer, Fullstack (Posh)",
           "recruiter": false,
-          "referred": false
+          "referred": true
         }
       ],
       "meetings": []
@@ -139,7 +139,7 @@
           "status": "Submitted",
           "board": "Direct / other",
           "role": "Fullstack Product Engineer",
-          "recruiter": false,
+          "recruiter": true,
           "referred": false
         }
       ],
@@ -300,7 +300,7 @@
           "status": "Submitted",
           "board": "Direct / other",
           "role": "Senior iOS Engineer",
-          "recruiter": false,
+          "recruiter": true,
           "referred": false
         }
       ],
@@ -322,7 +322,7 @@
           "board": "Direct / other",
           "role": "Senior Software Engineer, Fullstack (Consumer Engineering)",
           "recruiter": false,
-          "referred": false
+          "referred": true
         }
       ],
       "meetings": [
@@ -362,7 +362,7 @@
           "status": "Submitted",
           "board": "Direct / other",
           "role": "Software Engineer, Product & Platform",
-          "recruiter": false,
+          "recruiter": true,
           "referred": false
         }
       ],
@@ -384,7 +384,7 @@
           "board": "Direct / other",
           "role": "Mobile iOS Engineer",
           "recruiter": false,
-          "referred": false
+          "referred": true
         }
       ],
       "meetings": []
@@ -419,7 +419,7 @@
           "status": "Submitted",
           "board": "Direct / other",
           "role": "Software Engineer",
-          "recruiter": false,
+          "recruiter": true,
           "referred": false
         }
       ],
@@ -475,7 +475,7 @@
           "board": "Direct / other",
           "role": "Senior Software Engineer",
           "recruiter": false,
-          "referred": false
+          "referred": true
         }
       ],
       "meetings": []
@@ -587,7 +587,7 @@
           "board": "Direct / other",
           "role": "Senior Software Engineer, Full Stack [Postscript]",
           "recruiter": false,
-          "referred": false
+          "referred": true
         }
       ],
       "meetings": [
@@ -814,7 +814,7 @@
           "board": "Direct / other",
           "role": "Sr. Front End Engineer, AWS Marketplace",
           "recruiter": false,
-          "referred": false
+          "referred": true
         }
       ],
       "meetings": []
@@ -938,7 +938,7 @@
           "status": "Submitted",
           "board": "Direct / other",
           "role": "Senior II, Integrations [Trunk Tools]",
-          "recruiter": false,
+          "recruiter": true,
           "referred": false
         }
       ],

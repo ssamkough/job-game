@@ -17,9 +17,9 @@
     "companiesTaggedJobGame2026": 149,
     "meetings": 33,
     "recruiterScreens": 17,
-    "recruiters": 0,
+    "recruiters": 5,
     "interviews": 3,
-    "referrals": 0
+    "referrals": 7
   },
   "applicationStatus": {
     "Submitted": 47,
@@ -64,7 +64,7 @@
       "companies": [
         "Company 87"
       ],
-      "recruiter": false,
+      "recruiter": true,
       "referred": false,
       "linkedMeetings": 0
     },
@@ -109,7 +109,7 @@
         "Company 49"
       ],
       "recruiter": false,
-      "referred": false,
+      "referred": true,
       "linkedMeetings": 0
     },
     {
@@ -274,7 +274,7 @@
         "Company 40"
       ],
       "recruiter": false,
-      "referred": false,
+      "referred": true,
       "linkedMeetings": 0
     },
     {
@@ -306,7 +306,7 @@
       "companies": [
         "Company 35"
       ],
-      "recruiter": false,
+      "recruiter": true,
       "referred": false,
       "linkedMeetings": 0
     },
@@ -318,7 +318,7 @@
         "Company 33"
       ],
       "recruiter": false,
-      "referred": false,
+      "referred": true,
       "linkedMeetings": 0
     },
     {
@@ -328,7 +328,7 @@
       "companies": [
         "Company 32"
       ],
-      "recruiter": false,
+      "recruiter": true,
       "referred": false,
       "linkedMeetings": 0
     },
@@ -362,7 +362,7 @@
         "Company 30"
       ],
       "recruiter": false,
-      "referred": false,
+      "referred": true,
       "linkedMeetings": 0
     },
     {
@@ -372,7 +372,7 @@
       "companies": [
         "Company 29"
       ],
-      "recruiter": false,
+      "recruiter": true,
       "referred": false,
       "linkedMeetings": 0
     },
@@ -450,7 +450,7 @@
         "Company 65"
       ],
       "recruiter": false,
-      "referred": false,
+      "referred": true,
       "linkedMeetings": 0
     },
     {
@@ -504,7 +504,7 @@
       "companies": [
         "Company 19"
       ],
-      "recruiter": false,
+      "recruiter": true,
       "referred": false,
       "linkedMeetings": 1
     },
@@ -516,7 +516,7 @@
         "Company 18"
       ],
       "recruiter": false,
-      "referred": false,
+      "referred": true,
       "linkedMeetings": 0
     },
     {
@@ -571,7 +571,7 @@
         "Company 07"
       ],
       "recruiter": false,
-      "referred": false,
+      "referred": true,
       "linkedMeetings": 0
     },
     {
