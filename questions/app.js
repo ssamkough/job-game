@@ -35,26 +35,22 @@ const listSection = (title, items) => {
 const technicalSection = (items) => {
   if (!items.length) {
     return `<section class="question-block">
-      <details class="question-details">
-        <summary>Technical</summary>
-        <p>None in this snapshot.</p>
-      </details>
+      <h2>Technical</h2>
+      <p>None in this snapshot.</p>
     </section>`;
   }
   return `<section class="question-block">
-    <details class="question-details">
-      <summary>Technical</summary>
-      ${items
-        .map((item, index) => {
-          const title = item.title || `Prompt ${index + 1}`;
-          const prompt = item.prompt || "";
-          return `<article class="prompt">
-            <h3>${esc(title)}</h3>
-            <pre>${esc(prompt)}</pre>
-          </article>`;
-        })
-        .join("")}
-    </details>
+    <h2>Technical</h2>
+    ${items
+      .map((item, index) => {
+        const title = item.title || `Prompt ${index + 1}`;
+        const prompt = item.prompt || "";
+        return `<details class="prompt">
+          <summary>${esc(title)}</summary>
+          <pre>${esc(prompt)}</pre>
+        </details>`;
+      })
+      .join("")}
   </section>`;
 };
 

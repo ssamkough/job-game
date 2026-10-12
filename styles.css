@@ -381,21 +381,20 @@ section {
   margin-top: 8px;
 }
 
-.question-details {
-  margin-top: 32px;
+.prompt {
+  margin: 16px 0 0;
+  padding: 12px;
+  border: 1px solid #1a1a1a;
 }
 
-.question-details > summary {
-  font-size: 1.05rem;
+.prompt > summary {
+  font-size: 1rem;
   font-weight: 600;
-  padding-top: 12px;
-  border-top: 1px solid #1a1a1a;
   cursor: pointer;
-  list-style-position: outside;
 }
 
-.question-details[open] > summary {
-  margin-bottom: 8px;
+.prompt[open] > summary {
+  margin-bottom: 10px;
 }
 
 .question-list {
@@ -405,16 +404,6 @@ section {
 
 .question-list li {
   margin-top: 10px;
-}
-
-.prompt {
-  margin: 16px 0 0;
-  padding: 12px;
-  border: 1px solid #1a1a1a;
-}
-
-.prompt h3 {
-  margin: 0 0 10px;
 }
 
 .prompt pre {
