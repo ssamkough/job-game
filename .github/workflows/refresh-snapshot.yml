@@ -76,7 +76,6 @@ jobs:
               + (f" ({', '.join(kind_bits)})" if kind_bits else ""),
               f"{totals.get('companiesThisSearch', 0)} companies"
               + (f" ({', '.join(company_bits)})" if company_bits else ""),
-              "https://jbg.sammy.pizza",
           ]
           print("\n".join(lines))
           PY
