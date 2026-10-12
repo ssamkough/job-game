@@ -21,13 +21,67 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: python3 scripts/generate.py
       - name: Commit snapshot
+        id: commit
         run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          def git_show(path: str) -> str:
+              result = subprocess.run(
+                  ["git", "show", f"HEAD:{path}"],
+                  capture_output=True,
+                  text=True,
+              )
+              return result.stdout if result.returncode == 0 else ""
+
+          def comparable(path: str, raw: str) -> str:
+              if not raw:
+                  return ""
+              if path.endswith("data.json"):
+                  data = json.loads(raw)
+                  data.pop("generatedOn", None)
+                  return json.dumps(data, sort_keys=True)
+              return raw
+
+          changed = False
+          for path in ("data.json", "hidden/data.json", "scripts/aliases.json"):
+              new = Path(path).read_text() if Path(path).exists() else ""
+              if comparable(path, git_show(path)) != comparable(path, new):
+                  changed = True
+          with open(os.environ["GITHUB_OUTPUT"], "a") as handle:
+              handle.write(f"content_changed={'true' if changed else 'false'}\n")
+          print(f"content_changed={changed}")
+          PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data.json scripts/aliases.json hidden/data.json
           if git diff --cached --quiet; then
             echo "No snapshot changes"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -m "Refresh anonymized snapshot from Notion"
           git push
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+      - name: Text when snapshot content changed
+        if: steps.commit.outputs.content_changed == 'true' && steps.commit.outputs.committed == 'true'
+        env:
+          TEXTBELT_KEY: ${{ secrets.TEXTBELT_KEY }}
+          SMS_TO: ${{ secrets.SMS_TO }}
+        run: |
+          if [ -z "$TEXTBELT_KEY" ] || [ -z "$SMS_TO" ]; then
+            echo "Skipping SMS: set repo secrets TEXTBELT_KEY and SMS_TO"
+            exit 0
+          fi
+          totals=$(python3 -c "import json; t=json.load(open('data.json'))['totals']; print(f\"apps {t['applications']}, meetings {t['meetings']}, companies {t['companiesThisSearch']}\")")
+          message="Job Game snapshot updated: $totals — https://jbg.sammy.pizza"
+          echo "Sending: $message"
+          resp=$(curl -sS https://textbelt.com/text \
+            --data-urlencode phone="$SMS_TO" \
+            --data-urlencode message="$message" \
+            -d key="$TEXTBELT_KEY")
+          echo "$resp"
+          python3 -c "import json,sys; r=json.loads(sys.argv[1]); print(r.get('error') or 'sent'); sys.exit(0 if r.get('success') else 1)" "$resp"

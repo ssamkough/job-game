@@ -33,7 +33,7 @@ Live: [jbg.sammy.pizza](https://jbg.sammy.pizza) · repo: [ssamkough/job-game](h
 
 1. **Notion** holds Applications, Companies, and Meetings. The integration named **job game** has read access only. Nothing in this repo writes back.
 2. **`scripts/generate.py`** queries those data sources, applies the public filters, strips private fields, and writes `data.json`. It also writes `hidden/data.json` with real company names for the unlisted alias key. New companies get the next alias; old numbers never reshuffle (`scripts/aliases.json`).
-3. **GitHub Action** `.github/workflows/refresh-snapshot.yml` runs that script daily at 09:00 EST (14:00 UTC; 10:00 EDT) and on **Run workflow**. It commits `data.json`, `aliases.json`, and `hidden/data.json` whenever those files change, including a fresh `generatedOn` date on each run.
+3. **GitHub Action** `.github/workflows/refresh-snapshot.yml` runs that script daily at 09:00 EST (14:00 UTC; 10:00 EDT) and on **Run workflow**. It commits `data.json`, `aliases.json`, and `hidden/data.json` whenever those files change, including a fresh `generatedOn` date on each run. After a push, [Textbelt](https://textbelt.com/) sends an SMS if the snapshot content changed (not a date-only stamp).
 4. **Netlify** is linked to this GitHub repo. A push to `main` publishes the static files. Publish directory is `.`; there is no build command.
 5. **The browser** fetches `./data.json` and renders counts plus three tabs (Meetings, Applications, Companies). The first visit is a clean URL on Meetings. A tab click, Tab to a tab then Enter/Space, or Left/Right/Home/End on the tab list sets `?tab=meetings`, `?tab=applications`, or `?tab=companies`. Each table shows 10 rows, then loads 10 more as you scroll that table. The footer is the filtered total. **How I built this** describes the stack and snapshot rules in Sammy's voice. Last is **Projects I've built while job searching**, with Clock In With Toons (`clockin.png`). Unlisted `/hidden` loads `hidden/data.json` and lists alias → name plus related applications and meetings. It is not linked from the homepage.
 
@@ -50,6 +50,7 @@ Inclusion rules for the public snapshot:
 | Site | Live at https://jbg.sammy.pizza |
 | Netlify | `job-game-2026`, deploys from `main` |
 | Daily refresh | GitHub Action **Refresh snapshot**, 09:00 EST (14:00 UTC) |
+| SMS | Textbelt on content change (not `generatedOn`-only) |
 | Notion | Read-only integration; token is repo secret `NOTION_TOKEN` |
 
 Nothing else is a long-running server.
@@ -71,9 +72,11 @@ NOTION_TOKEN=… python3 scripts/generate.py
 ## Secrets and privacy
 
 - **`NOTION_TOKEN`** — GitHub Actions secret. Read content only. Never expose it to the browser or commit it.
+- **`TEXTBELT_KEY`** — Textbelt key (`textbelt` for 1 free SMS/day, or a paid key).
+- **`SMS_TO`** — Phone number to text. SMS is skipped if either secret is missing.
 - Public `data.json` has no Notion URLs, names, or people. `aliases.json` maps page ids → numbers only.
 - Unlisted `/hidden` (`hidden/data.json`) includes real company names. The repo and Netlify site are public, so this is not a secret — only unlinked. `robots.txt` disallows `/hidden`.
-- Raw Notion dumps stay gitignored.
+- Raw Notion dumps and local `.env` stay gitignored.
 
 ## Netlify build settings
 
