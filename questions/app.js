@@ -35,22 +35,26 @@ const listSection = (title, items) => {
 const technicalSection = (items) => {
   if (!items.length) {
     return `<section class="question-block">
-      <h2>Technical</h2>
-      <p>None in this snapshot.</p>
+      <details class="question-details">
+        <summary>Technical</summary>
+        <p>None in this snapshot.</p>
+      </details>
     </section>`;
   }
   return `<section class="question-block">
-    <h2>Technical</h2>
-    ${items
-      .map((item, index) => {
-        const title = item.title || `Prompt ${index + 1}`;
-        const prompt = item.prompt || "";
-        return `<article class="prompt">
-          <h3>${esc(title)}</h3>
-          <pre>${esc(prompt)}</pre>
-        </article>`;
-      })
-      .join("")}
+    <details class="question-details">
+      <summary>Technical</summary>
+      ${items
+        .map((item, index) => {
+          const title = item.title || `Prompt ${index + 1}`;
+          const prompt = item.prompt || "";
+          return `<article class="prompt">
+            <h3>${esc(title)}</h3>
+            <pre>${esc(prompt)}</pre>
+          </article>`;
+        })
+        .join("")}
+    </details>
   </section>`;
 };
 
@@ -62,8 +66,8 @@ const render = (data) => {
   const behavioral = questions.behavioral || [];
   const technical = questions.technical || [];
   document.getElementById("questions").innerHTML = [
-    listSection("Behavioral", behavioral),
     technicalSection(technical),
+    listSection("Behavioral", behavioral),
   ].join("");
 };
 
