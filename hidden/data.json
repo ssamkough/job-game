@@ -545,6 +545,22 @@
       "meetings": []
     },
     {
+      "alias": "Company 45",
+      "name": null,
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-09-30",
+          "status": "Submitted",
+          "board": "Direct / other",
+          "role": "Sr. Software Development Engineer [AMD]",
+          "recruiter": false,
+          "referred": true
+        }
+      ],
+      "meetings": []
+    },
+    {
       "alias": "Company 46",
       "name": null,
       "status": "Unknown",
@@ -643,13 +659,6 @@
           "referred": false
         }
       ],
-      "meetings": []
-    },
-    {
-      "alias": "Company 53",
-      "name": "Virtu Financial",
-      "status": "Interviewing",
-      "applications": [],
       "meetings": []
     },
     {
@@ -890,13 +899,6 @@
       "alias": "Company 72",
       "name": "Rove",
       "status": "Applied",
-      "applications": [],
-      "meetings": []
-    },
-    {
-      "alias": "Company 81",
-      "name": "Pickle",
-      "status": "Interviewing",
       "applications": [],
       "meetings": []
     },
@@ -1460,6 +1462,110 @@
           "kind": "intro"
         }
       ]
+    },
+    {
+      "alias": "Company 162",
+      "name": "Stuut Technologies",
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-12",
+          "status": "Submitted",
+          "board": "Gary's Guide",
+          "role": "Forward Deployed Engineer [Stuut Technologies]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
+    },
+    {
+      "alias": "Company 163",
+      "name": "Valon",
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-12",
+          "status": "Submitted",
+          "board": "Gary's Guide",
+          "role": "Web Engineer [Valon]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
+    },
+    {
+      "alias": "Company 164",
+      "name": "Valon",
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-12",
+          "status": "Submitted",
+          "board": "Gary's Guide",
+          "role": "Senior Software Engineer [Valon]",
+          "recruiter": false,
+          "referred": false
+        },
+        {
+          "submittedOn": "2026-10-12",
+          "status": "Submitted",
+          "board": "Gary's Guide",
+          "role": "Engineering Manager [Valon]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
+    },
+    {
+      "alias": "Company 165",
+      "name": "Melius",
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-12",
+          "status": "Submitted",
+          "board": "Gary's Guide",
+          "role": "Member of Technical Staff [Melius]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
+    },
+    {
+      "alias": "Company 166",
+      "name": "Sante Technologies",
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-12",
+          "status": "Submitted",
+          "board": "Gary's Guide",
+          "role": "Senior Software Engineer - Money Movement [Sante Technologies]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
+    },
+    {
+      "alias": "Company 167",
+      "name": null,
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-12",
+          "status": "Submitted",
+          "board": "Gary's Guide",
+          "role": "Senior Product Engineer [Mecka]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
     }
   ]
 }

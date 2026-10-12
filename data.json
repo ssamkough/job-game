@@ -12,33 +12,33 @@
     "Asked questions from job game 2026 Asked Questions (anonymized, deduped)"
   ],
   "totals": {
-    "applications": 48,
-    "applicationsSubmitted": 47,
-    "companiesThisSearch": 92,
+    "applications": 56,
+    "applicationsSubmitted": 55,
+    "companiesThisSearch": 90,
     "companiesTaggedJobGame2026": 149,
     "meetings": 33,
     "recruiterScreens": 17,
     "recruiters": 5,
     "interviews": 3,
-    "referrals": 7,
+    "referrals": 8,
     "questions": 30,
     "questionsBehavioral": 28,
     "questionsTechnical": 2,
-    "questionsNew": 30
+    "questionsNew": 0
   },
   "applicationStatus": {
-    "Submitted": 47,
+    "Submitted": 55,
     "Archived": 1
   },
   "applicationBoards": {
-    "Direct / other": 32,
-    "Gary's Guide": 10,
+    "Gary's Guide": 17,
+    "Direct / other": 33,
     "80000 Hours": 2,
     "LinkedIn": 4
   },
   "companyStatusThisSearch": {
     "Applied": 15,
-    "Interviewing": 10,
+    "Interviewing": 8,
     "Finding role...": 16,
     "Interviewed": 51
   },
@@ -62,6 +62,83 @@
     "other": 3
   },
   "applications": [
+    {
+      "submittedOn": "2026-10-12",
+      "status": "Submitted",
+      "board": "Gary's Guide",
+      "companies": [
+        "Company 166"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-12",
+      "status": "Submitted",
+      "board": "Gary's Guide",
+      "companies": [
+        "Company 165"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-12",
+      "status": "Submitted",
+      "board": "Gary's Guide",
+      "companies": [
+        "Company 162"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-12",
+      "status": "Submitted",
+      "board": "Gary's Guide",
+      "companies": [
+        "Company 167"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-12",
+      "status": "Submitted",
+      "board": "Gary's Guide",
+      "companies": [
+        "Company 163"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-12",
+      "status": "Submitted",
+      "board": "Gary's Guide",
+      "companies": [
+        "Company 164"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-12",
+      "status": "Submitted",
+      "board": "Gary's Guide",
+      "companies": [
+        "Company 164"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
     {
       "submittedOn": "2026-10-06",
       "status": "Submitted",
@@ -225,6 +302,17 @@
       ],
       "recruiter": false,
       "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-09-30",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 45"
+      ],
+      "recruiter": false,
+      "referred": true,
       "linkedMeetings": 0
     },
     {
@@ -703,16 +791,6 @@
       "jobGame2026Tag": false
     },
     {
-      "alias": "Company 53",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": false
-    },
-    {
       "alias": "Company 60",
       "status": "Applied",
       "role": null,
@@ -781,16 +859,6 @@
       "firstInterviewOn": null,
       "meetingsThisSearch": 0,
       "jobGame2026Tag": true
-    },
-    {
-      "alias": "Company 81",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": "2026-09-30",
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": false
     },
     {
       "alias": "Company 82",
@@ -1523,7 +1591,7 @@
       "companies": [
         "Company 160"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-09",
@@ -1534,7 +1602,7 @@
       "companies": [
         "Company 156"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-09",
@@ -1543,7 +1611,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-09",
@@ -1554,7 +1622,7 @@
       "companies": [
         "Company 30"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-08",
@@ -1565,7 +1633,7 @@
       "companies": [
         "Company 34"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-07",
@@ -1576,7 +1644,7 @@
       "companies": [
         "Company 68"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-06",
@@ -1587,7 +1655,7 @@
       "companies": [
         "Company 48"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-06",
@@ -1598,7 +1666,7 @@
       "companies": [
         "Company 87"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-06",
@@ -1609,7 +1677,7 @@
       "companies": [
         "Company 88"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-05",
@@ -1620,7 +1688,7 @@
       "companies": [
         "Company 29"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-05",
@@ -1629,7 +1697,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-05",
@@ -1638,7 +1706,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-05",
@@ -1649,7 +1717,7 @@
       "companies": [
         "Company 49"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-05",
@@ -1658,7 +1726,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-05",
@@ -1670,7 +1738,7 @@
       "companies": [
         "Company 48"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-05",
@@ -1679,7 +1747,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-04",
@@ -1697,7 +1765,7 @@
       "companies": [
         "Company 48"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-02",
@@ -1706,7 +1774,7 @@
         "intro"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-01",
@@ -1718,7 +1786,7 @@
       "companies": [
         "Company 30"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-30",
@@ -1727,7 +1795,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-30",
@@ -1738,7 +1806,7 @@
       "companies": [
         "Company 46"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-30",
@@ -1749,7 +1817,7 @@
       "companies": [
         "Company 19"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-29",
@@ -1760,7 +1828,7 @@
       "companies": [
         "Company 32"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-29",
@@ -1771,7 +1839,7 @@
       "companies": [
         "Company 34"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-25",
@@ -1789,7 +1857,7 @@
       "companies": [
         "Company 34"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-23",
@@ -1798,7 +1866,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-23",
@@ -1807,7 +1875,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-23",
@@ -1818,14 +1886,14 @@
       "companies": [
         "Company 20"
       ],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-23",
       "kind": "other",
       "tags": [],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-22",
@@ -1834,7 +1902,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     },
     {
       "date": "2026-09-17",
@@ -1843,7 +1911,7 @@
         "recruiter"
       ],
       "companies": [],
-      "linkedToJobGame2026": false
+      "linkedToJobGame2026": true
     }
   ],
   "questions": {
