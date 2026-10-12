@@ -13,6 +13,8 @@ from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 
+from questions import load_questions_from_notion, load_questions_from_snapshot, previous_questions, question_keys
+
 ROOT = Path(__file__).resolve().parents[1]
 CUTOFF = "2026-09-11"
 JOB_GAME_ACTIVITY = "3cffada0be4f80f8b3adefa2cc23ac62"
@@ -303,12 +305,23 @@ def main() -> None:
     using_notion = bool(os.environ.get("NOTION_TOKEN"))
     if os.environ.get("CI") and not using_notion:
         raise SystemExit("NOTION_TOKEN is missing. Add it as a repository secret named NOTION_TOKEN.")
+    data_path = ROOT / "data.json"
     if using_notion:
         companies, applications, meetings_raw = load_from_notion()
+        try:
+            questions = load_questions_from_notion(notion_request)
+        except Exception as error:
+            print(f"questions page failed: {error}; keeping previous")
+            questions = previous_questions(data_path)
+        if not (questions.get("behavioral") or questions.get("technical")):
+            questions = previous_questions(data_path)
         source = "notion"
     else:
         companies, applications, meetings_raw = load_from_snapshots()
+        questions = load_questions_from_snapshot(data_path)
         source = "snapshots"
+    prior_questions = previous_questions(data_path)
+    new_question_count = len(question_keys(questions) - question_keys(prior_questions))
 
     kept_meetings = [meeting for meeting in meetings_raw if keep_meeting(meeting)]
 
@@ -463,6 +476,7 @@ def main() -> None:
             "retried for job game 2026 tag on companies",
             "Company table: Finding role..., Applied, Interviewing, Take-Home, Negotating/Negotiating, Interviewed",
             f"Company table: last edited on or after {CUTOFF}",
+            "Asked questions from job game 2026 Asked Questions (anonymized, deduped)",
         ],
         "totals": {
             "applications": len(public_apps),
@@ -474,6 +488,10 @@ def main() -> None:
             "recruiters": sum(1 for row in public_apps if row["recruiter"]),
             "interviews": meeting_kind.get("technical", 0),
             "referrals": sum(1 for row in public_apps if row["referred"]),
+            "questions": len(questions.get("behavioral") or []) + len(questions.get("technical") or []),
+            "questionsBehavioral": len(questions.get("behavioral") or []),
+            "questionsTechnical": len(questions.get("technical") or []),
+            "questionsNew": new_question_count,
         },
         "applicationStatus": dict(app_status),
         "applicationBoards": dict(app_board),
@@ -483,6 +501,7 @@ def main() -> None:
         "applications": public_apps,
         "companies": public_companies,
         "meetings": public_meetings,
+        "questions": questions,
     }
 
     label_to_cid = {alias[cid]: cid for cid in alias if cid in alias_numbers}
@@ -518,11 +537,15 @@ def main() -> None:
     wrote_public = write_json(public_path, payload)
     wrote_hidden = write_json(hidden_path, hidden_payload)
     if not wrote_public and not wrote_hidden:
-        print(f"unchanged source={source} companies={len(public_companies)} apps={len(public_apps)} meetings={len(public_meetings)}")
+        print(
+            f"unchanged source={source} companies={len(public_companies)} apps={len(public_apps)} "
+            f"meetings={len(public_meetings)} questions={payload['totals']['questions']}"
+        )
         return
     print(
         f"wrote source={source} companies={len(public_companies)} apps={len(public_apps)} "
-        f"meetings={len(public_meetings)} hidden={len(hidden_companies)} "
+        f"meetings={len(public_meetings)} questions={payload['totals']['questions']} "
+        f"questionsNew={new_question_count} hidden={len(hidden_companies)} "
         f"public={wrote_public} names={wrote_hidden}"
     )
 

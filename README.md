@@ -23,7 +23,7 @@ Live: [jbg.sammy.pizza](https://jbg.sammy.pizza) · repo: [ssamkough/job-game](h
 
 ## Stack
 
-- Static site: `index.html`, `styles.css`, `app.js`, `data.json`, unlisted `hidden/`
+- Static site: `index.html`, `styles.css`, `app.js`, `data.json`, `/questions`, unlisted `hidden/`
 - Python 3 stdlib generator (`scripts/generate.py`) — no pip deps
 - Notion API (read-only internal integration)
 - GitHub Actions (daily snapshot)
@@ -31,17 +31,18 @@ Live: [jbg.sammy.pizza](https://jbg.sammy.pizza) · repo: [ssamkough/job-game](h
 
 ## How it fits together
 
-1. **Notion** holds Applications, Companies, and Meetings. The integration named **job game** has read access only. Nothing in this repo writes back.
-2. **`scripts/generate.py`** queries those data sources, applies the public filters, strips private fields, and writes `data.json`. It also writes `hidden/data.json` with real company names for the unlisted alias key. New companies get the next alias; old numbers never reshuffle (`scripts/aliases.json`).
-3. **GitHub Action** `.github/workflows/refresh-snapshot.yml` runs that script daily at 09:00 EST (14:00 UTC; 10:00 EDT) and on **Run workflow**. It commits `data.json`, `aliases.json`, and `hidden/data.json` whenever those files change, including a fresh `generatedOn` date on each run. After each successful run, [Textbelt](https://textbelt.com/) texts a summary (applications, meetings, companies) even if the snapshot did not change. The text omits URLs (unverified Textbelt keys cannot send links).
+1. **Notion** holds Applications, Companies, Meetings, and the **job game 2026 Asked Questions** page. The integration named **job game** has read access only. Nothing in this repo writes back.
+2. **`scripts/generate.py`** queries those data sources, applies the public filters, strips private fields, and writes `data.json`. It also writes `hidden/data.json` with real company names for the unlisted alias key. New companies get the next alias; old numbers never reshuffle (`scripts/aliases.json`). Asked questions are anonymized (no company or people names), cleaned, and deduped into `data.json`.
+3. **GitHub Action** `.github/workflows/refresh-snapshot.yml` runs that script daily at 09:00 EST (14:00 UTC; 10:00 EDT) and on **Run workflow**. It commits `data.json`, `aliases.json`, and `hidden/data.json` whenever those files change, including a fresh `generatedOn` date on each run. After each successful run, [Textbelt](https://textbelt.com/) texts a summary (applications, meetings, companies, questions) even if the snapshot did not change. The text omits URLs (unverified Textbelt keys cannot send links).
 4. **Netlify** is linked to this GitHub repo. A push to `main` publishes the static files. Publish directory is `.`; there is no build command.
-5. **The browser** fetches `./data.json` and renders counts plus three tabs (Meetings, Applications, Companies). The first visit is a clean URL on Meetings. A tab click, Tab to a tab then Enter/Space, or Left/Right/Home/End on the tab list sets `?tab=meetings`, `?tab=applications`, or `?tab=companies`. Each table shows 10 rows, then loads 10 more as you scroll that table. The footer is the filtered total. **How I built this** describes the stack and snapshot rules in Sammy's voice. Last is **Projects I've built while job searching**, with Clock In With Toons (`clockin.png`). Unlisted `/hidden` loads `hidden/data.json` and lists alias → name plus related applications and meetings. It is not linked from the homepage.
+5. **The browser** fetches `./data.json` and renders counts plus three tabs (Meetings, Applications, Companies). The first visit is a clean URL on Meetings. A tab click, Tab to a tab then Enter/Space, or Left/Right/Home/End on the tab list sets `?tab=meetings`, `?tab=applications`, or `?tab=companies`. Each table shows 10 rows, then loads 10 more as you scroll that table. The footer is the filtered total. **How I built this** describes the stack and snapshot rules in Sammy's voice. Last is **Projects I've built while job searching**, with Clock In With Toons (`clockin.png`). **Questions** (`/questions`) lists anonymized behavioral questions and technical prompts. Unlisted `/hidden` loads `hidden/data.json` and lists alias → name plus related applications and meetings. It is not linked from the homepage.
 
 Inclusion rules for the public snapshot:
 
 - Meetings: **fin | job game 2026** view (date before today, `jobs` tag, linked to Job Game 2026). Kind is onsite, technical, intro, recruiter, or other. The `jobs` tag is the view filter, not a public label.
 - Applications: Job Game 2026 Applications **Submitted** view (status group Complete: Submitted and Archived). Recruiter and referral counts are whether those relation columns are filled.
 - Companies (table): last edited on or after **2026-09-11**, and status is one of Finding role..., Applied, Interviewing, Take-Home, Negotating/Negotiating, Interviewed
+- Questions: **job game 2026 Asked Questions** page, Behavioral and Technical only. Company names and people are stripped. Solutions/code toggles are omitted. Duplicates are dropped.
 
 ## What is running
 
@@ -61,7 +62,7 @@ Nothing else is a long-running server.
 python3 -m http.server 4173
 ```
 
-Open http://localhost:4173. The unlisted alias key is http://localhost:4173/hidden. Browsers block `fetch` on raw `file://` pages.
+Open http://localhost:4173. Questions is http://localhost:4173/questions. The unlisted alias key is http://localhost:4173/hidden. Browsers block `fetch` on raw `file://` pages.
 
 Without `NOTION_TOKEN`, the generator uses gitignored snapshots in `scripts/` (`applications.json`, `companies.json`, `meetings.json`). With the token:
 

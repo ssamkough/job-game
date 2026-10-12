@@ -8,7 +8,8 @@
     "Job Game 2026 Applications Submitted view (status Complete: Submitted, Archived)",
     "retried for job game 2026 tag on companies",
     "Company table: Finding role..., Applied, Interviewing, Take-Home, Negotating/Negotiating, Interviewed",
-    "Company table: last edited on or after 2026-09-11"
+    "Company table: last edited on or after 2026-09-11",
+    "Asked questions from job game 2026 Asked Questions (anonymized, deduped)"
   ],
   "totals": {
     "applications": 48,
@@ -19,7 +20,11 @@
     "recruiterScreens": 17,
     "recruiters": 5,
     "interviews": 3,
-    "referrals": 7
+    "referrals": 7,
+    "questions": 30,
+    "questionsBehavioral": 28,
+    "questionsTechnical": 2,
+    "questionsNew": 30
   },
   "applicationStatus": {
     "Submitted": 47,
@@ -1840,5 +1845,47 @@
       "companies": [],
       "linkedToJobGame2026": false
     }
-  ]
+  ],
+  "questions": {
+    "behavioral": [
+      "What is the extent of your backend?",
+      "What was the hardest backend problem you've ever worked on?",
+      "Have you ever worked with something real-time?",
+      "How much have you worked independently or with things spec\u2019d out?",
+      "When you're on small teams and building product, what metrics do you think for, build for? How do you know what you're building is on the road to success?",
+      "What tech stacks have you used (pre-AI)?",
+      "How do you typically structure things in React / TypeScript?",
+      "Where do you see yourself in a couple of years?",
+      "Did you build it from scratch or level it up? What did it look like before, and what did you do to make it better?",
+      "How do you orient yourself? How do you show progress? How do you communicate to stakeholders?",
+      "Was there a time you had a disagreement with a colleague?",
+      "What's the biggest change you've made in yourself based on feedback you've received?",
+      "What is something you are proud of?",
+      "Take a step back and explain what Phia does.",
+      "What were the challenges, and where did the app come from?",
+      "How do the extensions work? Is it just on the browser?",
+      "What are the steps for installing extensions?",
+      "Where does your experience lie?",
+      "Provide an example of when you faced a deadline with a project.",
+      "What are you looking for in your next role?",
+      "Is there anything lacking?",
+      "Do you have experience in mentorship?",
+      "What's a problem you're happy with that you worked on?",
+      "What technical tradeoffs did you make in the product?",
+      "Tell me about how AI has changed your daily workflow.",
+      "At Temelio, was the product roadmap about features, or are there more problems?",
+      "Walk through the tech stack you worked with previously, and your preferences for the split.",
+      "Walk through a complex full-stack project that you've owned."
+    ],
+    "technical": [
+      {
+        "title": "Inventory system",
+        "prompt": "Inventory System\n\nYou're building an inventory system for a game. Items can be added, removed, and used. Some items have passive effects that modify a player's stats while held.\n\nNo UI needed.\n\nPhase 1: Add & Remove\nImplement add() and remove().\nRules:\n- Respects inventory capacity\n- remove fails gracefully if the quantity exceeds what's held.\n\nPhase 2: Use\nImplement use().\nConsumes item (like a potion or ammo)\nExecutes the item's use effect, if one is defined\nNot all items are usable\n\nPhase 3: Passive Effects\nPassive effects apply while an item is in the inventory.\nExample: holding a \"Ring of Strength\" (+5 attack) and a \"Shield of Vitality\" (+10 health).\n\nPhase 4: Serialization\nImplement save / load functionality for the inventory\n\nBonus\nIf time permits, pick one:\nEvents: Emit events (onItemAdded, onItemUsed, onItemRemoved) so external systems can react to inventory changes.\nConditional passives: Some passives only activate under conditions (e.g. \"while health is below 50%\"). How would you model this?"
+      },
+      {
+        "title": "Print a JSON schema",
+        "prompt": "Question\nGiven an input JSON, print its schema.\n\nAssume:\n1. All elements in the array are of the same type\n\nExample Input 1:\n{\n    \"firstName\": \"Alex\",\n    \"lastName\": \"Hamilton\",\n    \"age\": 47,\n    \"tags\": [\"founding father\", \"treasurey\", \"musical\"],\n    \"passing\": {\n        \"location\": \"New York, NY\",\n        \"age\": 47\n    }\n}\n\nExpected Output:\nobject\n    firstName: string,\n    lastName: string,\n    age: number,\n    tags: array\n        string\n    passing: object\n        location: string,\n        age: number\n\nExample Input 2:\n[\n    {\n        \"firstName\": \"Alex\",\n        \"lastName\": \"Hamilton\",\n        \"age\": 47,\n        \"tags\": [\"founding father\", \"treasurey\", \"musical\"],\n        \"passing\": {\n            \"location\": \"New York, NY\",\n            \"age\": 47\n        }\n    },\n    {\n\n    }\n]\n\nExpected Output:\narray\n    object\n        firstName: string,\n        lastName: string,\n        age: number,\n        tags: array\n            string\n        passing: object\n            location: string,\n            age: number"
+      }
+    ]
+  }
 }
