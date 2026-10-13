@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-12",
+  "generatedOn": "2026-10-13",
   "companies": [
     {
       "alias": "Company 02",
@@ -1423,7 +1423,12 @@
       "name": "Spur",
       "status": "Interviewing",
       "applications": [],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-12",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 155",
@@ -1441,6 +1446,18 @@
         {
           "date": "2026-10-09",
           "kind": "technical"
+        }
+      ]
+    },
+    {
+      "alias": "Company 157",
+      "name": null,
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-12",
+          "kind": "recruiter"
         }
       ]
     },
