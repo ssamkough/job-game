@@ -1,6 +1,12 @@
 const PAGE_SIZE = 10;
 const TABS = ["meetings", "applications", "companies"];
 
+const callsThrough = (n, through) => {
+  const noun = n === 1 ? "call" : "calls";
+  const verb = n === 1 ? "has" : "have";
+  return `${n} ${noun} ${verb} come through ${through}`;
+};
+
 const formatDate = (value) => {
   if (!value) return "—";
   return value.slice(0, 10);
@@ -133,6 +139,14 @@ const render = (data) => {
   ];
   document.getElementById("stats").innerHTML = stats
     .map(([label, n]) => `<li><b>${n}</b><span>${label}</span></li>`)
+    .join("");
+
+  document.getElementById("highlights").innerHTML = [
+    callsThrough(data.totals.callsThroughApplications ?? 0, "applications"),
+    callsThrough(data.totals.callsThroughRecruiter ?? 0, "a recruiter"),
+    callsThrough(data.totals.callsThroughReferral ?? 0, "a referral"),
+  ]
+    .map((line) => `<li>${line}</li>`)
     .join("");
 
   const companyFilter = document.getElementById("company-filter");

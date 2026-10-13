@@ -66,6 +66,11 @@ jobs:
               if companies.get(key)
           ]
 
+          def calls_line(n, through):
+              noun = "call" if n == 1 else "calls"
+              verb = "has" if n == 1 else "have"
+              return f"{n} {noun} {verb} come through {through}"
+
           lines = [
               f"Job Game {data.get('generatedOn')}",
               (
@@ -74,6 +79,9 @@ jobs:
               ),
               f"{totals.get('meetings', 0)} meetings"
               + (f" ({', '.join(kind_bits)})" if kind_bits else ""),
+              calls_line(totals.get("callsThroughApplications", 0), "applications"),
+              calls_line(totals.get("callsThroughRecruiter", 0), "a recruiter"),
+              calls_line(totals.get("callsThroughReferral", 0), "a referral"),
               f"{totals.get('companiesThisSearch', 0)} companies"
               + (f" ({', '.join(company_bits)})" if company_bits else ""),
               (

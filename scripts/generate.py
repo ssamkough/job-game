@@ -223,6 +223,9 @@ def normalize_meeting(page: dict) -> dict:
         "Tags": as_json_list(tags),
         "companies <-> meetings": as_json_list(unwrap(props.get("companies <-> meetings"))),
         "activities <-> meetings": as_json_list(unwrap(props.get("activities <-> meetings"))),
+        "app <-> meeting": as_json_list(unwrap(props.get("app <-> meeting"))),
+        "recruiters <-> meetings": as_json_list(unwrap(props.get("recruiters <-> meetings"))),
+        "colleagues <-> meetings": as_json_list(unwrap(props.get("colleagues <-> meetings"))),
     }
 
 
@@ -324,6 +327,15 @@ def main() -> None:
     new_question_count = len(question_keys(questions) - question_keys(prior_questions))
 
     kept_meetings = [meeting for meeting in meetings_raw if keep_meeting(meeting)]
+    calls_through_applications = sum(
+        1 for meeting in kept_meetings if parse_list(meeting.get("app <-> meeting"))
+    )
+    calls_through_recruiter = sum(
+        1 for meeting in kept_meetings if parse_list(meeting.get("recruiters <-> meetings"))
+    )
+    calls_through_referral = sum(
+        1 for meeting in kept_meetings if parse_list(meeting.get("colleagues <-> meetings"))
+    )
 
     company_by_id = {}
     for row in companies:
@@ -477,6 +489,7 @@ def main() -> None:
             "Company table: Finding role..., Applied, Interviewing, Take-Home, Negotating/Negotiating, Interviewed",
             f"Company table: last edited on or after {CUTOFF}",
             "Asked questions from job game 2026 Asked Questions (anonymized, deduped)",
+            "Highlights: public meetings with app <-> meeting, recruiters <-> meetings, or colleagues <-> meetings filled",
         ],
         "totals": {
             "applications": len(public_apps),
@@ -488,6 +501,9 @@ def main() -> None:
             "recruiters": sum(1 for row in public_apps if row["recruiter"]),
             "interviews": meeting_kind.get("technical", 0),
             "referrals": sum(1 for row in public_apps if row["referred"]),
+            "callsThroughApplications": calls_through_applications,
+            "callsThroughRecruiter": calls_through_recruiter,
+            "callsThroughReferral": calls_through_referral,
             "questions": len(questions.get("behavioral") or []) + len(questions.get("technical") or []),
             "questionsBehavioral": len(questions.get("behavioral") or []),
             "questionsTechnical": len(questions.get("technical") or []),
