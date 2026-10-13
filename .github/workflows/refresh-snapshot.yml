@@ -75,8 +75,9 @@ jobs:
               f"Job Game {data.get('generatedOn')}",
               (
                   f"{totals.get('applications', 0)} applications submitted "
-                  f"({totals.get('recruiters', 0)} recruiter, {totals.get('referrals', 0)} referral)"
+                  f"({totals.get('referrals', 0)} referral)"
               ),
+              f"{totals.get('recruiters', 0)} current recruiters",
               f"{totals.get('meetings', 0)} meetings"
               + (f" ({', '.join(kind_bits)})" if kind_bits else ""),
               calls_line(totals.get("callsThroughApplications", 0), "applications"),

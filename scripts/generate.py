@@ -237,6 +237,7 @@ def normalize_recruiter(page: dict) -> dict:
         "url": page.get("url") or page.get("id"),
         "firm": as_json_list(unwrap(props.get("firm"))),
         "inbound?": inbound,
+        "currently?": unwrap(props.get("currently?")),
     }
 
 
@@ -535,6 +536,7 @@ def main() -> None:
             "Asked questions from job game 2026 Asked Questions (anonymized, deduped)",
             "Highlights: public meetings with app <-> meeting, recruiters <-> meetings, or colleagues <-> meetings filled",
             "Recruiter highlight breakdowns from List of Recruiters (firm filled = third-party; inbound? checkbox)",
+            "Recruiter total: List of Recruiters with currently? checked",
         ],
         "totals": {
             "applications": len(public_apps),
@@ -543,7 +545,7 @@ def main() -> None:
             "companiesTaggedJobGame2026": sum(tagged_status.values()),
             "meetings": len(public_meetings),
             "recruiterScreens": sum(1 for row in public_meetings if "recruiter" in row["tags"]),
-            "recruiters": sum(1 for row in public_apps if row["recruiter"]),
+            "recruiters": sum(1 for row in recruiters if row.get("currently?") == "__YES__"),
             "interviews": meeting_kind.get("technical", 0),
             "referrals": sum(1 for row in public_apps if row["referred"]),
             "callsThroughApplications": calls_through_applications,
