@@ -1583,6 +1583,22 @@
         }
       ],
       "meetings": []
+    },
+    {
+      "alias": "Company 168",
+      "name": null,
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-13",
+          "status": "Submitted",
+          "board": "Direct / other",
+          "role": "Senior Software Engineer, Full-stack [Anthropic]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
     }
   ]
 }

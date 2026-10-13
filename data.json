@@ -10,11 +10,12 @@
     "Company table: Finding role..., Applied, Interviewing, Take-Home, Negotating/Negotiating, Interviewed",
     "Company table: last edited on or after 2026-09-11",
     "Asked questions from job game 2026 Asked Questions (anonymized, deduped)",
-    "Highlights: public meetings with app <-> meeting, recruiters <-> meetings, or colleagues <-> meetings filled"
+    "Highlights: public meetings with app <-> meeting, recruiters <-> meetings, or colleagues <-> meetings filled",
+    "Recruiter highlight breakdowns from List of Recruiters (firm filled = third-party; inbound? checkbox)"
   ],
   "totals": {
-    "applications": 56,
-    "applicationsSubmitted": 55,
+    "applications": 57,
+    "applicationsSubmitted": 56,
     "companiesThisSearch": 90,
     "companiesTaggedJobGame2026": 149,
     "meetings": 37,
@@ -24,9 +25,9 @@
     "referrals": 8,
     "callsThroughApplications": 0,
     "callsThroughRecruiter": 28,
-    "callsThroughRecruiterThirdParty": 21,
-    "callsThroughRecruiterInbound": 19,
-    "callsThroughRecruiterOutreach": 9,
+    "callsThroughRecruiterThirdParty": 16,
+    "callsThroughRecruiterInbound": 14,
+    "callsThroughRecruiterOutreach": 8,
     "callsThroughReferral": 6,
     "questions": 30,
     "questionsBehavioral": 28,
@@ -34,12 +35,12 @@
     "questionsNew": 0
   },
   "applicationStatus": {
-    "Submitted": 55,
+    "Submitted": 56,
     "Archived": 1
   },
   "applicationBoards": {
+    "Direct / other": 34,
     "Gary's Guide": 17,
-    "Direct / other": 33,
     "80000 Hours": 2,
     "LinkedIn": 4
   },
@@ -69,6 +70,17 @@
     "other": 3
   },
   "applications": [
+    {
+      "submittedOn": "2026-10-13",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 168"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
     {
       "submittedOn": "2026-10-12",
       "status": "Submitted",
