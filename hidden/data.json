@@ -1593,7 +1593,95 @@
           "submittedOn": "2026-10-13",
           "status": "Submitted",
           "board": "Direct / other",
+          "role": "Front End Engineer, Marketing [Anthropic]",
+          "recruiter": false,
+          "referred": false
+        },
+        {
+          "submittedOn": "2026-10-13",
+          "status": "Submitted",
+          "board": "Direct / other",
+          "role": "Full-Stack Software Engineer, Reinforcement Learning [Anthropic]",
+          "recruiter": false,
+          "referred": false
+        },
+        {
+          "submittedOn": "2026-10-13",
+          "status": "Submitted",
+          "board": "Direct / other",
           "role": "Senior Software Engineer, Full-stack [Anthropic]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
+    },
+    {
+      "alias": "Company 169",
+      "name": "OpenAI",
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-13",
+          "status": "Submitted",
+          "board": "Direct / other",
+          "role": "Forward Deployed Software Engineer - NYC [OpenAI]",
+          "recruiter": false,
+          "referred": false
+        },
+        {
+          "submittedOn": "2026-10-13",
+          "status": "Submitted",
+          "board": "Direct / other",
+          "role": "Full Stack Software Engineer, API Experience [OpenAI]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
+    },
+    {
+      "alias": "Company 170",
+      "name": "Perplexity",
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-13",
+          "status": "Archived",
+          "board": "Direct / other",
+          "role": "Member of Technical Staff (Software Engineer, Design System) [Perplexity]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
+    },
+    {
+      "alias": "Company 171",
+      "name": null,
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-13",
+          "status": "Submitted",
+          "board": "Direct / other",
+          "role": "Software Engineer III [Github]",
+          "recruiter": false,
+          "referred": false
+        },
+        {
+          "submittedOn": "2026-10-13",
+          "status": "Submitted",
+          "board": "Direct / other",
+          "role": "Senior Software Engineer, Billing [Github]",
+          "recruiter": false,
+          "referred": false
+        },
+        {
+          "submittedOn": "2026-10-13",
+          "status": "Submitted",
+          "board": "Direct / other",
+          "role": "Senior Software Engineer, Code Search [Github]",
           "recruiter": false,
           "referred": false
         }

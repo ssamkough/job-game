@@ -14,8 +14,8 @@
     "Recruiter highlight breakdowns from List of Recruiters (firm filled = third-party; inbound? checkbox)"
   ],
   "totals": {
-    "applications": 57,
-    "applicationsSubmitted": 56,
+    "applications": 65,
+    "applicationsSubmitted": 63,
     "companiesThisSearch": 90,
     "companiesTaggedJobGame2026": 149,
     "meetings": 37,
@@ -35,11 +35,11 @@
     "questionsNew": 0
   },
   "applicationStatus": {
-    "Submitted": 56,
-    "Archived": 1
+    "Submitted": 63,
+    "Archived": 2
   },
   "applicationBoards": {
-    "Direct / other": 34,
+    "Direct / other": 42,
     "Gary's Guide": 17,
     "80000 Hours": 2,
     "LinkedIn": 4
@@ -70,6 +70,94 @@
     "other": 3
   },
   "applications": [
+    {
+      "submittedOn": "2026-10-13",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 168"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-13",
+      "status": "Archived",
+      "board": "Direct / other",
+      "companies": [
+        "Company 170"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-13",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 171"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-13",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 171"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-13",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 171"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-13",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 169"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-13",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 169"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
+    {
+      "submittedOn": "2026-10-13",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 168"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
     {
       "submittedOn": "2026-10-13",
       "status": "Submitted",
