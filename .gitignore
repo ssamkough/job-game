@@ -2,6 +2,7 @@
 .env
 scripts/applications.json
 scripts/meetings.json
+scripts/recruiters.json
 scripts/companies.json
 scripts/questions.json
 

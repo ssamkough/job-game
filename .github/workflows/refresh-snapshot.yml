@@ -81,6 +81,16 @@ jobs:
               + (f" ({', '.join(kind_bits)})" if kind_bits else ""),
               calls_line(totals.get("callsThroughApplications", 0), "applications"),
               calls_line(totals.get("callsThroughRecruiter", 0), "a recruiter"),
+              (
+                  f"{totals.get('callsThroughRecruiterThirdParty', 0)} "
+                  f"{'was' if totals.get('callsThroughRecruiterThirdParty', 0) == 1 else 'were'} "
+                  "with a third-party recruiter"
+              ),
+              (
+                  f"{totals.get('callsThroughRecruiterInbound', 0)} "
+                  f"{'was' if totals.get('callsThroughRecruiterInbound', 0) == 1 else 'were'} inbound, "
+                  f"{totals.get('callsThroughRecruiterOutreach', 0)} I reached out to or already knew"
+              ),
               calls_line(totals.get("callsThroughReferral", 0), "a referral"),
               f"{totals.get('companiesThisSearch', 0)} companies"
               + (f" ({', '.join(company_bits)})" if company_bits else ""),

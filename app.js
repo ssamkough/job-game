@@ -7,6 +7,8 @@ const callsThrough = (n, through) => {
   return `${n} ${noun} ${verb} come through ${through}`;
 };
 
+const were = (n) => (n === 1 ? "was" : "were");
+
 const formatDate = (value) => {
   if (!value) return "—";
   return value.slice(0, 10);
@@ -141,13 +143,20 @@ const render = (data) => {
     .map(([label, n]) => `<li><b>${n}</b><span>${label}</span></li>`)
     .join("");
 
+  const recruiterCalls = data.totals.callsThroughRecruiter ?? 0;
+  const thirdParty = data.totals.callsThroughRecruiterThirdParty ?? 0;
+  const inbound = data.totals.callsThroughRecruiterInbound ?? 0;
+  const outreach = data.totals.callsThroughRecruiterOutreach ?? 0;
   document.getElementById("highlights").innerHTML = [
-    callsThrough(data.totals.callsThroughApplications ?? 0, "applications"),
-    callsThrough(data.totals.callsThroughRecruiter ?? 0, "a recruiter"),
-    callsThrough(data.totals.callsThroughReferral ?? 0, "a referral"),
-  ]
-    .map((line) => `<li>${line}</li>`)
-    .join("");
+    `<li>${callsThrough(data.totals.callsThroughApplications ?? 0, "applications")}</li>`,
+    `<li>${callsThrough(recruiterCalls, "a recruiter")}
+      <ul>
+        <li>${thirdParty} ${were(thirdParty)} with a third-party recruiter</li>
+        <li>${inbound} ${were(inbound)} inbound, ${outreach} I reached out to or already had a connection with</li>
+      </ul>
+    </li>`,
+    `<li>${callsThrough(data.totals.callsThroughReferral ?? 0, "a referral")}</li>`,
+  ].join("");
 
   const companyFilter = document.getElementById("company-filter");
   const appFilter = document.getElementById("app-filter");

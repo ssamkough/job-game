@@ -22,6 +22,7 @@ NOTION_VERSION = "2025-09-03"
 APPLICATIONS_DB = "3ddfada0-be4f-8039-99fd-000b79c75747"
 COMPANIES_DB = "5d6b384e-4857-4483-a48c-2c1d0d291a2c"
 MEETINGS_DB = "f77ebcc7-8983-4b6c-b9d9-f79bddb851f0"
+RECRUITERS_DB = "aef40949-6bee-4cea-b383-4b1203dc5c23"
 # Submitted view: status group Complete (Submitted + Archived).
 APPLICATION_VIEW_STATUSES = {"Submitted", "Archived"}
 # Kind labels for the public table. The jobs tag selects the view, but is never shown.
@@ -229,7 +230,17 @@ def normalize_meeting(page: dict) -> dict:
     }
 
 
-def load_from_notion() -> tuple[list[dict], list[dict], list[dict]]:
+def normalize_recruiter(page: dict) -> dict:
+    props = properties(page)
+    inbound = unwrap(props.get("inbound?"))
+    return {
+        "url": page.get("url") or page.get("id"),
+        "firm": as_json_list(unwrap(props.get("firm"))),
+        "inbound?": inbound,
+    }
+
+
+def load_from_notion() -> tuple[list[dict], list[dict], list[dict], list[dict]]:
     companies = [normalize_company(page) for page in query_database(COMPANIES_DB)]
     applications = [normalize_application(page) for page in query_database(APPLICATIONS_DB)]
     meetings_pages = query_database(
@@ -237,17 +248,26 @@ def load_from_notion() -> tuple[list[dict], list[dict], list[dict]]:
         {"property": "Tags", "multi_select": {"contains": "jobs"}},
     )
     meetings = [normalize_meeting(page) for page in meetings_pages]
+    try:
+        recruiters = [normalize_recruiter(page) for page in query_database(RECRUITERS_DB)]
+    except RuntimeError as error:
+        print(f"recruiters table failed: {error}; recruiter highlight breakdowns will be 0")
+        recruiters = []
     if not applications or not companies:
         raise SystemExit("Notion returned no applications or companies; refusing to publish")
-    return companies, applications, meetings
+    return companies, applications, meetings, recruiters
 
 
-def load_from_snapshots() -> tuple[list[dict], list[dict], list[dict]]:
+def load_from_snapshots() -> tuple[list[dict], list[dict], list[dict], list[dict]]:
     companies_blob = load_json(ROOT / "scripts" / "companies.json")
     companies = companies_blob["results"] if isinstance(companies_blob, dict) else companies_blob
     applications = load_json(ROOT / "scripts" / "applications.json")
     meetings = load_json(ROOT / "scripts" / "meetings.json")
-    return companies, applications, meetings
+    recruiters_path = ROOT / "scripts" / "recruiters.json"
+    recruiters = load_json(recruiters_path) if recruiters_path.exists() else []
+    if isinstance(recruiters, dict):
+        recruiters = recruiters.get("results") or []
+    return companies, applications, meetings, recruiters
 
 
 def load_aliases() -> dict[str, int]:
@@ -310,7 +330,7 @@ def main() -> None:
         raise SystemExit("NOTION_TOKEN is missing. Add it as a repository secret named NOTION_TOKEN.")
     data_path = ROOT / "data.json"
     if using_notion:
-        companies, applications, meetings_raw = load_from_notion()
+        companies, applications, meetings_raw, recruiters = load_from_notion()
         try:
             questions = load_questions_from_notion(notion_request)
         except Exception as error:
@@ -320,7 +340,7 @@ def main() -> None:
             questions = previous_questions(data_path)
         source = "notion"
     else:
-        companies, applications, meetings_raw = load_from_snapshots()
+        companies, applications, meetings_raw, recruiters = load_from_snapshots()
         questions = load_questions_from_snapshot(data_path)
         source = "snapshots"
     prior_questions = previous_questions(data_path)
@@ -336,6 +356,30 @@ def main() -> None:
     calls_through_referral = sum(
         1 for meeting in kept_meetings if parse_list(meeting.get("colleagues <-> meetings"))
     )
+
+    recruiter_by_id = {}
+    for row in recruiters:
+        cid = page_id(row.get("url"))
+        if cid:
+            recruiter_by_id[cid] = row
+
+    calls_through_recruiter_third_party = 0
+    calls_through_recruiter_inbound = 0
+    calls_through_recruiter_outreach = 0
+    for meeting in kept_meetings:
+        linked = [
+            recruiter_by_id[cid]
+            for cid in (page_id(url) for url in parse_list(meeting.get("recruiters <-> meetings")))
+            if cid and cid in recruiter_by_id
+        ]
+        if not linked:
+            continue
+        if any(parse_list(row.get("firm")) for row in linked):
+            calls_through_recruiter_third_party += 1
+        if any(row.get("inbound?") == "__YES__" for row in linked):
+            calls_through_recruiter_inbound += 1
+        else:
+            calls_through_recruiter_outreach += 1
 
     company_by_id = {}
     for row in companies:
@@ -490,6 +534,7 @@ def main() -> None:
             f"Company table: last edited on or after {CUTOFF}",
             "Asked questions from job game 2026 Asked Questions (anonymized, deduped)",
             "Highlights: public meetings with app <-> meeting, recruiters <-> meetings, or colleagues <-> meetings filled",
+            "Recruiter highlight breakdowns from List of Recruiters (firm filled = third-party; inbound? checkbox)",
         ],
         "totals": {
             "applications": len(public_apps),
@@ -503,6 +548,9 @@ def main() -> None:
             "referrals": sum(1 for row in public_apps if row["referred"]),
             "callsThroughApplications": calls_through_applications,
             "callsThroughRecruiter": calls_through_recruiter,
+            "callsThroughRecruiterThirdParty": calls_through_recruiter_third_party,
+            "callsThroughRecruiterInbound": calls_through_recruiter_inbound,
+            "callsThroughRecruiterOutreach": calls_through_recruiter_outreach,
             "callsThroughReferral": calls_through_referral,
             "questions": len(questions.get("behavioral") or []) + len(questions.get("technical") or []),
             "questionsBehavioral": len(questions.get("behavioral") or []),
