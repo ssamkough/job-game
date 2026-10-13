@@ -11,7 +11,8 @@
     "Company table: last edited on or after 2026-09-11",
     "Asked questions from job game 2026 Asked Questions (anonymized, deduped)",
     "Highlights: public meetings with app <-> meeting, recruiters <-> meetings, or colleagues <-> meetings filled",
-    "Recruiter highlight breakdowns from List of Recruiters (firm filled = third-party; inbound? checkbox)"
+    "Recruiter highlight breakdowns from List of Recruiters (firm filled = third-party; inbound? checkbox)",
+    "Recruiter total: List of Recruiters with currently? checked"
   ],
   "totals": {
     "applications": 65,
