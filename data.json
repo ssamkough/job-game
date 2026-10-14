@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-13",
+  "generatedOn": "2026-10-14",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -15,19 +15,19 @@
     "Recruiter total: List of Recruiters with currently? checked"
   ],
   "totals": {
-    "applications": 65,
-    "applicationsSubmitted": 63,
+    "applications": 66,
+    "applicationsSubmitted": 64,
     "companiesThisSearch": 90,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 37,
-    "recruiterScreens": 20,
-    "recruiters": 17,
+    "meetings": 41,
+    "recruiterScreens": 23,
+    "recruiters": 22,
     "interviews": 3,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 28,
-    "callsThroughRecruiterThirdParty": 16,
-    "callsThroughRecruiterInbound": 14,
+    "callsThroughRecruiter": 32,
+    "callsThroughRecruiterThirdParty": 20,
+    "callsThroughRecruiterInbound": 18,
     "callsThroughRecruiterOutreach": 8,
     "callsThroughReferral": 6,
     "questions": 30,
@@ -36,11 +36,11 @@
     "questionsNew": 0
   },
   "applicationStatus": {
-    "Submitted": 63,
+    "Submitted": 64,
     "Archived": 2
   },
   "applicationBoards": {
-    "Direct / other": 42,
+    "Direct / other": 43,
     "Gary's Guide": 17,
     "80000 Hours": 2,
     "LinkedIn": 4
@@ -64,13 +64,24 @@
     "Re-apply": 3
   },
   "meetingKinds": {
-    "recruiter": 18,
-    "intro": 12,
+    "recruiter": 21,
+    "intro": 13,
     "technical": 3,
     "onsite": 1,
     "other": 3
   },
   "applications": [
+    {
+      "submittedOn": "2026-10-14",
+      "status": "Submitted",
+      "board": "Direct / other",
+      "companies": [
+        "Company 172"
+      ],
+      "recruiter": false,
+      "referred": false,
+      "linkedMeetings": 0
+    },
     {
       "submittedOn": "2026-10-13",
       "status": "Submitted",
@@ -1685,11 +1696,51 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
+      "meetingsThisSearch": 1,
       "jobGame2026Tag": false
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-13",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-13",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 159"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-13",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 158"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-13",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-10-12",
       "kind": "recruiter",

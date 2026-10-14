@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-13",
+  "generatedOn": "2026-10-14",
   "companies": [
     {
       "alias": "Company 02",
@@ -1466,12 +1466,29 @@
       "name": "Antimetal",
       "status": "Interviewing",
       "applications": [],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-13",
+          "kind": "intro"
+        }
+      ]
+    },
+    {
+      "alias": "Company 159",
+      "name": "Basis",
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-13",
+          "kind": "recruiter"
+        }
+      ]
     },
     {
       "alias": "Company 160",
       "name": "Codes Health",
-      "status": "Unknown",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {
@@ -1682,6 +1699,22 @@
           "status": "Submitted",
           "board": "Direct / other",
           "role": "Senior Software Engineer, Code Search [Github]",
+          "recruiter": false,
+          "referred": false
+        }
+      ],
+      "meetings": []
+    },
+    {
+      "alias": "Company 172",
+      "name": "Candid Health",
+      "status": "Unknown",
+      "applications": [
+        {
+          "submittedOn": "2026-10-14",
+          "status": "Submitted",
+          "board": "Direct / other",
+          "role": "Engineering Manager - Product [Candid Health]",
           "recruiter": false,
           "referred": false
         }
