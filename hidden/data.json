@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-14",
+  "generatedOn": "2026-10-15",
   "companies": [
     {
       "alias": "Company 02",
@@ -483,7 +483,7 @@
     {
       "alias": "Company 41",
       "name": "Clarion",
-      "status": "Applied",
+      "status": "Denied",
       "applications": [
         {
           "submittedOn": "2026-09-30",
@@ -494,7 +494,12 @@
           "referred": false
         }
       ],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-14",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 42",
@@ -920,13 +925,6 @@
       "alias": "Company 85",
       "name": "Daptic",
       "status": "Applied",
-      "applications": [],
-      "meetings": []
-    },
-    {
-      "alias": "Company 86",
-      "name": "Interfere",
-      "status": "Interviewing",
       "applications": [],
       "meetings": []
     },
@@ -1444,6 +1442,10 @@
       "applications": [],
       "meetings": [
         {
+          "date": "2026-10-14",
+          "kind": "technical"
+        },
+        {
           "date": "2026-10-09",
           "kind": "technical"
         }
@@ -1464,7 +1466,7 @@
     {
       "alias": "Company 158",
       "name": "Antimetal",
-      "status": "Interviewing",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {
@@ -1496,6 +1498,13 @@
           "kind": "intro"
         }
       ]
+    },
+    {
+      "alias": "Company 161",
+      "name": "Tenex",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
     },
     {
       "alias": "Company 162",
@@ -1720,6 +1729,42 @@
         }
       ],
       "meetings": []
+    },
+    {
+      "alias": "Company 173",
+      "name": "Agentio",
+      "status": "In Talks",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-14",
+          "kind": "recruiter"
+        }
+      ]
+    },
+    {
+      "alias": "Company 174",
+      "name": "Torch Dental",
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-14",
+          "kind": "recruiter"
+        }
+      ]
+    },
+    {
+      "alias": "Company 175",
+      "name": "Attilio",
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-14",
+          "kind": "recruiter"
+        }
+      ]
     }
   ]
 }

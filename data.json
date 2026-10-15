@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-14",
+  "generatedOn": "2026-10-15",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -17,17 +17,17 @@
   "totals": {
     "applications": 66,
     "applicationsSubmitted": 64,
-    "companiesThisSearch": 90,
+    "companiesThisSearch": 88,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 41,
-    "recruiterScreens": 23,
-    "recruiters": 22,
-    "interviews": 3,
+    "meetings": 48,
+    "recruiterScreens": 28,
+    "recruiters": 24,
+    "interviews": 4,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 32,
-    "callsThroughRecruiterThirdParty": 20,
-    "callsThroughRecruiterInbound": 18,
+    "callsThroughRecruiter": 37,
+    "callsThroughRecruiterThirdParty": 22,
+    "callsThroughRecruiterInbound": 22,
     "callsThroughRecruiterOutreach": 8,
     "callsThroughReferral": 6,
     "questions": 30,
@@ -46,8 +46,8 @@
     "LinkedIn": 4
   },
   "companyStatusThisSearch": {
-    "Applied": 15,
-    "Interviewing": 8,
+    "Applied": 14,
+    "Interviewing": 7,
     "Finding role...": 16,
     "Interviewed": 51
   },
@@ -64,9 +64,9 @@
     "Re-apply": 3
   },
   "meetingKinds": {
-    "recruiter": 21,
-    "intro": 13,
-    "technical": 3,
+    "recruiter": 26,
+    "technical": 4,
+    "intro": 14,
     "onsite": 1,
     "other": 3
   },
@@ -860,16 +860,6 @@
       "jobGame2026Tag": true
     },
     {
-      "alias": "Company 41",
-      "status": "Applied",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": false
-    },
-    {
       "alias": "Company 42",
       "status": "Applied",
       "role": null,
@@ -1002,16 +992,6 @@
     {
       "alias": "Company 85",
       "status": "Applied",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": false
-    },
-    {
-      "alias": "Company 86",
-      "status": "Interviewing",
       "role": null,
       "workType": null,
       "appliedOn": null,
@@ -1690,17 +1670,90 @@
       "jobGame2026Tag": false
     },
     {
-      "alias": "Company 158",
+      "alias": "Company 161",
       "status": "Interviewing",
       "role": null,
       "workType": null,
       "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 1,
+      "firstInterviewOn": "2026-10-15",
+      "meetingsThisSearch": 0,
       "jobGame2026Tag": false
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-14",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 174"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 175"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "companies": [
+        "Company 156"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 173"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 41"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-10-13",
       "kind": "recruiter",
