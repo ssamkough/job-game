@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-15",
+  "generatedOn": "2026-10-16",
   "companies": [
     {
       "alias": "Company 02",
@@ -1423,6 +1423,10 @@
       "applications": [],
       "meetings": [
         {
+          "date": "2026-10-15",
+          "kind": "intro"
+        },
+        {
           "date": "2026-10-12",
           "kind": "intro"
         }
@@ -1504,7 +1508,12 @@
       "name": "Tenex",
       "status": "Interviewing",
       "applications": [],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-15",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 162",
@@ -1733,9 +1742,13 @@
     {
       "alias": "Company 173",
       "name": "Agentio",
-      "status": "In Talks",
+      "status": "Denied",
       "applications": [],
       "meetings": [
+        {
+          "date": "2026-10-15",
+          "kind": "recruiter"
+        },
         {
           "date": "2026-10-14",
           "kind": "recruiter"
@@ -1748,6 +1761,10 @@
       "status": "Unknown",
       "applications": [],
       "meetings": [
+        {
+          "date": "2026-10-15",
+          "kind": "other"
+        },
         {
           "date": "2026-10-14",
           "kind": "recruiter"

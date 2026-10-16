@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-15",
+  "generatedOn": "2026-10-16",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,15 +19,15 @@
     "applicationsSubmitted": 64,
     "companiesThisSearch": 88,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 48,
-    "recruiterScreens": 28,
-    "recruiters": 24,
+    "meetings": 53,
+    "recruiterScreens": 30,
+    "recruiters": 26,
     "interviews": 4,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 37,
-    "callsThroughRecruiterThirdParty": 22,
-    "callsThroughRecruiterInbound": 22,
+    "callsThroughRecruiter": 40,
+    "callsThroughRecruiterThirdParty": 23,
+    "callsThroughRecruiterInbound": 24,
     "callsThroughRecruiterOutreach": 8,
     "callsThroughReferral": 6,
     "questions": 30,
@@ -64,11 +64,11 @@
     "Re-apply": 3
   },
   "meetingKinds": {
-    "recruiter": 26,
+    "other": 4,
+    "recruiter": 28,
+    "intro": 16,
     "technical": 4,
-    "intro": 14,
-    "onsite": 1,
-    "other": 3
+    "onsite": 1
   },
   "applications": [
     {
@@ -1656,7 +1656,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 1,
+      "meetingsThisSearch": 2,
       "jobGame2026Tag": false
     },
     {
@@ -1676,11 +1676,62 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": "2026-10-15",
-      "meetingsThisSearch": 0,
+      "meetingsThisSearch": 1,
       "jobGame2026Tag": false
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-15",
+      "kind": "other",
+      "tags": [],
+      "companies": [
+        "Company 174"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-15",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 173"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-15",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-15",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 154"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-15",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "companies": [
+        "Company 161"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-10-14",
       "kind": "recruiter",
