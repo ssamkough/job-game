@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-16",
+  "generatedOn": "2026-10-17",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,15 +19,15 @@
     "applicationsSubmitted": 64,
     "companiesThisSearch": 88,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 53,
-    "recruiterScreens": 30,
+    "meetings": 54,
+    "recruiterScreens": 31,
     "recruiters": 26,
     "interviews": 4,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 40,
-    "callsThroughRecruiterThirdParty": 23,
-    "callsThroughRecruiterInbound": 24,
+    "callsThroughRecruiter": 41,
+    "callsThroughRecruiterThirdParty": 24,
+    "callsThroughRecruiterInbound": 25,
     "callsThroughRecruiterOutreach": 8,
     "callsThroughReferral": 6,
     "questions": 30,
@@ -64,8 +64,8 @@
     "Re-apply": 3
   },
   "meetingKinds": {
+    "recruiter": 29,
     "other": 4,
-    "recruiter": 28,
     "intro": 16,
     "technical": 4,
     "onsite": 1
@@ -1681,6 +1681,17 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-16",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [
+        "Company 176"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-10-15",
       "kind": "other",

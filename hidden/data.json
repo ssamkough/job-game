@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-16",
+  "generatedOn": "2026-10-17",
   "companies": [
     {
       "alias": "Company 02",
@@ -1779,6 +1779,18 @@
       "meetings": [
         {
           "date": "2026-10-14",
+          "kind": "recruiter"
+        }
+      ]
+    },
+    {
+      "alias": "Company 176",
+      "name": "Sequel.io",
+      "status": "Trying",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-16",
           "kind": "recruiter"
         }
       ]
