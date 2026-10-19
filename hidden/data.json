@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-18",
+  "generatedOn": "2026-10-19",
   "companies": [
     {
       "alias": "Company 02",
@@ -1758,7 +1758,7 @@
     {
       "alias": "Company 174",
       "name": "Torch Dental",
-      "status": "Unknown",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {
