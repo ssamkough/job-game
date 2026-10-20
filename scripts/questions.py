@@ -69,6 +69,17 @@ PHRASES = (
     (r"what were the challenges, where did the app come from", "what were the challenges, and where did the app come from"),
 )
 
+TITLE_PHRASES = (
+    (r"^given an input json, print its schema\.?$", "Print a JSON schema"),
+)
+GENERIC_TITLE_LINES = PROMPT_TOGGLE_TITLES | SKIP_TOGGLE_TITLES | {
+    "question",
+    "problem",
+    "task",
+    "prompt",
+}
+TITLE_KEEP_WORDS = {"JSON", "UI", "AI", "API", "SQL", "HTTP", "CSS", "HTML", "URL"}
+
 ASKED_ME = re.compile(r"^asked me\s+", re.I)
 ASKED_ABOUT = re.compile(r"^asked about\s+", re.I)
 FOLLOW_UP = re.compile(r"^follow-?up:\s*", re.I)
@@ -243,9 +254,21 @@ def dedupe(items: list[dict]) -> list[dict]:
 def collect_names(nodes: list[dict], into: set[str]) -> None:
     for node in nodes:
         kind = node.get("type")
-        if kind in {"toggle", "heading_1", "heading_2", "heading_3"}:
-            into |= names_from_title(block_text(node))
+        title = block_text(node)
+        lowered = title.lower().strip()
+        if kind == "toggle" and lowered not in SKIP_TOGGLE_TITLES | PROMPT_TOGGLE_TITLES:
+            into |= names_from_title(title)
         collect_names(node.get("children") or [], into)
+
+
+def strip_comment_prefix(line: str) -> str:
+    cleaned = line
+    while True:
+        nxt = re.sub(r"^(\s*)//+\s?", r"\1", cleaned)
+        nxt = re.sub(r"^(\s*)#+\s?", r"\1", nxt)
+        if nxt == cleaned:
+            return cleaned
+        cleaned = nxt
 
 
 def code_prompt(block: dict) -> str:
@@ -256,9 +279,9 @@ def code_prompt(block: dict) -> str:
         stripped = line.strip()
         if re.match(r"^(async\s+)?function\s+\w+", stripped) or re.match(r"^class\s+\w+", stripped):
             break
-        cleaned = re.sub(r"^(\s*)//+\s?", r"\1", line)
-        cleaned = re.sub(r"^(\s*)#\s?", r"\1", cleaned)
-        lines.append(cleaned.rstrip())
+        if stripped and not stripped.startswith(("//", "#", "*", "/*")):
+            break
+        lines.append(strip_comment_prefix(line).rstrip())
     text = "\n".join(lines).strip()
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip("` \n")
@@ -289,12 +312,45 @@ def prompt_from_nodes(nodes: list[dict]) -> str:
     return "\n\n".join(chunk for chunk in chunks if chunk).strip()
 
 
-def first_heading(text: str) -> str | None:
-    for line in text.splitlines():
-        stripped = line.strip().lstrip("#").strip()
-        if stripped:
-            return stripped
-    return None
+def display_title(text: str) -> str:
+    blob = apply_typos(re.sub(r"\s+", " ", text).strip(" #/.-"))
+    if blob.endswith(".") and not blob.endswith("..."):
+        blob = blob[:-1]
+    words = blob.split()
+    if not words:
+        return "Technical prompt"
+    titled = [words[0][:1].upper() + words[0][1:]]
+    for word in words[1:]:
+        if word.upper() in TITLE_KEEP_WORDS:
+            titled.append(word.upper())
+        elif word[:1].isupper() and word.isalpha() and word.lower() in {"react", "typescript"}:
+            titled.append(word)
+        else:
+            titled.append(word.lower())
+    return " ".join(titled)
+
+
+def technical_title(prompt: str) -> str:
+    for line in prompt.splitlines():
+        stripped = strip_comment_prefix(line).strip().strip("`").lstrip("#").strip()
+        lowered = stripped.lower().rstrip(":")
+        if not stripped or lowered in GENERIC_TITLE_LINES:
+            continue
+        if stripped in {"---", "```"} or lowered.startswith(("assume", "example", "expected", "rules")):
+            continue
+        for pattern, replacement in TITLE_PHRASES:
+            if re.match(pattern, stripped, flags=re.I):
+                return replacement
+        building = re.match(r"(?i)^you'?re building an?\s+(.+?)\s+for\b", stripped)
+        if building:
+            return display_title(building.group(1))
+        given = re.match(r"(?i)^given\b[^,.?!]+,\s*(.+)$", stripped)
+        if given:
+            return display_title(given.group(1))
+        if len(stripped) <= 48 or len(stripped.split()) <= 6:
+            return display_title(stripped)
+        return display_title(stripped.split(".")[0])
+    return "Technical prompt"
 
 
 def heading_section(title: str, current: str | None) -> str | None:
@@ -319,12 +375,13 @@ def has_technical_prompt_bits(title: str, children: list[dict]) -> bool:
 
 
 def append_technical_prompt(children: list[dict], names: list[str], buckets: dict[str, list[dict]]) -> None:
-    prompt = apply_typos(redact(prompt_from_nodes(children), names))
+    raw = prompt_from_nodes(children)
+    if not raw:
+        return
+    prompt = apply_typos(redact(raw, names))
     if not prompt:
         return
-    buckets["technical"].append(
-        {"title": first_heading(prompt) or "Technical prompt", "prompt": prompt}
-    )
+    buckets["technical"].append({"title": technical_title(raw), "prompt": prompt})
 
 
 def walk(nodes: list[dict], section: str | None, names: list[str], buckets: dict[str, list[dict]]) -> None:
@@ -369,10 +426,11 @@ def walk(nodes: list[dict], section: str | None, names: list[str], buckets: dict
             walk(children, current, names, buckets)
             continue
         if kind == "code" and current == "technical":
-            prompt = apply_typos(redact(code_prompt(node), names))
+            raw = code_prompt(node)
+            prompt = apply_typos(redact(raw, names))
             if prompt:
                 buckets["technical"].append(
-                    {"title": first_heading(prompt) or "Technical prompt", "prompt": prompt}
+                    {"title": technical_title(raw), "prompt": prompt}
                 )
             continue
         if kind in {"bulleted_list_item", "numbered_list_item", "paragraph", "quote", "to_do"}:

@@ -43,7 +43,7 @@ Inclusion rules for the public snapshot:
 - Meetings: **fin | job game 2026** view (date before today, `jobs` tag, linked to Job Game 2026). Kind is onsite, technical, intro, recruiter, or other. The `jobs` tag is the view filter, not a public label. Highlights count those meetings with `app <-> meeting`, `recruiters <-> meetings`, or `colleagues <-> meetings` filled. Recruiter sub-counts use List of Recruiters: `firm` filled means third-party; `inbound?` is inbound vs outreach / existing connection.
 - Applications: Job Game 2026 Applications **Submitted** view (status group Complete: Submitted and Archived). Referral counts are whether that relation column is filled. The Recruiter total is List of Recruiters rows with `currently?` checked.
 - Companies (table): last edited on or after **2026-09-11**, and status is one of Finding role..., Applied, Interviewing, Take-Home, Negotating/Negotiating, Interviewed
-- Questions: **job game 2026 Asked Questions** page, Behavioral and Technical only. Company names and people are stripped. Notes after those headings count even if they are not nested under the heading. Technical round notes without a code/readme toggle become one disclosure. Solutions/code toggles are omitted. Duplicates are dropped.
+- Questions: **job game 2026 Asked Questions** page, Behavioral and Technical only. Company names and people are stripped. Notes after those headings count even if they are not nested under the heading. Technical round notes without a code/readme toggle become one disclosure, titled with a short summary of the prompt. Solutions/code toggles are omitted. Duplicates are dropped.
 
 ## What is running
 
