@@ -17,11 +17,11 @@
   "totals": {
     "applications": 66,
     "applicationsSubmitted": 64,
-    "companiesThisSearch": 88,
+    "companiesThisSearch": 87,
     "companiesTaggedJobGame2026": 149,
     "meetings": 57,
     "recruiterScreens": 31,
-    "recruiters": 30,
+    "recruiters": 31,
     "interviews": 5,
     "referrals": 8,
     "callsThroughApplications": 0,
@@ -33,7 +33,7 @@
     "questions": 63,
     "questionsBehavioral": 60,
     "questionsTechnical": 3,
-    "questionsNew": 36
+    "questionsNew": 4
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -47,7 +47,7 @@
   },
   "companyStatusThisSearch": {
     "Applied": 14,
-    "Interviewing": 7,
+    "Interviewing": 6,
     "Finding role...": 16,
     "Interviewed": 51
   },
@@ -1660,16 +1660,6 @@
       "jobGame2026Tag": false
     },
     {
-      "alias": "Company 155",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": false
-    },
-    {
       "alias": "Company 161",
       "status": "Interviewing",
       "role": null,
@@ -2282,7 +2272,7 @@
       "Is there anything lacking?",
       "Do you have experience in mentorship?",
       "What's a problem you're happy with that you worked on?",
-      "What about tradeoffs in the product?",
+      "What technical tradeoffs did you make in the product?",
       "Tell me about how AI has changed your daily workflow.",
       "At Temelio, was the product roadmap about features, or are there more problems?",
       "Walk through the tech stack you worked with previously, and your preferences for the split.",
@@ -2298,7 +2288,7 @@
       "Why do you want to leave?",
       "What was a recent hard problem you worked on?",
       "What were some trade offs?",
-      "How much was the part your decisions?",
+      "How much was the technical part your decisions?",
       "When was a time you disagreed with a co-worker?",
       "When was a time you were wrong and what did you do?",
       "What does it mean to be an engineering manager?",
@@ -2322,12 +2312,12 @@
     ],
     "technical": [
       {
-        "title": "You're building an for a game. Items can be added, removed, and used. Some items have passive effects that modify a player's stats while held.",
-        "prompt": "\n\nYou're building an for a game. Items can be added, removed, and used. Some items have passive effects that modify a player's stats while held.\n\nNo UI needed.\n\n\n\nImplement add() and remove().\n\nRules:\n\nRespects inventory capacity\n\nremove fails gracefully if the quantity exceeds what's held.\n\n\n\nImplement use().\n\nConsumes item (like a potion or ammo)\nExecutes the item's use effect, if one is defined\nNot all items are usable\n\n\n\nPassive effects apply while an item is in the inventory.\n\nExample: holding a \"Ring of Strength\" (+5 attack) and a \"Shield of Vitality\" (+10 health)`.\n\n\n\nImplement save / load functionality for the inventory\n\n\n\nIf time permits, pick one:\n\nEvents: Emit events (onItemAdded, onItemUsed, onItemRemoved) so external systems can React to inventory changes.\n\nConditional passives: Some passives only activate under conditions (e.g. \"while health is below 50%\"). How would you model this?"
+        "title": "Inventory system",
+        "prompt": "Inventory System\n\nYou're building an inventory system for a game. Items can be added, removed, and used. Some items have passive effects that modify a player's stats while held.\n\nNo UI needed.\n\nPhase 1: Add & Remove\n\nImplement add() and remove().\n\nRules:\n\nRespects inventory capacity\n\nremove fails gracefully if the quantity exceeds what's held.\n\nPhase 2: Use\n\nImplement use().\n\nConsumes item (like a potion or ammo)\nExecutes the item's use effect, if one is defined\nNot all items are usable\n\nPhase 3: Passive Effects\n\nPassive effects apply while an item is in the inventory.\n\nExample: holding a \"Ring of Strength\" (+5 attack) and a \"Shield of Vitality\" (+10 health)`.\n\nPhase 4: Serialization\n\nImplement save / load functionality for the inventory\n\nBonus\n\nIf time permits, pick one:\n\nEvents: Emit events (onItemAdded, onItemUsed, onItemRemoved) so external systems can React to inventory changes.\n\nConditional passives: Some passives only activate under conditions (e.g. \"while health is below 50%\"). How would you model this?"
       },
       {
-        "title": "// # Question",
-        "prompt": "// # Question\n// Given an input JSON, print its schema.\n\n// Assume:\n// 1. All elements in the array are of the same type\n\n// ## Example Input 1:\n```\nconst INPUT_ONE = `{\n \"firstName\": \"Alex\",\n \"lastName\": \"Hamilton\",\n \"age\": 47,\n \"tags\": [\"founding father\", \"treasurey\", \"musical\"],\n \"passing\": {\n \"location\": \"New York, NY\",\n \"age\": 47\n }\n}`\n```\n\n// Expected Output:\n```\nobject\n firstName: string,\n lastName: string,\n age: number,\n tags: array\n string\n passing: object\n location: string,\n age: number\n```\n\n// ## Example Input 2:\n```\nconst INPUT_TWO = `[\n {\n \"firstName\": \"Alex\",\n \"lastName\": \"Hamilton\",\n \"age\": 47,\n \"tags\": [\"founding father\", \"treasurey\", \"musical\"],\n \"passing\": {\n \"location\": \"New York, NY\",\n \"age\": 47\n }\n },\n {\n\n }\n]`\n```\n\n// Expected Output:\n\n```\narray\n object\n firstName: string,\n lastName: string,\n age: number,\n tags: array\n string\n passing: object\n location: string,\n age: number"
+        "title": "Print a JSON schema",
+        "prompt": "Question\nGiven an input JSON, print its schema.\n\nAssume:\n1. All elements in the array are of the same type\n\nExample Input 1:"
       },
       {
         "title": "Billing systems",

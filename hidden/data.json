@@ -863,7 +863,7 @@
     {
       "alias": "Company 68",
       "name": "Replit",
-      "status": "In Talks",
+      "status": "Ended",
       "applications": [
         {
           "submittedOn": "2026-09-30",
@@ -1435,13 +1435,6 @@
           "kind": "intro"
         }
       ]
-    },
-    {
-      "alias": "Company 155",
-      "name": "Versana",
-      "status": "Interviewing",
-      "applications": [],
-      "meetings": []
     },
     {
       "alias": "Company 156",
