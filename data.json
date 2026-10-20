@@ -30,10 +30,10 @@
     "callsThroughRecruiterInbound": 27,
     "callsThroughRecruiterOutreach": 8,
     "callsThroughReferral": 7,
-    "questions": 30,
-    "questionsBehavioral": 28,
-    "questionsTechnical": 2,
-    "questionsNew": 0
+    "questions": 63,
+    "questionsBehavioral": 60,
+    "questionsTechnical": 3,
+    "questionsNew": 36
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -2282,20 +2282,56 @@
       "Is there anything lacking?",
       "Do you have experience in mentorship?",
       "What's a problem you're happy with that you worked on?",
-      "What technical tradeoffs did you make in the product?",
+      "What about tradeoffs in the product?",
       "Tell me about how AI has changed your daily workflow.",
       "At Temelio, was the product roadmap about features, or are there more problems?",
       "Walk through the tech stack you worked with previously, and your preferences for the split.",
-      "Walk through a complex full-stack project that you've owned."
+      "Walk through a complex full-stack project that you've owned.",
+      "What specific things do I want to grow in indsutries tech?",
+      "What future paths do I see?",
+      "If you were to split engineering, where do I see my strengths.",
+      "Tell me about where you sit in the stack and what your team looks like what aspects modern AI native products?",
+      "Not a hard requirement: how deep have you gotten into the agentic orchestration, workflows, working with evals, etc.",
+      "Working closely with PMs, designers, whose owning the product stuff.",
+      "What can [company] do for you to for 3 - 5 years?",
+      "A lot about team sizes.",
+      "Why do you want to leave?",
+      "What was a recent hard problem you worked on?",
+      "What were some trade offs?",
+      "How much was the part your decisions?",
+      "When was a time you disagreed with a co-worker?",
+      "When was a time you were wrong and what did you do?",
+      "What does it mean to be an engineering manager?",
+      "How do you provide empowerment as an engineering management?",
+      "What are some of the projects I've been working on?",
+      "Of the projects I've talked about, what were their impact at the end.",
+      "Love to understand what the next step of numbers is.",
+      "What is it you look for in a team?",
+      "What is a high performing team looklike?",
+      "What is the best engineer you worked?",
+      "Tell me about yourself, current role, and business problems you solved?",
+      "What's a key design decision that had downstream impacts?",
+      "Tell us more about the details of the custom architecture? What did it look like? What drove us to going back to the custom architecture? Going into any details?",
+      "Two follow-up questions to previous.",
+      "Hey we need to re architect this to the business, what did they say.",
+      "What did you're new architecture improve the scalability you built?",
+      "When you were initially gathering requirements, what was you're SDLC?",
+      "More on that, agents and AI have been game changer. When you're using these tools, what kind of defines quality software? Are there any pricpes or pattersn guiding you? How do you guide or steer your AI tools to ?",
+      "Actually though, when you're building or pattern that makes the testing easier? Design patterns.",
+      "In terms of what you're looking for I next ole, what most interesting you in you're next roles?"
     ],
     "technical": [
       {
-        "title": "Inventory system",
-        "prompt": "Inventory System\n\nYou're building an inventory system for a game. Items can be added, removed, and used. Some items have passive effects that modify a player's stats while held.\n\nNo UI needed.\n\nPhase 1: Add & Remove\nImplement add() and remove().\nRules:\n- Respects inventory capacity\n- remove fails gracefully if the quantity exceeds what's held.\n\nPhase 2: Use\nImplement use().\nConsumes item (like a potion or ammo)\nExecutes the item's use effect, if one is defined\nNot all items are usable\n\nPhase 3: Passive Effects\nPassive effects apply while an item is in the inventory.\nExample: holding a \"Ring of Strength\" (+5 attack) and a \"Shield of Vitality\" (+10 health).\n\nPhase 4: Serialization\nImplement save / load functionality for the inventory\n\nBonus\nIf time permits, pick one:\nEvents: Emit events (onItemAdded, onItemUsed, onItemRemoved) so external systems can react to inventory changes.\nConditional passives: Some passives only activate under conditions (e.g. \"while health is below 50%\"). How would you model this?"
+        "title": "You're building an for a game. Items can be added, removed, and used. Some items have passive effects that modify a player's stats while held.",
+        "prompt": "\n\nYou're building an for a game. Items can be added, removed, and used. Some items have passive effects that modify a player's stats while held.\n\nNo UI needed.\n\n\n\nImplement add() and remove().\n\nRules:\n\nRespects inventory capacity\n\nremove fails gracefully if the quantity exceeds what's held.\n\n\n\nImplement use().\n\nConsumes item (like a potion or ammo)\nExecutes the item's use effect, if one is defined\nNot all items are usable\n\n\n\nPassive effects apply while an item is in the inventory.\n\nExample: holding a \"Ring of Strength\" (+5 attack) and a \"Shield of Vitality\" (+10 health)`.\n\n\n\nImplement save / load functionality for the inventory\n\n\n\nIf time permits, pick one:\n\nEvents: Emit events (onItemAdded, onItemUsed, onItemRemoved) so external systems can React to inventory changes.\n\nConditional passives: Some passives only activate under conditions (e.g. \"while health is below 50%\"). How would you model this?"
       },
       {
-        "title": "Print a JSON schema",
-        "prompt": "Question\nGiven an input JSON, print its schema.\n\nAssume:\n1. All elements in the array are of the same type\n\nExample Input 1:\n{\n    \"firstName\": \"Alex\",\n    \"lastName\": \"Hamilton\",\n    \"age\": 47,\n    \"tags\": [\"founding father\", \"treasurey\", \"musical\"],\n    \"passing\": {\n        \"location\": \"New York, NY\",\n        \"age\": 47\n    }\n}\n\nExpected Output:\nobject\n    firstName: string,\n    lastName: string,\n    age: number,\n    tags: array\n        string\n    passing: object\n        location: string,\n        age: number\n\nExample Input 2:\n[\n    {\n        \"firstName\": \"Alex\",\n        \"lastName\": \"Hamilton\",\n        \"age\": 47,\n        \"tags\": [\"founding father\", \"treasurey\", \"musical\"],\n        \"passing\": {\n            \"location\": \"New York, NY\",\n            \"age\": 47\n        }\n    },\n    {\n\n    }\n]\n\nExpected Output:\narray\n    object\n        firstName: string,\n        lastName: string,\n        age: number,\n        tags: array\n            string\n        passing: object\n            location: string,\n            age: number"
+        "title": "// # Question",
+        "prompt": "// # Question\n// Given an input JSON, print its schema.\n\n// Assume:\n// 1. All elements in the array are of the same type\n\n// ## Example Input 1:\n```\nconst INPUT_ONE = `{\n \"firstName\": \"Alex\",\n \"lastName\": \"Hamilton\",\n \"age\": 47,\n \"tags\": [\"founding father\", \"treasurey\", \"musical\"],\n \"passing\": {\n \"location\": \"New York, NY\",\n \"age\": 47\n }\n}`\n```\n\n// Expected Output:\n```\nobject\n firstName: string,\n lastName: string,\n age: number,\n tags: array\n string\n passing: object\n location: string,\n age: number\n```\n\n// ## Example Input 2:\n```\nconst INPUT_TWO = `[\n {\n \"firstName\": \"Alex\",\n \"lastName\": \"Hamilton\",\n \"age\": 47,\n \"tags\": [\"founding father\", \"treasurey\", \"musical\"],\n \"passing\": {\n \"location\": \"New York, NY\",\n \"age\": 47\n }\n },\n {\n\n }\n]`\n```\n\n// Expected Output:\n\n```\narray\n object\n firstName: string,\n lastName: string,\n age: number,\n tags: array\n string\n passing: object\n location: string,\n age: number"
+      },
+      {
+        "title": "Billing systems",
+        "prompt": "Billing systems\n\n100 clients\n\nThey get billed at 1st of the month for prev month\n\nWe sent clients a receipt after billing\n\nBilling gets calculated at midnight the day before"
       }
     ]
   }
