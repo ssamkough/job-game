@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-19",
+  "generatedOn": "2026-10-20",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,17 +19,17 @@
     "applicationsSubmitted": 64,
     "companiesThisSearch": 88,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 54,
+    "meetings": 57,
     "recruiterScreens": 31,
-    "recruiters": 26,
-    "interviews": 4,
+    "recruiters": 30,
+    "interviews": 5,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 41,
-    "callsThroughRecruiterThirdParty": 24,
-    "callsThroughRecruiterInbound": 25,
+    "callsThroughRecruiter": 43,
+    "callsThroughRecruiterThirdParty": 26,
+    "callsThroughRecruiterInbound": 27,
     "callsThroughRecruiterOutreach": 8,
-    "callsThroughReferral": 6,
+    "callsThroughReferral": 7,
     "questions": 30,
     "questionsBehavioral": 28,
     "questionsTechnical": 2,
@@ -64,10 +64,10 @@
     "Re-apply": 3
   },
   "meetingKinds": {
+    "other": 6,
+    "technical": 5,
     "recruiter": 29,
-    "other": 4,
     "intro": 16,
-    "technical": 4,
     "onsite": 1
   },
   "applications": [
@@ -1681,6 +1681,35 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-19",
+      "kind": "other",
+      "tags": [],
+      "companies": [
+        "Company 157"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-19",
+      "kind": "other",
+      "tags": [],
+      "companies": [
+        "Company 156"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-19",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-10-16",
       "kind": "recruiter",

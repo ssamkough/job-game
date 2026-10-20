@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-19",
+  "generatedOn": "2026-10-20",
   "companies": [
     {
       "alias": "Company 02",
@@ -583,6 +583,10 @@
       "status": "Unknown",
       "applications": [],
       "meetings": [
+        {
+          "date": "2026-10-19",
+          "kind": "technical"
+        },
         {
           "date": "2026-10-06",
           "kind": "recruiter"
@@ -1446,6 +1450,10 @@
       "applications": [],
       "meetings": [
         {
+          "date": "2026-10-19",
+          "kind": "other"
+        },
+        {
           "date": "2026-10-14",
           "kind": "technical"
         },
@@ -1461,6 +1469,10 @@
       "status": "Unknown",
       "applications": [],
       "meetings": [
+        {
+          "date": "2026-10-19",
+          "kind": "other"
+        },
         {
           "date": "2026-10-12",
           "kind": "recruiter"
