@@ -148,7 +148,7 @@ def redact(text: str, names: list[str]) -> str:
         if not name or len(name) < 3:
             continue
         redacted = re.sub(rf"\b{re.escape(name)}\b", "", redacted, flags=re.I)
-    return re.sub(r"\s{2,}", " ", redacted).strip(" -,")
+    return re.sub(r"[^\S\n]{2,}", " ", redacted).strip(" -,")
 
 
 def apply_typos(text: str) -> str:
@@ -297,64 +297,89 @@ def first_heading(text: str) -> str | None:
     return None
 
 
+def heading_section(title: str, current: str | None) -> str | None:
+    lowered = title.lower().strip()
+    if "resource" in lowered:
+        return None
+    for key, label in SECTION_HEADINGS.items():
+        if key in lowered:
+            return label
+    return current
+
+
+def has_technical_prompt_bits(title: str, children: list[dict]) -> bool:
+    lowered = title.lower().strip()
+    if lowered in PROMPT_TOGGLE_TITLES:
+        return True
+    return any(
+        block_text(child).lower() in PROMPT_TOGGLE_TITLES | SKIP_TOGGLE_TITLES
+        or child.get("type") == "code"
+        for child in children
+    )
+
+
+def append_technical_prompt(children: list[dict], names: list[str], buckets: dict[str, list[dict]]) -> None:
+    prompt = apply_typos(redact(prompt_from_nodes(children), names))
+    if not prompt:
+        return
+    buckets["technical"].append(
+        {"title": first_heading(prompt) or "Technical prompt", "prompt": prompt}
+    )
+
+
 def walk(nodes: list[dict], section: str | None, names: list[str], buckets: dict[str, list[dict]]) -> None:
+    current = section
     for node in nodes:
         kind = node.get("type")
         title = block_text(node)
         children = node.get("children") or []
         if kind in {"heading_1", "heading_2", "heading_3"}:
-            lowered = title.lower().strip()
-            if "resource" in lowered:
-                walk(children, None, names, buckets)
-                continue
-            next_section = None
-            for key, label in SECTION_HEADINGS.items():
-                if key in lowered:
-                    next_section = label
-                    break
-            walk(children, next_section or section, names, buckets)
+            current = heading_section(title, current)
+            walk(children, current, names, buckets)
             continue
-        if section is None:
+        if current is None:
+            continue
+        if kind in {"column_list", "column", "synced_block"}:
+            walk(children, current, names, buckets)
             continue
         if kind == "toggle":
             lowered = title.lower().strip()
             if lowered in SKIP_TOGGLE_TITLES:
                 continue
-            if section == "technical" and (
-                lowered in PROMPT_TOGGLE_TITLES or any(block_text(child).lower() in PROMPT_TOGGLE_TITLES | SKIP_TOGGLE_TITLES or child.get("type") == "code" for child in children)
-            ):
-                preferred = [
-                    child
-                    for child in children
-                    if child.get("type") == "toggle" and block_text(child).lower() in PROMPT_TOGGLE_TITLES
-                ]
-                usable = preferred or [
-                    child
-                    for child in children
-                    if not (
-                        child.get("type") == "toggle"
-                        and block_text(child).lower() in SKIP_TOGGLE_TITLES
-                    )
-                ]
-                prompt = apply_typos(redact(prompt_from_nodes(usable), names))
-                if prompt:
-                    heading = first_heading(prompt) or "Technical prompt"
-                    buckets[section].append({"title": heading, "prompt": prompt})
+            if current == "technical":
+                if has_technical_prompt_bits(title, children):
+                    preferred = [
+                        child
+                        for child in children
+                        if child.get("type") == "toggle"
+                        and block_text(child).lower() in PROMPT_TOGGLE_TITLES
+                    ]
+                    usable = preferred or [
+                        child
+                        for child in children
+                        if not (
+                            child.get("type") == "toggle"
+                            and block_text(child).lower() in SKIP_TOGGLE_TITLES
+                        )
+                    ]
+                    append_technical_prompt(usable, names, buckets)
+                else:
+                    append_technical_prompt(children, names, buckets)
                 continue
-            walk(children, section, names, buckets)
+            walk(children, current, names, buckets)
             continue
-        if kind == "code" and section == "technical":
-            prompt = redact(code_prompt(node), names)
-            prompt = apply_typos(prompt)
+        if kind == "code" and current == "technical":
+            prompt = apply_typos(redact(code_prompt(node), names))
             if prompt:
-                heading = first_heading(prompt) or "Technical prompt"
-                buckets[section].append({"title": heading, "prompt": prompt})
+                buckets["technical"].append(
+                    {"title": first_heading(prompt) or "Technical prompt", "prompt": prompt}
+                )
             continue
         if kind in {"bulleted_list_item", "numbered_list_item", "paragraph", "quote", "to_do"}:
             cleaned = clean_sentence(title, names)
             if cleaned:
-                buckets[section].append({"title": cleaned, "prompt": ""})
-            walk(children, section, names, buckets)
+                buckets[current].append({"title": cleaned, "prompt": ""})
+            walk(children, current, names, buckets)
 
 
 def previous_questions(data_path: Path) -> dict:
