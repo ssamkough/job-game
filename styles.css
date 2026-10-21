@@ -401,12 +401,14 @@ section {
   margin-bottom: 10px;
 }
 
-.question-list {
+.question-list,
+.prep-list {
   margin: 12px 0 0;
   padding-left: 1.2em;
 }
 
-.question-list li {
+.question-list li,
+.prep-list li {
   margin-top: 10px;
 }
 

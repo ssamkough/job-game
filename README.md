@@ -24,7 +24,7 @@ Live: [jbg.sammy.pizza](https://jbg.sammy.pizza) · repo: [ssamkough/job-game](h
 
 ## Stack
 
-- Static site: `index.html`, `styles.css`, `app.js`, `data.json`, `/questions`, unlisted `hidden/`
+- Static site: `index.html`, `styles.css`, `app.js`, `data.json`, `/questions`, `/prep`, unlisted `hidden/`
 - Python 3 stdlib generator (`scripts/generate.py`) — no pip deps
 - Notion API (read-only internal integration)
 - GitHub Actions (daily snapshot)
@@ -36,7 +36,7 @@ Live: [jbg.sammy.pizza](https://jbg.sammy.pizza) · repo: [ssamkough/job-game](h
 2. **`scripts/generate.py`** queries those data sources, applies the public filters, strips private fields, and writes `data.json`. It also writes `hidden/data.json` with real company names for the unlisted alias key. New companies get the next alias; old numbers never reshuffle (`scripts/aliases.json`). Asked questions are anonymized (no company or people names), cleaned, and deduped into `data.json`.
 3. **GitHub Action** `.github/workflows/refresh-snapshot.yml` runs that script daily at 09:00 EST (14:00 UTC; 10:00 EDT) and on **Run workflow**. It commits `data.json`, `aliases.json`, and `hidden/data.json` whenever those files change, including a fresh `generatedOn` date on each run. After each successful run, [Textbelt](https://textbelt.com/) texts a summary (applications, meetings, how calls came in, companies, questions) even if the snapshot did not change. The text omits URLs (unverified Textbelt keys cannot send links).
 4. **Netlify** is linked to this GitHub repo. A push to `main` publishes the static files. Publish directory is `.`; there is no build command.
-5. **The browser** fetches `./data.json` and renders counts, a Highlights list of how public meetings came in (application, recruiter, referral), plus three tabs (Meetings, Applications, Companies). The first visit is a clean URL on Meetings. A tab click, Tab to a tab then Enter/Space, or Left/Right/Home/End on the tab list sets `?tab=meetings`, `?tab=applications`, or `?tab=companies`. Each table shows 10 rows, then loads 10 more as you scroll that table. The footer is the filtered total. **How I built this** describes the stack and snapshot rules in Sammy's voice. Last is **Projects I've built while job searching**: Job Game 2026, Clock In With Toons (`clockin.png`), and Long Island Events (`lievents.png`). **Questions** (`/questions`) lists technical prompts first (each in its own disclosure), then anonymized behavioral questions. Unlisted `/hidden` loads `hidden/data.json` and lists alias → name plus related applications and meetings. It is not linked from the homepage.
+5. **The browser** fetches `./data.json` and renders counts, a Highlights list of how public meetings came in (application, recruiter, referral), plus three tabs (Meetings, Applications, Companies). The first visit is a clean URL on Meetings. A tab click, Tab to a tab then Enter/Space, or Left/Right/Home/End on the tab list sets `?tab=meetings`, `?tab=applications`, or `?tab=companies`. Each table shows 10 rows, then loads 10 more as you scroll that table. The footer is the filtered total. **How I built this** describes the stack and snapshot rules in Sammy's voice. Last is **Projects I've built while job searching**: Job Game 2026, Clock In With Toons (`clockin.png`), and Long Island Events (`lievents.png`). **Questions** (`/questions`) lists technical prompts first (each in its own disclosure), then anonymized behavioral questions. **Prep** (`/prep`) links to behaviorals, system design, and technical knowledge. Unlisted `/hidden` loads `hidden/data.json` and lists alias → name plus related applications and meetings. It is not linked from the homepage.
 
 Inclusion rules for the public snapshot:
 
@@ -63,7 +63,7 @@ Nothing else is a long-running server.
 python3 -m http.server 4173
 ```
 
-Open http://localhost:4173. Questions is http://localhost:4173/questions. The unlisted alias key is http://localhost:4173/hidden. Browsers block `fetch` on raw `file://` pages.
+Open http://localhost:4173. Questions is http://localhost:4173/questions. Prep is http://localhost:4173/prep. The unlisted alias key is http://localhost:4173/hidden. Browsers block `fetch` on raw `file://` pages.
 
 Without `NOTION_TOKEN`, the generator uses gitignored snapshots in `scripts/` (`applications.json`, `companies.json`, `meetings.json`). With the token:
 
