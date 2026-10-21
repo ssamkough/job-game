@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-20",
+  "generatedOn": "2026-10-21",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,21 +19,21 @@
     "applicationsSubmitted": 64,
     "companiesThisSearch": 87,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 57,
-    "recruiterScreens": 31,
-    "recruiters": 31,
+    "meetings": 61,
+    "recruiterScreens": 32,
+    "recruiters": 32,
     "interviews": 5,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 43,
+    "callsThroughRecruiter": 46,
     "callsThroughRecruiterThirdParty": 26,
     "callsThroughRecruiterInbound": 27,
-    "callsThroughRecruiterOutreach": 8,
+    "callsThroughRecruiterOutreach": 10,
     "callsThroughReferral": 7,
-    "questions": 63,
-    "questionsBehavioral": 60,
+    "questions": 84,
+    "questionsBehavioral": 81,
     "questionsTechnical": 3,
-    "questionsNew": 4
+    "questionsNew": 21
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -64,9 +64,9 @@
     "Re-apply": 3
   },
   "meetingKinds": {
-    "other": 6,
+    "recruiter": 30,
+    "other": 9,
     "technical": 5,
-    "recruiter": 29,
     "intro": 16,
     "onsite": 1
   },
@@ -826,7 +826,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 2,
+      "meetingsThisSearch": 3,
       "jobGame2026Tag": true
     },
     {
@@ -1666,11 +1666,47 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": "2026-10-15",
-      "meetingsThisSearch": 1,
+      "meetingsThisSearch": 2,
       "jobGame2026Tag": false
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-20",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-20",
+      "kind": "other",
+      "tags": [],
+      "companies": [
+        "Company 177"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-20",
+      "kind": "other",
+      "tags": [],
+      "companies": [
+        "Company 30"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-20",
+      "kind": "other",
+      "tags": [],
+      "companies": [
+        "Company 161"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-10-19",
       "kind": "other",
@@ -2308,7 +2344,28 @@
       "When you were initially gathering requirements, what was you're SDLC?",
       "More on that, agents and AI have been game changer. When you're using these tools, what kind of defines quality software? Are there any pricpes or pattersn guiding you? How do you guide or steer your AI tools to ?",
       "Actually though, when you're building or pattern that makes the testing easier? Design patterns.",
-      "In terms of what you're looking for I next ole, what most interesting you in you're next roles?"
+      "In terms of what you're looking for I next ole, what most interesting you in you're next roles?",
+      "A challenging project I worked on the past. Ideally something I've done end to end. Most proud of.",
+      "What was my role, and who else worked on it?",
+      "What was most difficult thing I did on a project and how did I overcome it?",
+      "What role did agentic AI play in this project? If it didnt, where do u think it couldve helped?",
+      "What positive and constructive feedback did you receive? And how did you respond and on feedback?",
+      "What is something I can do now that Temelio is not letting me do now?",
+      "What is something you recently worked on?",
+      "Tell me more about what an ideal next job would look like for me? Firsr year, third year?",
+      "Tell me a bit about, an example a time that I changed the trajectory a feature or the overall product at one of these companies?",
+      "How would you define the problem that you helped solve?",
+      "Did u see a lift in the bundling?",
+      "Specific project I worked on. Pick a project technically interesting or whatever I think I'm most proud of. What was the problem I was trying to solve, who were the users, high level architecture.",
+      "What was a challenge I ran into while doing this?",
+      "Do I have experience building agentic applications?",
+      "What are my thoughts on building products and swe in this new AI era. What are some things I've found to be really useful?",
+      "Walk me through a project you\u2019ve owned end-to-end?",
+      "What does your AI dx look like?",
+      "When was AI generated code was wrong and wasnt obvious?",
+      "What tasks do you not hand off to AI?",
+      "How do you keep your (coding) skills sharp despite using AI?",
+      "If AI wasn\u2019t apart of your workflow, what would be the hardest thing in your workflow?"
     ],
     "technical": [
       {
