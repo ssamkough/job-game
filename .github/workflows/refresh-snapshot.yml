@@ -49,7 +49,7 @@ jobs:
           kinds = data.get("meetingKinds") or {}
           companies = data.get("companyStatusThisSearch") or {}
 
-          kind_order = ("onsite", "technical", "intro", "recruiter", "other")
+          kind_order = ("onsite", "technical", "intro", "recruiter", "behavioral", "other")
           kind_bits = [f"{kinds[key]} {key}" for key in kind_order if kinds.get(key)]
           company_order = (
               ("Finding role...", "finding role"),
@@ -78,8 +78,16 @@ jobs:
                   f"({totals.get('referrals', 0)} referral)"
               ),
               f"{totals.get('recruiters', 0)} current recruiters",
-              f"{totals.get('meetings', 0)} meetings"
-              + (f" ({', '.join(kind_bits)})" if kind_bits else ""),
+              (
+                  f"{totals.get('meetings', 0)} meetings, "
+                  f"{totals.get('screens', totals.get('recruiterScreens', 0))} screens"
+                  + (f" ({', '.join(kind_bits)})" if kind_bits else "")
+              ),
+              (
+                  f"{totals.get('technicals', 0)} technicals, "
+                  f"{totals.get('onsites', 0)} onsites, "
+                  f"{totals.get('behaviorals', 0)} behaviorals"
+              ),
               calls_line(totals.get("callsThroughApplications", 0), "applications"),
               calls_line(totals.get("callsThroughRecruiter", 0), "a recruiter"),
               (

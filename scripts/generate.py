@@ -31,7 +31,9 @@ MEETING_KIND_TAGS = (
     ("technical", "technical"),
     ("intro", "intro"),
     ("recruiter", "recruiter"),
+    ("behavioral", "behavioral"),
 )
+SCREEN_TITLE = re.compile(r"\b(recruiter|intro|screen)\b", re.I)
 ALIAS_PATH = ROOT / "scripts" / "aliases.json"
 COMPANY_TABLE_STATUSES = {
     "Finding role...",
@@ -83,6 +85,13 @@ def classify_meeting(tags: list[str]) -> str:
 def public_meeting_tags(tags: list[str]) -> list[str]:
     lowered = {t.lower() for t in tags}
     return [kind for kind, tag in MEETING_KIND_TAGS if tag in lowered]
+
+
+def is_screen(tags: list[str], title: str | None) -> bool:
+    kinds = set(public_meeting_tags(tags))
+    if "recruiter" in kinds or "intro" in kinds:
+        return True
+    return bool(SCREEN_TITLE.search(title or ""))
 
 
 def iso_date(value: str | None) -> str | None:
@@ -220,6 +229,7 @@ def normalize_meeting(page: dict) -> dict:
     return {
         "url": page.get("url") or page.get("id"),
         "Created": created_stamp(page),
+        "Name": unwrap(props.get("Name")),
         "date:Date:start": unwrap(props.get("Date")),
         "Tags": as_json_list(tags),
         "companies <-> meetings": as_json_list(unwrap(props.get("companies <-> meetings"))),
@@ -436,10 +446,12 @@ def main() -> None:
             for a in parse_list(meeting.get("activities <-> meetings"))
         )
         labels = aliases_for(meeting.get("companies <-> meetings"))
+        tags = public_meeting_tags(raw_tags)
         row = {
             "date": iso_date(meeting.get("date:Date:start")),
             "kind": classify_meeting(raw_tags),
-            "tags": public_meeting_tags(raw_tags),
+            "tags": tags,
+            "screen": is_screen(raw_tags, meeting.get("Name")),
             "companies": labels,
             "linkedToJobGame2026": related,
         }
@@ -537,6 +549,8 @@ def main() -> None:
             "Highlights: public meetings with app <-> meeting, recruiters <-> meetings, or colleagues <-> meetings filled",
             "Recruiter highlight breakdowns from List of Recruiters (firm filled = third-party; inbound? checkbox)",
             "Recruiter total: List of Recruiters with currently? checked",
+            "Screens: public meetings tagged recruiter or intro, or with recruiter/intro/screen in the title",
+            "Technicals / onsites / behaviorals: public meetings with those tags",
         ],
         "totals": {
             "applications": len(public_apps),
@@ -544,8 +558,12 @@ def main() -> None:
             "companiesThisSearch": len(public_companies),
             "companiesTaggedJobGame2026": sum(tagged_status.values()),
             "meetings": len(public_meetings),
+            "screens": sum(1 for row in public_meetings if row.get("screen")),
             "recruiterScreens": sum(1 for row in public_meetings if "recruiter" in row["tags"]),
             "recruiters": sum(1 for row in recruiters if row.get("currently?") == "__YES__"),
+            "technicals": sum(1 for row in public_meetings if "technical" in row["tags"]),
+            "onsites": sum(1 for row in public_meetings if "onsite" in row["tags"]),
+            "behaviorals": sum(1 for row in public_meetings if "behavioral" in row["tags"]),
             "interviews": meeting_kind.get("technical", 0),
             "referrals": sum(1 for row in public_apps if row["referred"]),
             "callsThroughApplications": calls_through_applications,

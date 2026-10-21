@@ -131,13 +131,31 @@ const render = (data) => {
   snapshot.dateTime = data.generatedOn;
   snapshot.textContent = prettyDate(data.generatedOn);
 
+  const tagged = (kind) =>
+    meetings.filter(
+      (meeting) =>
+        (meeting.tags || []).includes(kind) || meeting.kind === kind
+    ).length;
+  const screens =
+    data.totals.screens ??
+    meetings.filter(
+      (meeting) =>
+        meeting.screen ||
+        (meeting.tags || []).includes("recruiter") ||
+        (meeting.tags || []).includes("intro") ||
+        meeting.kind === "recruiter" ||
+        meeting.kind === "intro"
+    ).length;
   const stats = [
-    ["Applications", data.totals.applications],
-    ["Recruiter", data.totals.recruiters ?? 0],
-    ["Referrals", data.totals.referrals],
-    ["Companies", data.totals.companiesThisSearch],
     ["Meetings", meetingTotal],
-    ["Recruiter screens", data.totals.recruiterScreens],
+    ["Screens", screens],
+    ["Recruiters", data.totals.recruiters ?? 0],
+    ["Technicals", data.totals.technicals ?? tagged("technical")],
+    ["Onsites", data.totals.onsites ?? tagged("onsite")],
+    ["Behaviorals", data.totals.behaviorals ?? tagged("behavioral")],
+    ["Companies", data.totals.companiesThisSearch],
+    ["Applications", data.totals.applications],
+    ["Referrals", data.totals.referrals],
   ];
   document.getElementById("stats").innerHTML = stats
     .map(([label, n]) => `<li><b>${n}</b><span>${label}</span></li>`)

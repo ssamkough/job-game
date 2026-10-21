@@ -422,12 +422,10 @@ section {
 
 @media (max-width: 640px) {
   .counts {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
-}
 
-@media (max-width: 420px) {
-  .counts {
-    grid-template-columns: 1fr;
+  .counts b {
+    font-size: 1.25rem;
   }
 }
