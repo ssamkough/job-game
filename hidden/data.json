@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-21",
+  "generatedOn": "2026-10-22",
   "companies": [
     {
       "alias": "Company 02",
@@ -328,7 +328,7 @@
       "meetings": [
         {
           "date": "2026-10-20",
-          "kind": "other"
+          "kind": "behavioral"
         },
         {
           "date": "2026-10-09",
@@ -1468,7 +1468,7 @@
       "meetings": [
         {
           "date": "2026-10-19",
-          "kind": "other"
+          "kind": "behavioral"
         },
         {
           "date": "2026-10-12",
@@ -1520,7 +1520,7 @@
       "meetings": [
         {
           "date": "2026-10-20",
-          "kind": "other"
+          "kind": "behavioral"
         },
         {
           "date": "2026-10-15",
@@ -1776,7 +1776,7 @@
       "meetings": [
         {
           "date": "2026-10-15",
-          "kind": "other"
+          "kind": "behavioral"
         },
         {
           "date": "2026-10-14",
@@ -1816,7 +1816,19 @@
       "meetings": [
         {
           "date": "2026-10-20",
-          "kind": "other"
+          "kind": "behavioral"
+        }
+      ]
+    },
+    {
+      "alias": "Company 178",
+      "name": "Counsel Health",
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-21",
+          "kind": "recruiter"
         }
       ]
     }

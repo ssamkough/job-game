@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-21",
+  "generatedOn": "2026-10-22",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -12,28 +12,34 @@
     "Asked questions from job game 2026 Asked Questions (anonymized, deduped)",
     "Highlights: public meetings with app <-> meeting, recruiters <-> meetings, or colleagues <-> meetings filled",
     "Recruiter highlight breakdowns from List of Recruiters (firm filled = third-party; inbound? checkbox)",
-    "Recruiter total: List of Recruiters with currently? checked"
+    "Recruiter total: List of Recruiters with currently? checked",
+    "Screens: public meetings tagged recruiter or intro, or with recruiter/intro/screen in the title",
+    "Technicals / onsites / behaviorals: public meetings with those tags"
   ],
   "totals": {
     "applications": 66,
     "applicationsSubmitted": 64,
     "companiesThisSearch": 87,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 61,
-    "recruiterScreens": 32,
-    "recruiters": 32,
+    "meetings": 67,
+    "screens": 53,
+    "recruiterScreens": 38,
+    "recruiters": 36,
+    "technicals": 5,
+    "onsites": 1,
+    "behaviorals": 16,
     "interviews": 5,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 46,
-    "callsThroughRecruiterThirdParty": 26,
-    "callsThroughRecruiterInbound": 27,
+    "callsThroughRecruiter": 52,
+    "callsThroughRecruiterThirdParty": 29,
+    "callsThroughRecruiterInbound": 32,
     "callsThroughRecruiterOutreach": 10,
     "callsThroughReferral": 7,
-    "questions": 84,
-    "questionsBehavioral": 81,
+    "questions": 85,
+    "questionsBehavioral": 82,
     "questionsTechnical": 3,
-    "questionsNew": 21
+    "questionsNew": 1
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -64,8 +70,9 @@
     "Re-apply": 3
   },
   "meetingKinds": {
-    "recruiter": 30,
-    "other": 9,
+    "recruiter": 36,
+    "behavioral": 5,
+    "other": 4,
     "technical": 5,
     "intro": 16,
     "onsite": 1
@@ -1672,18 +1679,84 @@
   ],
   "meetings": [
     {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "kind": "recruiter",
       "tags": [
         "recruiter"
       ],
+      "screen": true,
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-21",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 178"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-21",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-21",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-21",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-21",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
     {
       "date": "2026-10-20",
-      "kind": "other",
-      "tags": [],
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-20",
+      "kind": "behavioral",
+      "tags": [
+        "behavioral"
+      ],
+      "screen": false,
       "companies": [
         "Company 177"
       ],
@@ -1691,8 +1764,11 @@
     },
     {
       "date": "2026-10-20",
-      "kind": "other",
-      "tags": [],
+      "kind": "behavioral",
+      "tags": [
+        "behavioral"
+      ],
+      "screen": false,
       "companies": [
         "Company 30"
       ],
@@ -1700,8 +1776,11 @@
     },
     {
       "date": "2026-10-20",
-      "kind": "other",
-      "tags": [],
+      "kind": "behavioral",
+      "tags": [
+        "behavioral"
+      ],
+      "screen": false,
       "companies": [
         "Company 161"
       ],
@@ -1709,8 +1788,11 @@
     },
     {
       "date": "2026-10-19",
-      "kind": "other",
-      "tags": [],
+      "kind": "behavioral",
+      "tags": [
+        "behavioral"
+      ],
+      "screen": true,
       "companies": [
         "Company 157"
       ],
@@ -1720,6 +1802,7 @@
       "date": "2026-10-19",
       "kind": "other",
       "tags": [],
+      "screen": false,
       "companies": [
         "Company 156"
       ],
@@ -1729,8 +1812,10 @@
       "date": "2026-10-19",
       "kind": "technical",
       "tags": [
-        "technical"
+        "technical",
+        "behavioral"
       ],
+      "screen": false,
       "companies": [
         "Company 48"
       ],
@@ -1742,6 +1827,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 176"
       ],
@@ -1749,8 +1835,11 @@
     },
     {
       "date": "2026-10-15",
-      "kind": "other",
-      "tags": [],
+      "kind": "behavioral",
+      "tags": [
+        "behavioral"
+      ],
+      "screen": false,
       "companies": [
         "Company 174"
       ],
@@ -1762,6 +1851,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 173"
       ],
@@ -1773,6 +1863,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -1782,6 +1873,7 @@
       "tags": [
         "intro"
       ],
+      "screen": true,
       "companies": [
         "Company 154"
       ],
@@ -1793,6 +1885,7 @@
       "tags": [
         "intro"
       ],
+      "screen": true,
       "companies": [
         "Company 161"
       ],
@@ -1804,6 +1897,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 174"
       ],
@@ -1815,6 +1909,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 175"
       ],
@@ -1826,6 +1921,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -1835,6 +1931,7 @@
       "tags": [
         "technical"
       ],
+      "screen": false,
       "companies": [
         "Company 156"
       ],
@@ -1846,6 +1943,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 173"
       ],
@@ -1857,6 +1955,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -1866,6 +1965,7 @@
       "tags": [
         "intro"
       ],
+      "screen": true,
       "companies": [
         "Company 41"
       ],
@@ -1877,6 +1977,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -1886,6 +1987,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 159"
       ],
@@ -1895,8 +1997,10 @@
       "date": "2026-10-13",
       "kind": "intro",
       "tags": [
-        "intro"
+        "intro",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 158"
       ],
@@ -1908,6 +2012,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -1917,6 +2022,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -1926,6 +2032,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -1933,8 +2040,10 @@
       "date": "2026-10-12",
       "kind": "intro",
       "tags": [
-        "intro"
+        "intro",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 154"
       ],
@@ -1946,6 +2055,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 157"
       ],
@@ -1957,6 +2067,7 @@
       "tags": [
         "intro"
       ],
+      "screen": true,
       "companies": [
         "Company 160"
       ],
@@ -1968,6 +2079,7 @@
       "tags": [
         "technical"
       ],
+      "screen": false,
       "companies": [
         "Company 156"
       ],
@@ -1979,6 +2091,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -1988,6 +2101,7 @@
       "tags": [
         "technical"
       ],
+      "screen": false,
       "companies": [
         "Company 30"
       ],
@@ -1999,6 +2113,7 @@
       "tags": [
         "onsite"
       ],
+      "screen": false,
       "companies": [
         "Company 34"
       ],
@@ -2010,6 +2125,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 68"
       ],
@@ -2021,6 +2137,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 48"
       ],
@@ -2032,6 +2149,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 87"
       ],
@@ -2041,8 +2159,10 @@
       "date": "2026-10-06",
       "kind": "intro",
       "tags": [
-        "intro"
+        "intro",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 88"
       ],
@@ -2054,6 +2174,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 29"
       ],
@@ -2065,6 +2186,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2074,6 +2196,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2081,8 +2204,10 @@
       "date": "2026-10-05",
       "kind": "recruiter",
       "tags": [
-        "recruiter"
+        "recruiter",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 49"
       ],
@@ -2094,6 +2219,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2102,8 +2228,10 @@
       "kind": "intro",
       "tags": [
         "intro",
-        "recruiter"
+        "recruiter",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 48"
       ],
@@ -2115,6 +2243,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2122,6 +2251,7 @@
       "date": "2026-10-04",
       "kind": "other",
       "tags": [],
+      "screen": false,
       "companies": [],
       "linkedToJobGame2026": false
     },
@@ -2131,6 +2261,7 @@
       "tags": [
         "intro"
       ],
+      "screen": true,
       "companies": [
         "Company 48"
       ],
@@ -2142,6 +2273,7 @@
       "tags": [
         "intro"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2152,6 +2284,7 @@
         "intro",
         "recruiter"
       ],
+      "screen": true,
       "companies": [
         "Company 30"
       ],
@@ -2163,6 +2296,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2170,8 +2304,10 @@
       "date": "2026-09-30",
       "kind": "intro",
       "tags": [
-        "intro"
+        "intro",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 46"
       ],
@@ -2181,8 +2317,10 @@
       "date": "2026-09-30",
       "kind": "intro",
       "tags": [
-        "intro"
+        "intro",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 19"
       ],
@@ -2192,8 +2330,10 @@
       "date": "2026-09-29",
       "kind": "intro",
       "tags": [
-        "intro"
+        "intro",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 32"
       ],
@@ -2205,6 +2345,7 @@
       "tags": [
         "technical"
       ],
+      "screen": false,
       "companies": [
         "Company 34"
       ],
@@ -2214,6 +2355,7 @@
       "date": "2026-09-25",
       "kind": "other",
       "tags": [],
+      "screen": false,
       "companies": [],
       "linkedToJobGame2026": false
     },
@@ -2221,8 +2363,10 @@
       "date": "2026-09-25",
       "kind": "intro",
       "tags": [
-        "intro"
+        "intro",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 34"
       ],
@@ -2234,6 +2378,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2243,6 +2388,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2250,8 +2396,10 @@
       "date": "2026-09-23",
       "kind": "intro",
       "tags": [
-        "intro"
+        "intro",
+        "behavioral"
       ],
+      "screen": true,
       "companies": [
         "Company 20"
       ],
@@ -2261,6 +2409,7 @@
       "date": "2026-09-23",
       "kind": "other",
       "tags": [],
+      "screen": false,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2270,6 +2419,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     },
@@ -2279,6 +2429,7 @@
       "tags": [
         "recruiter"
       ],
+      "screen": true,
       "companies": [],
       "linkedToJobGame2026": true
     }
@@ -2365,7 +2516,8 @@
       "When was AI generated code was wrong and wasnt obvious?",
       "What tasks do you not hand off to AI?",
       "How do you keep your (coding) skills sharp despite using AI?",
-      "If AI wasn\u2019t apart of your workflow, what would be the hardest thing in your workflow?"
+      "If AI wasn\u2019t apart of your workflow, what would be the hardest thing in your workflow?",
+      "What was something you built end to end? Speaking to users, solving the problem, building MVPs, all the way to production."
     ],
     "technical": [
       {
