@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-22",
+  "generatedOn": "2026-10-23",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -21,23 +21,23 @@
     "applicationsSubmitted": 64,
     "companiesThisSearch": 87,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 67,
-    "screens": 53,
-    "recruiterScreens": 38,
-    "recruiters": 36,
-    "technicals": 5,
+    "meetings": 71,
+    "screens": 56,
+    "recruiterScreens": 39,
+    "recruiters": 38,
+    "technicals": 6,
     "onsites": 1,
     "behaviorals": 16,
-    "interviews": 5,
+    "interviews": 6,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 52,
-    "callsThroughRecruiterThirdParty": 29,
-    "callsThroughRecruiterInbound": 32,
+    "callsThroughRecruiter": 55,
+    "callsThroughRecruiterThirdParty": 30,
+    "callsThroughRecruiterInbound": 34,
     "callsThroughRecruiterOutreach": 10,
     "callsThroughReferral": 7,
-    "questions": 85,
-    "questionsBehavioral": 82,
+    "questions": 86,
+    "questionsBehavioral": 83,
     "questionsTechnical": 3,
     "questionsNew": 1
   },
@@ -70,11 +70,11 @@
     "Re-apply": 3
   },
   "meetingKinds": {
-    "recruiter": 36,
+    "recruiter": 37,
+    "intro": 18,
+    "technical": 6,
     "behavioral": 5,
     "other": 4,
-    "technical": 5,
-    "intro": 16,
     "onsite": 1
   },
   "applications": [
@@ -1679,6 +1679,54 @@
   ],
   "meetings": [
     {
+      "date": "2026-10-22",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 181"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-22",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 180"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-22",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 179"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-22",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "screen": false,
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
       "date": "2026-10-21",
       "kind": "recruiter",
       "tags": [
@@ -2517,7 +2565,8 @@
       "What tasks do you not hand off to AI?",
       "How do you keep your (coding) skills sharp despite using AI?",
       "If AI wasn\u2019t apart of your workflow, what would be the hardest thing in your workflow?",
-      "What was something you built end to end? Speaking to users, solving the problem, building MVPs, all the way to production."
+      "What was something you built end to end? Speaking to users, solving the problem, building MVPs, all the way to production.",
+      "What is your favorite consumer app?"
     ],
     "technical": [
       {
