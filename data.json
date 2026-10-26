@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-25",
+  "generatedOn": "2026-10-26",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,12 +19,12 @@
   "totals": {
     "applications": 66,
     "applicationsSubmitted": 64,
-    "companiesThisSearch": 87,
+    "companiesThisSearch": 86,
     "companiesTaggedJobGame2026": 149,
     "meetings": 75,
     "screens": 59,
     "recruiterScreens": 41,
-    "recruiters": 38,
+    "recruiters": 39,
     "technicals": 7,
     "onsites": 1,
     "behaviorals": 17,
@@ -36,10 +36,10 @@
     "callsThroughRecruiterInbound": 38,
     "callsThroughRecruiterOutreach": 10,
     "callsThroughReferral": 7,
-    "questions": 94,
-    "questionsBehavioral": 91,
+    "questions": 96,
+    "questionsBehavioral": 93,
     "questionsTechnical": 3,
-    "questionsNew": 0
+    "questionsNew": 2
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -53,7 +53,7 @@
   },
   "companyStatusThisSearch": {
     "Applied": 14,
-    "Interviewing": 6,
+    "Interviewing": 5,
     "Finding role...": 16,
     "Interviewed": 51
   },
@@ -1657,16 +1657,6 @@
       "jobGame2026Tag": false
     },
     {
-      "alias": "Company 154",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 2,
-      "jobGame2026Tag": false
-    },
-    {
       "alias": "Company 161",
       "status": "Interviewing",
       "role": null,
@@ -2618,7 +2608,9 @@
       "What was the measure of success?",
       "How did you use AI to build it?",
       "Outside of coding and research and design, have you experience your workflow change because of AI.",
-      "What would make what\u2019s next for you a homerun?"
+      "What would make what\u2019s next for you a homerun?",
+      "What do you think motivates you?",
+      "How was Phia?"
     ],
     "technical": [
       {

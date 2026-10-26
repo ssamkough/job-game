@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-25",
+  "generatedOn": "2026-10-26",
   "companies": [
     {
       "alias": "Company 02",
@@ -1431,7 +1431,7 @@
     {
       "alias": "Company 154",
       "name": "Spur",
-      "status": "Interviewing",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {
