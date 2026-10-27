@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-26",
+  "generatedOn": "2026-10-27",
   "companies": [
     {
       "alias": "Company 02",
@@ -153,7 +153,7 @@
     {
       "alias": "Company 20",
       "name": "Turtles",
-      "status": "Interviewing",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {
@@ -396,7 +396,7 @@
     {
       "alias": "Company 34",
       "name": "Eisen",
-      "status": "Interviewing",
+      "status": "Ended",
       "applications": [],
       "meetings": [
         {
@@ -1123,7 +1123,7 @@
     {
       "alias": "Company 110",
       "name": "Bluesky",
-      "status": "Finding role...",
+      "status": "Interviewing",
       "applications": [],
       "meetings": []
     },
@@ -1342,7 +1342,12 @@
       "name": "Kovo",
       "status": "Interviewed",
       "applications": [],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-26",
+          "kind": "recruiter"
+        }
+      ]
     },
     {
       "alias": "Company 142",
@@ -1495,7 +1500,7 @@
     {
       "alias": "Company 159",
       "name": "Basis",
-      "status": "Unknown",
+      "status": "Re-apply",
       "applications": [],
       "meetings": [
         {
@@ -1519,7 +1524,7 @@
     {
       "alias": "Company 161",
       "name": "Tenex",
-      "status": "Interviewing",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {
@@ -1535,7 +1540,7 @@
     {
       "alias": "Company 162",
       "name": "Stuut Technologies",
-      "status": "Unknown",
+      "status": "Re-apply",
       "applications": [
         {
           "submittedOn": "2026-10-12",
@@ -1551,7 +1556,7 @@
     {
       "alias": "Company 163",
       "name": "Valon",
-      "status": "Unknown",
+      "status": "Re-apply",
       "applications": [
         {
           "submittedOn": "2026-10-12",
@@ -1565,33 +1570,9 @@
       "meetings": []
     },
     {
-      "alias": "Company 164",
-      "name": "Valon",
-      "status": "Unknown",
-      "applications": [
-        {
-          "submittedOn": "2026-10-12",
-          "status": "Submitted",
-          "board": "Gary's Guide",
-          "role": "Senior Software Engineer [Valon]",
-          "recruiter": false,
-          "referred": false
-        },
-        {
-          "submittedOn": "2026-10-12",
-          "status": "Submitted",
-          "board": "Gary's Guide",
-          "role": "Engineering Manager [Valon]",
-          "recruiter": false,
-          "referred": false
-        }
-      ],
-      "meetings": []
-    },
-    {
       "alias": "Company 165",
       "name": "Melius",
-      "status": "Unknown",
+      "status": "Re-apply",
       "applications": [
         {
           "submittedOn": "2026-10-12",
@@ -1607,7 +1588,7 @@
     {
       "alias": "Company 166",
       "name": "Sante Technologies",
-      "status": "Unknown",
+      "status": "Re-apply",
       "applications": [
         {
           "submittedOn": "2026-10-12",
@@ -1671,7 +1652,7 @@
     {
       "alias": "Company 169",
       "name": "OpenAI",
-      "status": "Unknown",
+      "status": "Re-apply",
       "applications": [
         {
           "submittedOn": "2026-10-13",
@@ -1815,7 +1796,7 @@
     {
       "alias": "Company 177",
       "name": "Ace Workflow",
-      "status": "Unknown",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {
@@ -1827,7 +1808,7 @@
     {
       "alias": "Company 178",
       "name": "Counsel Health",
-      "status": "Unknown",
+      "status": "Interviewing",
       "applications": [],
       "meetings": [
         {
@@ -1843,7 +1824,7 @@
     {
       "alias": "Company 179",
       "name": "Goodlane Logistics",
-      "status": "Unknown",
+      "status": "Interviewing",
       "applications": [],
       "meetings": [
         {
@@ -1859,7 +1840,7 @@
     {
       "alias": "Company 180",
       "name": "ResX",
-      "status": "Unknown",
+      "status": "Interviewing",
       "applications": [],
       "meetings": [
         {
@@ -1871,7 +1852,7 @@
     {
       "alias": "Company 181",
       "name": "K Health",
-      "status": "Unknown",
+      "status": "Archived",
       "applications": [],
       "meetings": [
         {
@@ -1879,6 +1860,46 @@
           "kind": "recruiter"
         }
       ]
+    },
+    {
+      "alias": "Company 182",
+      "name": "Rubie",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
+    },
+    {
+      "alias": "Company 183",
+      "name": "Holly",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
+    },
+    {
+      "alias": "Company 184",
+      "name": "Avantos.ai",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
+    },
+    {
+      "alias": "Company 185",
+      "name": "Omi Health",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-26",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "alias": "Company 186",
+      "name": "Ekho",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
     }
   ]
 }
