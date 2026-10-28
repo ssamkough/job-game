@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-27",
+  "generatedOn": "2026-10-28",
   "companies": [
     {
       "alias": "Company 02",
@@ -326,6 +326,10 @@
         }
       ],
       "meetings": [
+        {
+          "date": "2026-10-27",
+          "kind": "onsite"
+        },
         {
           "date": "2026-10-20",
           "kind": "behavioral"
@@ -1899,7 +1903,24 @@
       "name": "Ekho",
       "status": "Interviewing",
       "applications": [],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-27",
+          "kind": "behavioral"
+        }
+      ]
+    },
+    {
+      "alias": "Company 187",
+      "name": null,
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-27",
+          "kind": "recruiter"
+        }
+      ]
     }
   ]
 }
