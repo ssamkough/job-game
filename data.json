@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-28",
+  "generatedOn": "2026-10-29",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -21,25 +21,25 @@
     "applicationsSubmitted": 64,
     "companiesThisSearch": 91,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 80,
-    "screens": 62,
-    "recruiterScreens": 43,
-    "recruiters": 43,
-    "technicals": 8,
+    "meetings": 85,
+    "screens": 67,
+    "recruiterScreens": 47,
+    "recruiters": 44,
+    "technicals": 9,
     "onsites": 2,
     "behaviorals": 19,
-    "interviews": 7,
+    "interviews": 8,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 63,
-    "callsThroughRecruiterThirdParty": 34,
-    "callsThroughRecruiterInbound": 40,
+    "callsThroughRecruiter": 68,
+    "callsThroughRecruiterThirdParty": 38,
+    "callsThroughRecruiterInbound": 45,
     "callsThroughRecruiterOutreach": 11,
     "callsThroughReferral": 7,
     "questions": 118,
     "questionsBehavioral": 115,
     "questionsTechnical": 3,
-    "questionsNew": 15
+    "questionsNew": 0
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -70,11 +70,11 @@
     "Re-apply": 3
   },
   "meetingKinds": {
+    "recruiter": 45,
+    "technical": 8,
     "behavioral": 7,
     "onsite": 2,
-    "recruiter": 41,
     "other": 5,
-    "technical": 7,
     "intro": 18
   },
   "applications": [
@@ -1689,7 +1689,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
+      "meetingsThisSearch": 1,
       "jobGame2026Tag": false
     },
     {
@@ -1714,6 +1714,63 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-28",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 189"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-28",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-28",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-28",
+      "kind": "technical",
+      "tags": [
+        "technical",
+        "intro"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 184"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-10-28",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 188"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-10-27",
       "kind": "behavioral",

@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-28",
+  "generatedOn": "2026-10-29",
   "companies": [
     {
       "alias": "Company 02",
@@ -1884,7 +1884,12 @@
       "name": "Avantos.ai",
       "status": "Interviewing",
       "applications": [],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-28",
+          "kind": "technical"
+        }
+      ]
     },
     {
       "alias": "Company 185",
@@ -1918,6 +1923,30 @@
       "meetings": [
         {
           "date": "2026-10-27",
+          "kind": "recruiter"
+        }
+      ]
+    },
+    {
+      "alias": "Company 188",
+      "name": null,
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-28",
+          "kind": "recruiter"
+        }
+      ]
+    },
+    {
+      "alias": "Company 189",
+      "name": null,
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-10-28",
           "kind": "recruiter"
         }
       ]
