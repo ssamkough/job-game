@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-29",
+  "generatedOn": "2026-10-30",
   "companies": [
     {
       "alias": "Company 02",
@@ -597,7 +597,7 @@
         },
         {
           "date": "2026-10-19",
-          "kind": "technical"
+          "kind": "behavioral"
         },
         {
           "date": "2026-10-06",
@@ -1877,7 +1877,12 @@
       "name": "Holly",
       "status": "Interviewing",
       "applications": [],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-10-29",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 184",
@@ -1887,7 +1892,7 @@
       "meetings": [
         {
           "date": "2026-10-28",
-          "kind": "technical"
+          "kind": "intro"
         }
       ]
     },
