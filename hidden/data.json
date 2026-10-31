@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-30",
+  "generatedOn": "2026-10-31",
   "companies": [
     {
       "alias": "Company 02",
@@ -591,6 +591,10 @@
       "status": "Unknown",
       "applications": [],
       "meetings": [
+        {
+          "date": "2026-10-30",
+          "kind": "other"
+        },
         {
           "date": "2026-10-22",
           "kind": "technical"
@@ -1815,6 +1819,10 @@
       "status": "Interviewing",
       "applications": [],
       "meetings": [
+        {
+          "date": "2026-10-30",
+          "kind": "behavioral"
+        },
         {
           "date": "2026-10-23",
           "kind": "technical"
