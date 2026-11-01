@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-10-31",
+  "generatedOn": "2026-11-01",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -39,7 +39,7 @@
     "questions": 122,
     "questionsBehavioral": 119,
     "questionsTechnical": 3,
-    "questionsNew": 4
+    "questionsNew": 0
   },
   "applicationStatus": {
     "Submitted": 64,
