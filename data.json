@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-01",
+  "generatedOn": "2026-11-02",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -24,7 +24,7 @@
     "meetings": 92,
     "screens": 71,
     "recruiterScreens": 50,
-    "recruiters": 45,
+    "recruiters": 47,
     "technicals": 7,
     "onsites": 2,
     "behaviorals": 20,
