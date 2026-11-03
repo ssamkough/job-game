@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-02",
+  "generatedOn": "2026-11-03",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,21 +19,21 @@
   "totals": {
     "applications": 66,
     "applicationsSubmitted": 64,
-    "companiesThisSearch": 91,
+    "companiesThisSearch": 90,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 92,
+    "meetings": 94,
     "screens": 71,
     "recruiterScreens": 50,
     "recruiters": 47,
-    "technicals": 7,
+    "technicals": 8,
     "onsites": 2,
     "behaviorals": 20,
-    "interviews": 6,
+    "interviews": 7,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 74,
-    "callsThroughRecruiterThirdParty": 40,
-    "callsThroughRecruiterInbound": 50,
+    "callsThroughRecruiter": 76,
+    "callsThroughRecruiterThirdParty": 42,
+    "callsThroughRecruiterInbound": 52,
     "callsThroughRecruiterOutreach": 12,
     "callsThroughReferral": 7,
     "questions": 122,
@@ -53,7 +53,7 @@
   },
   "companyStatusThisSearch": {
     "Applied": 14,
-    "Interviewing": 11,
+    "Interviewing": 10,
     "Finding role...": 15,
     "Interviewed": 51
   },
@@ -70,12 +70,12 @@
     "Re-apply": 3
   },
   "meetingKinds": {
+    "technical": 7,
+    "other": 8,
     "recruiter": 48,
-    "other": 7,
     "behavioral": 9,
     "intro": 20,
-    "onsite": 2,
-    "technical": 6
+    "onsite": 2
   },
   "applications": [
     {
@@ -1679,21 +1679,11 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 1,
+      "meetingsThisSearch": 2,
       "jobGame2026Tag": false
     },
     {
       "alias": "Company 184",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 1,
-      "jobGame2026Tag": false
-    },
-    {
-      "alias": "Company 185",
       "status": "Interviewing",
       "role": null,
       "workType": null,
@@ -1714,6 +1704,28 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-11-02",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "screen": false,
+      "companies": [
+        "Company 185"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-11-02",
+      "kind": "other",
+      "tags": [],
+      "screen": false,
+      "companies": [
+        "Company 183"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-10-30",
       "kind": "recruiter",

@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-02",
+  "generatedOn": "2026-11-03",
   "companies": [
     {
       "alias": "Company 02",
@@ -1887,6 +1887,10 @@
       "applications": [],
       "meetings": [
         {
+          "date": "2026-11-02",
+          "kind": "other"
+        },
+        {
           "date": "2026-10-29",
           "kind": "intro"
         }
@@ -1907,9 +1911,13 @@
     {
       "alias": "Company 185",
       "name": "Omi Health",
-      "status": "Interviewing",
+      "status": "Denied",
       "applications": [],
       "meetings": [
+        {
+          "date": "2026-11-02",
+          "kind": "technical"
+        },
         {
           "date": "2026-10-26",
           "kind": "other"
