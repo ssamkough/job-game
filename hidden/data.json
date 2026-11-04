@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-03",
+  "generatedOn": "2026-11-04",
   "companies": [
     {
       "alias": "Company 02",
@@ -314,7 +314,7 @@
     {
       "alias": "Company 30",
       "name": "Affirm",
-      "status": "Interviewing",
+      "status": "Denied",
       "applications": [
         {
           "submittedOn": "2026-09-22",
@@ -1840,6 +1840,14 @@
       "applications": [],
       "meetings": [
         {
+          "date": "2026-11-03",
+          "kind": "recruiter"
+        },
+        {
+          "date": "2026-11-03",
+          "kind": "technical"
+        },
+        {
           "date": "2026-10-23",
           "kind": "behavioral"
         },
@@ -1887,6 +1895,10 @@
       "applications": [],
       "meetings": [
         {
+          "date": "2026-11-03",
+          "kind": "technical"
+        },
+        {
           "date": "2026-11-02",
           "kind": "other"
         },
@@ -1930,6 +1942,10 @@
       "status": "Interviewing",
       "applications": [],
       "meetings": [
+        {
+          "date": "2026-11-03",
+          "kind": "technical"
+        },
         {
           "date": "2026-10-27",
           "kind": "behavioral"

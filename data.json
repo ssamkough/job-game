@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-03",
+  "generatedOn": "2026-11-04",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,27 +19,27 @@
   "totals": {
     "applications": 66,
     "applicationsSubmitted": 64,
-    "companiesThisSearch": 90,
+    "companiesThisSearch": 89,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 94,
-    "screens": 71,
-    "recruiterScreens": 50,
+    "meetings": 98,
+    "screens": 72,
+    "recruiterScreens": 51,
     "recruiters": 47,
-    "technicals": 8,
+    "technicals": 10,
     "onsites": 2,
-    "behaviorals": 20,
-    "interviews": 7,
+    "behaviorals": 19,
+    "interviews": 10,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 76,
-    "callsThroughRecruiterThirdParty": 42,
-    "callsThroughRecruiterInbound": 52,
+    "callsThroughRecruiter": 79,
+    "callsThroughRecruiterThirdParty": 45,
+    "callsThroughRecruiterInbound": 55,
     "callsThroughRecruiterOutreach": 12,
     "callsThroughReferral": 7,
-    "questions": 122,
-    "questionsBehavioral": 119,
+    "questions": 130,
+    "questionsBehavioral": 127,
     "questionsTechnical": 3,
-    "questionsNew": 0
+    "questionsNew": 8
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -53,26 +53,25 @@
   },
   "companyStatusThisSearch": {
     "Applied": 14,
-    "Interviewing": 10,
     "Finding role...": 15,
-    "Interviewed": 51
+    "Interviewed": 51,
+    "Interviewing": 9
   },
   "companyStatusTagged": {
-    "Denied": 26,
+    "Denied": 27,
     "Not Started": 3,
     "Potential": 31,
     "Finding role...": 1,
     "Archived": 6,
     "Ended": 23,
     "Applied": 4,
-    "Interviewing": 1,
     "Interviewed": 51,
     "Re-apply": 3
   },
   "meetingKinds": {
-    "technical": 7,
+    "technical": 10,
+    "recruiter": 49,
     "other": 8,
-    "recruiter": 48,
     "behavioral": 9,
     "intro": 20,
     "onsite": 2
@@ -810,16 +809,6 @@
       "appliedOn": null,
       "firstInterviewOn": null,
       "meetingsThisSearch": 0,
-      "jobGame2026Tag": true
-    },
-    {
-      "alias": "Company 30",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 4,
       "jobGame2026Tag": true
     },
     {
@@ -1649,7 +1638,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 2,
+      "meetingsThisSearch": 4,
       "jobGame2026Tag": false
     },
     {
@@ -1679,7 +1668,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 2,
+      "meetingsThisSearch": 3,
       "jobGame2026Tag": false
     },
     {
@@ -1699,11 +1688,59 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 1,
+      "meetingsThisSearch": 2,
       "jobGame2026Tag": false
     }
   ],
   "meetings": [
+    {
+      "date": "2026-11-03",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "screen": false,
+      "companies": [
+        "Company 183"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-11-03",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 179"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-11-03",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "screen": false,
+      "companies": [
+        "Company 186"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-11-03",
+      "kind": "technical",
+      "tags": [
+        "technical"
+      ],
+      "screen": false,
+      "companies": [
+        "Company 179"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-11-02",
       "kind": "technical",
@@ -1870,9 +1907,7 @@
       "date": "2026-10-27",
       "kind": "onsite",
       "tags": [
-        "onsite",
-        "technical",
-        "behavioral"
+        "onsite"
       ],
       "screen": false,
       "companies": [
@@ -2881,7 +2916,15 @@
       "What is my passion and what do I want do day in and day out?",
       "How did you go about releasing project?",
       "When was the last time you got a good review on your code?",
-      "When was the last time you gave a good review on someone else's code?"
+      "When was the last time you gave a good review on someone else's code?",
+      "History: most interesting I've built that I'm excited about. And why it was interesting and hrd to do.",
+      "What motivated the leave?",
+      "How comfortable are you in both frontend and backend? How are you talking to customers? Give me a flavor of what I'm ideally looking?",
+      "Workflows rn. Tell me about preferred workflow for generationg outputs.",
+      "Walk through a recent project and preferred workflow using speciics?",
+      "Have you worked at a small eng team before? Experience working non technical?",
+      "Something I built or worked on that I'm proud of.",
+      "What is an app or product that you use frequently that you love think is particularly well-done?"
     ],
     "technical": [
       {
