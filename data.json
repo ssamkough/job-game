@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-04",
+  "generatedOn": "2026-11-05",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,11 +19,11 @@
   "totals": {
     "applications": 66,
     "applicationsSubmitted": 64,
-    "companiesThisSearch": 89,
+    "companiesThisSearch": 84,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 98,
-    "screens": 72,
-    "recruiterScreens": 51,
+    "meetings": 101,
+    "screens": 75,
+    "recruiterScreens": 54,
     "recruiters": 47,
     "technicals": 10,
     "onsites": 2,
@@ -31,15 +31,15 @@
     "interviews": 10,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 79,
-    "callsThroughRecruiterThirdParty": 45,
-    "callsThroughRecruiterInbound": 55,
+    "callsThroughRecruiter": 82,
+    "callsThroughRecruiterThirdParty": 47,
+    "callsThroughRecruiterInbound": 58,
     "callsThroughRecruiterOutreach": 12,
     "callsThroughReferral": 7,
     "questions": 130,
     "questionsBehavioral": 127,
     "questionsTechnical": 3,
-    "questionsNew": 8
+    "questionsNew": 0
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -55,7 +55,7 @@
     "Applied": 14,
     "Finding role...": 15,
     "Interviewed": 51,
-    "Interviewing": 9
+    "Interviewing": 4
   },
   "companyStatusTagged": {
     "Denied": 27,
@@ -69,8 +69,8 @@
     "Re-apply": 3
   },
   "meetingKinds": {
+    "recruiter": 52,
     "technical": 10,
-    "recruiter": 49,
     "other": 8,
     "behavioral": 9,
     "intro": 20,
@@ -1182,16 +1182,6 @@
       "jobGame2026Tag": true
     },
     {
-      "alias": "Company 110",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": false
-    },
-    {
       "alias": "Company 111",
       "status": "Interviewed",
       "role": null,
@@ -1622,16 +1612,6 @@
       "jobGame2026Tag": false
     },
     {
-      "alias": "Company 178",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 3,
-      "jobGame2026Tag": false
-    },
-    {
       "alias": "Company 179",
       "status": "Interviewing",
       "role": null,
@@ -1642,26 +1622,6 @@
       "jobGame2026Tag": false
     },
     {
-      "alias": "Company 180",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 1,
-      "jobGame2026Tag": false
-    },
-    {
-      "alias": "Company 182",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": false
-    },
-    {
       "alias": "Company 183",
       "status": "Interviewing",
       "role": null,
@@ -1669,16 +1629,6 @@
       "appliedOn": null,
       "firstInterviewOn": null,
       "meetingsThisSearch": 3,
-      "jobGame2026Tag": false
-    },
-    {
-      "alias": "Company 184",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 1,
       "jobGame2026Tag": false
     },
     {
@@ -1693,6 +1643,42 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-11-04",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 190"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-11-04",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 191"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-11-04",
+      "kind": "recruiter",
+      "tags": [
+        "recruiter"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 192"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-11-03",
       "kind": "technical",

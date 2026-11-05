@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-04",
+  "generatedOn": "2026-11-05",
   "companies": [
     {
       "alias": "Company 02",
@@ -1129,13 +1129,6 @@
       "meetings": []
     },
     {
-      "alias": "Company 110",
-      "name": "Bluesky",
-      "status": "Interviewing",
-      "applications": [],
-      "meetings": []
-    },
-    {
       "alias": "Company 111",
       "name": "Fieldguide",
       "status": "Interviewed",
@@ -1816,7 +1809,7 @@
     {
       "alias": "Company 178",
       "name": "Counsel Health",
-      "status": "Interviewing",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {
@@ -1860,7 +1853,7 @@
     {
       "alias": "Company 180",
       "name": "ResX",
-      "status": "Interviewing",
+      "status": "Unknown",
       "applications": [],
       "meetings": [
         {
@@ -1880,13 +1873,6 @@
           "kind": "recruiter"
         }
       ]
-    },
-    {
-      "alias": "Company 182",
-      "name": "Rubie",
-      "status": "Interviewing",
-      "applications": [],
-      "meetings": []
     },
     {
       "alias": "Company 183",
@@ -1911,7 +1897,7 @@
     {
       "alias": "Company 184",
       "name": "Avantos.ai",
-      "status": "Interviewing",
+      "status": "Archived",
       "applications": [],
       "meetings": [
         {
@@ -1984,6 +1970,42 @@
       "meetings": [
         {
           "date": "2026-10-28",
+          "kind": "recruiter"
+        }
+      ]
+    },
+    {
+      "alias": "Company 190",
+      "name": "Sailor Health",
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-11-04",
+          "kind": "recruiter"
+        }
+      ]
+    },
+    {
+      "alias": "Company 191",
+      "name": "Monk",
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-11-04",
+          "kind": "recruiter"
+        }
+      ]
+    },
+    {
+      "alias": "Company 192",
+      "name": "Augustus",
+      "status": "Unknown",
+      "applications": [],
+      "meetings": [
+        {
+          "date": "2026-11-04",
           "kind": "recruiter"
         }
       ]
