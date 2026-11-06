@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-05",
+  "generatedOn": "2026-11-06",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,27 +19,27 @@
   "totals": {
     "applications": 66,
     "applicationsSubmitted": 64,
-    "companiesThisSearch": 84,
+    "companiesThisSearch": 90,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 101,
+    "meetings": 102,
     "screens": 75,
     "recruiterScreens": 54,
     "recruiters": 47,
     "technicals": 10,
-    "onsites": 2,
+    "onsites": 3,
     "behaviorals": 19,
     "interviews": 10,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 82,
+    "callsThroughRecruiter": 83,
     "callsThroughRecruiterThirdParty": 47,
     "callsThroughRecruiterInbound": 58,
-    "callsThroughRecruiterOutreach": 12,
+    "callsThroughRecruiterOutreach": 13,
     "callsThroughReferral": 7,
-    "questions": 130,
-    "questionsBehavioral": 127,
+    "questions": 135,
+    "questionsBehavioral": 132,
     "questionsTechnical": 3,
-    "questionsNew": 0
+    "questionsNew": 5
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -52,10 +52,10 @@
     "LinkedIn": 4
   },
   "companyStatusThisSearch": {
-    "Applied": 14,
+    "Applied": 13,
     "Finding role...": 15,
     "Interviewed": 51,
-    "Interviewing": 4
+    "Interviewing": 11
   },
   "companyStatusTagged": {
     "Denied": 27,
@@ -64,17 +64,18 @@
     "Finding role...": 1,
     "Archived": 6,
     "Ended": 23,
-    "Applied": 4,
+    "Applied": 3,
+    "Interviewing": 1,
     "Interviewed": 51,
     "Re-apply": 3
   },
   "meetingKinds": {
+    "onsite": 3,
     "recruiter": 52,
     "technical": 10,
     "other": 8,
     "behavioral": 9,
-    "intro": 20,
-    "onsite": 2
+    "intro": 20
   },
   "applications": [
     {
@@ -933,7 +934,7 @@
     },
     {
       "alias": "Company 72",
-      "status": "Applied",
+      "status": "Interviewing",
       "role": null,
       "workType": null,
       "appliedOn": null,
@@ -944,16 +945,6 @@
     {
       "alias": "Company 82",
       "status": "Applied",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
-      "jobGame2026Tag": false
-    },
-    {
-      "alias": "Company 83",
-      "status": "Interviewing",
       "role": null,
       "workType": null,
       "appliedOn": null,
@@ -1640,9 +1631,91 @@
       "firstInterviewOn": null,
       "meetingsThisSearch": 2,
       "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 190",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 1,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 193",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 194",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 195",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 196",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 197",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
+    },
+    {
+      "alias": "Company 198",
+      "status": "Interviewing",
+      "role": null,
+      "workType": null,
+      "appliedOn": null,
+      "firstInterviewOn": null,
+      "meetingsThisSearch": 0,
+      "jobGame2026Tag": false
     }
   ],
   "meetings": [
+    {
+      "date": "2026-11-05",
+      "kind": "onsite",
+      "tags": [
+        "onsite"
+      ],
+      "screen": false,
+      "companies": [
+        "Company 48"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-11-04",
       "kind": "recruiter",
@@ -2910,7 +2983,12 @@
       "Walk through a recent project and preferred workflow using speciics?",
       "Have you worked at a small eng team before? Experience working non technical?",
       "Something I built or worked on that I'm proud of.",
-      "What is an app or product that you use frequently that you love think is particularly well-done?"
+      "What is an app or product that you use frequently that you love think is particularly well-done?",
+      "Hardest disagreement.",
+      "Where was the experience with your biggest area of growth?",
+      "How I value mentorship?",
+      "What intrigues me about company?",
+      "What do I wanna do? What do I wanna focus on the eng side?"
     ],
     "technical": [
       {

@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-05",
+  "generatedOn": "2026-11-06",
   "companies": [
     {
       "alias": "Company 02",
@@ -592,6 +592,10 @@
       "applications": [],
       "meetings": [
         {
+          "date": "2026-11-05",
+          "kind": "onsite"
+        },
+        {
           "date": "2026-10-30",
           "kind": "other"
         },
@@ -923,7 +927,7 @@
     {
       "alias": "Company 72",
       "name": "Rove",
-      "status": "Applied",
+      "status": "Interviewing",
       "applications": [],
       "meetings": []
     },
@@ -931,13 +935,6 @@
       "alias": "Company 82",
       "name": "Abridge",
       "status": "Applied",
-      "applications": [],
-      "meetings": []
-    },
-    {
-      "alias": "Company 83",
-      "name": "Numeric",
-      "status": "Interviewing",
       "applications": [],
       "meetings": []
     },
@@ -1853,7 +1850,7 @@
     {
       "alias": "Company 180",
       "name": "ResX",
-      "status": "Unknown",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {
@@ -1977,7 +1974,7 @@
     {
       "alias": "Company 190",
       "name": "Sailor Health",
-      "status": "Unknown",
+      "status": "Interviewing",
       "applications": [],
       "meetings": [
         {
@@ -1989,7 +1986,7 @@
     {
       "alias": "Company 191",
       "name": "Monk",
-      "status": "Unknown",
+      "status": "In Talks",
       "applications": [],
       "meetings": [
         {
@@ -2001,7 +1998,7 @@
     {
       "alias": "Company 192",
       "name": "Augustus",
-      "status": "Unknown",
+      "status": "In Talks",
       "applications": [],
       "meetings": [
         {
@@ -2009,6 +2006,48 @@
           "kind": "recruiter"
         }
       ]
+    },
+    {
+      "alias": "Company 193",
+      "name": "Flair",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
+    },
+    {
+      "alias": "Company 194",
+      "name": "Harmonic",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
+    },
+    {
+      "alias": "Company 195",
+      "name": "Berry Street",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
+    },
+    {
+      "alias": "Company 196",
+      "name": "Brillian",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
+    },
+    {
+      "alias": "Company 197",
+      "name": "Traba",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
+    },
+    {
+      "alias": "Company 198",
+      "name": "Eventual",
+      "status": "Interviewing",
+      "applications": [],
+      "meetings": []
     }
   ]
 }
