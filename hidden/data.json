@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-06",
+  "generatedOn": "2026-11-07",
   "companies": [
     {
       "alias": "Company 02",
@@ -127,7 +127,12 @@
           "referred": true
         }
       ],
-      "meetings": []
+      "meetings": [
+        {
+          "date": "2026-11-06",
+          "kind": "intro"
+        }
+      ]
     },
     {
       "alias": "Company 19",
@@ -1874,9 +1879,13 @@
     {
       "alias": "Company 183",
       "name": "Holly",
-      "status": "Interviewing",
+      "status": "Negotiating",
       "applications": [],
       "meetings": [
+        {
+          "date": "2026-11-06",
+          "kind": "onsite"
+        },
         {
           "date": "2026-11-03",
           "kind": "technical"
@@ -1922,7 +1931,7 @@
     {
       "alias": "Company 186",
       "name": "Ekho",
-      "status": "Interviewing",
+      "status": "Denied",
       "applications": [],
       "meetings": [
         {

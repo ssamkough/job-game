@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-11-06",
+  "generatedOn": "2026-11-07",
   "cutoff": "2026-09-11",
   "privacy": "Company names, people, recruiters, and URLs are omitted. Companies are shown as numbered aliases.",
   "filters": [
@@ -19,27 +19,27 @@
   "totals": {
     "applications": 66,
     "applicationsSubmitted": 64,
-    "companiesThisSearch": 90,
+    "companiesThisSearch": 89,
     "companiesTaggedJobGame2026": 149,
-    "meetings": 102,
-    "screens": 75,
+    "meetings": 104,
+    "screens": 76,
     "recruiterScreens": 54,
     "recruiters": 47,
     "technicals": 10,
-    "onsites": 3,
+    "onsites": 4,
     "behaviorals": 19,
     "interviews": 10,
     "referrals": 8,
     "callsThroughApplications": 0,
-    "callsThroughRecruiter": 83,
-    "callsThroughRecruiterThirdParty": 47,
-    "callsThroughRecruiterInbound": 58,
+    "callsThroughRecruiter": 84,
+    "callsThroughRecruiterThirdParty": 48,
+    "callsThroughRecruiterInbound": 59,
     "callsThroughRecruiterOutreach": 13,
     "callsThroughReferral": 7,
     "questions": 135,
     "questionsBehavioral": 132,
     "questionsTechnical": 3,
-    "questionsNew": 5
+    "questionsNew": 0
   },
   "applicationStatus": {
     "Submitted": 64,
@@ -55,7 +55,8 @@
     "Applied": 13,
     "Finding role...": 15,
     "Interviewed": 51,
-    "Interviewing": 11
+    "Interviewing": 9,
+    "Negotiating": 1
   },
   "companyStatusTagged": {
     "Denied": 27,
@@ -70,12 +71,12 @@
     "Re-apply": 3
   },
   "meetingKinds": {
-    "onsite": 3,
+    "onsite": 4,
+    "intro": 21,
     "recruiter": 52,
     "technical": 10,
     "other": 8,
-    "behavioral": 9,
-    "intro": 20
+    "behavioral": 9
   },
   "applications": [
     {
@@ -809,7 +810,7 @@
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 0,
+      "meetingsThisSearch": 1,
       "jobGame2026Tag": true
     },
     {
@@ -1614,22 +1615,12 @@
     },
     {
       "alias": "Company 183",
-      "status": "Interviewing",
+      "status": "Negotiating",
       "role": null,
       "workType": null,
       "appliedOn": null,
       "firstInterviewOn": null,
-      "meetingsThisSearch": 3,
-      "jobGame2026Tag": false
-    },
-    {
-      "alias": "Company 186",
-      "status": "Interviewing",
-      "role": null,
-      "workType": null,
-      "appliedOn": null,
-      "firstInterviewOn": null,
-      "meetingsThisSearch": 2,
+      "meetingsThisSearch": 4,
       "jobGame2026Tag": false
     },
     {
@@ -1704,6 +1695,30 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-11-06",
+      "kind": "onsite",
+      "tags": [
+        "onsite"
+      ],
+      "screen": false,
+      "companies": [
+        "Company 183"
+      ],
+      "linkedToJobGame2026": true
+    },
+    {
+      "date": "2026-11-06",
+      "kind": "intro",
+      "tags": [
+        "intro"
+      ],
+      "screen": true,
+      "companies": [
+        "Company 18"
+      ],
+      "linkedToJobGame2026": true
+    },
     {
       "date": "2026-11-05",
       "kind": "onsite",
