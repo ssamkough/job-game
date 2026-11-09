@@ -111,6 +111,18 @@ main {
   border-bottom-color: #1a1a1a;
 }
 
+.masthead {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  min-height: 3.4rem;
+  overflow: visible;
+  padding: 12px 10px 8px 0;
+}
+
 h1 {
   display: flex;
   align-items: center;
@@ -118,6 +130,54 @@ h1 {
   font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -0.02em;
+}
+
+.stamp {
+  flex: 0 0 auto;
+  position: relative;
+  margin: 0;
+  padding: 0.32em 0.55em 0.28em;
+  border: 0.14em solid #c4161c;
+  border-radius: 0.32em;
+  color: #c4161c;
+  background: transparent;
+  box-shadow:
+    0 0 0 0.09em #f7f4ee,
+    0 0 0 0.2em #c4161c;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Black",
+    sans-serif;
+  font-size: clamp(1.05rem, 4.6vw, 1.85rem);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  white-space: nowrap;
+  transform: rotate(-14deg);
+  transform-origin: center;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+  pointer-events: none;
+  user-select: none;
+}
+
+.stamp::after {
+  content: "";
+  position: absolute;
+  inset: -0.12em;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      118deg,
+      transparent 0 1px,
+      rgb(247 244 238 / 0.28) 1px 2px
+    ),
+    repeating-linear-gradient(
+      28deg,
+      transparent 0 3px,
+      rgb(196 22 28 / 0.08) 3px 4px
+    );
+  mix-blend-mode: multiply;
 }
 
 h1 img {
@@ -420,6 +480,18 @@ section {
   line-height: 1.45;
 }
 
+@media (min-width: 641px) {
+  .masthead {
+    min-height: 5.1rem;
+  }
+
+  .stamp {
+    position: absolute;
+    right: 0.15rem;
+    top: 0.55rem;
+  }
+}
+
 @media (max-width: 640px) {
   .counts {
     grid-template-columns: repeat(3, 1fr);
@@ -427,5 +499,16 @@ section {
 
   .counts b {
     font-size: 1.25rem;
+  }
+
+  .masthead {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .stamp {
+    margin: 2px 0 6px 0.15rem;
+    transform: rotate(-11deg);
   }
 }
